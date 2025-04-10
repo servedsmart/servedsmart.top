@@ -14,7 +14,7 @@ enableCodeCopy = true
 
 replyByEmail = false
 
-mainSections = ["services"]
+mainSections = ["examples"]
 robots = "noimageindex"
 
 disableImageOptimization = false
@@ -47,7 +47,7 @@ homepageImage = "IMAGE.jpg"   # used in: hero, and card
 showRecent = true
 showRecentItems = 12
 showMoreLink = true
-showMoreLinkDest = "services"
+showMoreLinkDest = "examples"
 cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = false  # only used when layout equals background
@@ -67,7 +67,7 @@ layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
 showBreadcrumbs = true
 showDraftLabel = true
 showEdit = false
-editURL = "https://github.com/servedsmart/servedsmart.com"
+editURL = "https://github.com/servedsmart/example.servedsmart.top"
 editAppendPath = true
 seriesOpened = false
 showHeadingAnchors = true
