@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - main
+      - car-mechanic
 
 jobs:
   deploy:
@@ -31,6 +31,6 @@ jobs:
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_CAR_MECHANIC }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_CAR_MECHANIC }}
           command: pages deploy ./public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_CAR_MECHANIC }}
