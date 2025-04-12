@@ -13,7 +13,7 @@ tags = [
  'tischler',
 ]
 # External URL specific parameters
-externalUrl = "https://carpentry.example.servedsmart.top/"
+externalUrl = "https://carpenter.example.servedsmart.top/"
 showReadingTime = false
 [_build]
 render = "false"
