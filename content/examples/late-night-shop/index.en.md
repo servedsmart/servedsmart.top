@@ -1,8 +1,8 @@
 +++
-title = "Car Mechanic"
+title = "Late Night Shop"
 date = '2025-04-10T22:25:12+02:00'
-description = "Car Mechanic"
-summary = "Car Mechanic"
+description = "Late Night Shop"
+summary = "Late Night Shop"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'external',
@@ -10,10 +10,10 @@ categories = [
 ]
 # Tags are used for more specific, detailed topics.
 tags = [
- 'car mechanic',
+ 'late night shop',
 ]
 # External URL specific parameters
-externalUrl = "https://car-mechanic.example.servedsmart.top/en/"
+externalUrl = "https://late-night-shop.example.servedsmart.top/en/"
 showReadingTime = false
 [_build]
 render = "false"
