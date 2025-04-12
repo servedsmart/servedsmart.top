@@ -31,6 +31,6 @@ jobs:
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_MAIN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_MAIN }}
           command: pages deploy ./public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_MAIN }}
