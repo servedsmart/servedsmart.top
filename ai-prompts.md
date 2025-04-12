@@ -7,7 +7,7 @@
 `1x1`
 
 ```
-A 2d logo with light colors. The logo uses a maximum of 4 different colors and doesn't contain any text. The logo is for a bakery and contains grain. It can also contain additional items. The style should be realistic but not too detailed. The logo has a white background.
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for a bakery's menu. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
 ```
 
 - [X] Display
@@ -43,6 +43,14 @@ A photo of the team of a bakery standing in front of their display. The display 
 ```
 
 ## Menu
+
+- [X] Thumbnail
+
+`1x1`
+
+```
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for a bakery's menu. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
+```
 
 - [X] Product: Croissant
 
@@ -130,6 +138,14 @@ A photo of the tools of a car mechanic. The tools should only contain tools that
 
 ## Services
 
+- [X] Thumbnail
+
+`1x1`
+
+```
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for the services Thumbnail of a car mechanic's website. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
+```
+
 - [X] Product: Car Painting
 
 `1x1`
@@ -215,6 +231,14 @@ A photo of the tools of a carpenter in a european city. The style should be real
 ```
 
 ## Services
+
+- [X] Thumbnail
+
+`1x1`
+
+```
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for the services Thumbnail of a carpenter's website. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
+```
 
 - [X] Product: End Table
 
@@ -302,6 +326,14 @@ A photo of a table in a european pizzeria with a family sitting at it. There sho
 
 ## Menu
 
+- [X] Thumbnail
+
+`1x1`
+
+```
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for a pizzeria's menu. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
+```
+
 - [X] Product: Bruschetta
 
 `1x1`
@@ -388,6 +420,14 @@ A photo of the fridge of a late night shop. Visible products in the fridge shoul
 
 ## Menu
 
+- [X] Thumbnail
+
+`1x1`
+
+```
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for a late night shop's menu. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
+```
+
 - [X] Product: Beer
 
 `1x1`
@@ -473,6 +513,14 @@ A photo of a grill with different types of meat skewers in a Döner Kebab. The s
 ```
 
 ## Menu
+
+- [X] Thumbnail
+
+`1x1`
+
+```
+A 2d logo with light colors. The logo uses a maximum of 3 different colors and doesn't contain any text. The logo is for a döner kebab's menu. The logo should be very simple and modern. It should only contain 1-2 objects. The logo has a white background.
+```
 
 - [X] Product: Chicken Döner Kebab
 
