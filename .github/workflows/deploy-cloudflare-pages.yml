@@ -23,7 +23,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "latest"
+          hugo-version: "0.145.0" # FIXME: Set to latest after https://github.com/nunocoracao/blowfish/issues/2058 is resolved
 
       - name: Build
         run: hugo --minify
