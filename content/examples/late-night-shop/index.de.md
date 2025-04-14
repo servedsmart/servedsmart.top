@@ -13,7 +13,7 @@ tags = [
  'spätkauf',
 ]
 # External URL specific parameters
-externalUrl = "https://late-night-shop.example.servedsmart.top/"
+externalUrl = "https://late-night-shop.servedsmart.top/"
 showReadingTime = false
 [_build]
 render = "false"
