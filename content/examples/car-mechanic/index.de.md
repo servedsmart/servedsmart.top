@@ -13,7 +13,7 @@ tags = [
  'automechaniker',
 ]
 # External URL specific parameters
-externalUrl = "https://car-mechanic.example.servedsmart.top/"
+externalUrl = "https://car-mechanic.servedsmart.top/"
 showReadingTime = false
 [_build]
 render = "false"
