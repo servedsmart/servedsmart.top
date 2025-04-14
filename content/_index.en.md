@@ -1,8 +1,8 @@
 +++
 title = "Welcome to Served Smart!"
 date = '2025-04-08T11:14:34+02:00'
-description = "Example websites for customers of Served Smart."
-summary = "Example websites for customers of Served Smart."
+description = "Example website for customers of Served Smart."
+summary = "Example website for customers of Served Smart."
 # Categories are generally used for broader, top-level topics.
 categories = [
  'digitization',
@@ -18,5 +18,3 @@ tags = [
 [cascade]
 showReadingTime = false
 +++
-
-Click on [Show More](http://localhost:1313/examples/en) to get to know our example websites.
