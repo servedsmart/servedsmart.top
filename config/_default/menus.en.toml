@@ -69,9 +69,26 @@
 #   weight = 20
 
 [[main]]
-name = 'Examples'
-pageRef = '/examples/'
+name = 'Menu'
+pageRef = '/food/menu/'
 weight = 10
+
+[[main]]
+name = 'Employees'
+pageRef = '/employees/'
+weight = 20
+
+[[main]]
+name = 'Apply'
+parent = "Employees"
+pageRef = '/employees/apply/'
+weight = 21
+
+[[main]]
+name = 'Team'
+parent = "Employees"
+pageRef = '/employees/team/'
+weight = 22
 
 [[main]]
 name = 'Terms'
