@@ -19,4 +19,4 @@ tags = [
 showReadingTime = false
 +++
 
-Click on [Show More](http://localhost:1313/examples/en) to get to know our example websites.
+Click on [Show More](/examples/en/) to get to know our example websites.

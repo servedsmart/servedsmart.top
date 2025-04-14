@@ -19,4 +19,4 @@ tags = [
 showReadingTime = false
 +++
 
-Klicken Sie auf [Zeige Mehr](http://localhost:1313/examples/), um unsere Beispielwebsites aufzurufen.
+Klicken Sie auf [Zeige Mehr](/examples/), um unsere Beispielwebsites aufzurufen.
