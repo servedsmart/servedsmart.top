@@ -92,7 +92,7 @@ A detailed photo of a brown bread that is prepared to look appeasing to customer
 A detailed photo of a few bread rolls that are prepared to look appeasing to customers. The style should be realistic.
 ```
 
-# Car Mechanic
+# Autoshop
 
 ## Home Page
 
@@ -186,7 +186,7 @@ A detailed photo of a worker doing a tire change on a car. The car should be on 
 A detailed photo of a female worker changing out the front window of a car. The old window should have broken glass. The person working on the car should wear a work outfit. The style should be realistic.
 ```
 
-# Carpenter
+# Joinery
 
 ## Home Page
 
@@ -374,7 +374,7 @@ A detailed photo of a pizza margherita that is prepared to look appeasing to cus
 A detailed photo of spaghetti that is prepared to look appeasing to customers. The style should be realistic.
 ```
 
-# Late Night Shop
+# Nightstore
 
 ## Home Page
 
@@ -468,7 +468,7 @@ A detailed photo of different types of rum that are prepared to look appeasing t
 A detailed photo of different types of milk shakes that are prepared to look appeasing to customers. The style should be realistic.
 ```
 
-# Döner Kebab
+# Kebab
 
 ## Home Page
 
