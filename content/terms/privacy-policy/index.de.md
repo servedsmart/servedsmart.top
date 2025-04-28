@@ -22,7 +22,7 @@ Wir, bei REPLACE_ME_COMPANY_NAME, sind bestrebt, unsere Kunden und Kontakte nach
 
 Unsere Hauptziele bei der Verarbeitung dieser Informationen sind:
 - Verbesserung der Benutzererfahrung auf unserer Plattform durch das Verständnis der Kundenbedürfnisse und -präferenzen.
-- Bereitstellung rechtzeitigen Supports und Beantwortung von Anfragen oder Serviceanfragen.
+- Bereitstellung rechtzeitigen Supports und Beantwortung von Nachfragen oder Serviceanfragen.
 - Verbesserung unserer Produkte und Dienstleistungen, um die sich entwickelnden Anforderungen unserer Nutzer zu erfüllen.
 - Durchführung des notwendigen Geschäftsbetriebs, wie zum Beispiel Abrechnung und Kontoführung.
 
