@@ -91,5 +91,16 @@ pageRef = '/terms/privacy-policy/'
 weight = 82
 
 [[footer]]
+name = "Legal Disclosure"
+url = "/terms/impressum/"
+weight = 100
+
+[[footer]]
+name = "Privacy Policy"
+url = "/terms/privacy-policy/"
+weight = 101
+
+[[footer]]
 name = "Consent Settings"
 url = "#consent-overlay"
+weight = 102
