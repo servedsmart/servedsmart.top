@@ -10,11 +10,13 @@
 
 [[items]]
 title = "Appearance"
-description = "This code allows users to modify the website appearance. The data 'appearance' will be saved to localStorage."
+description = "This code allows users to modify the website appearance."
+description_data_stored = "The data 'appearance' will be saved to localStorage."
 is_functional = false
 script_file = "consent-appearance.js"
 
 [[items]]
 title = "Consent Settings"
-description = "This data allows us to read a user's consent settings. The data 'optional-scripts' and 'consent-settings' will be saved to localStorage."
+description = "This data allows us to read a user's consent settings."
+description_data_stored = "The data 'optional-scripts' and 'consent-settings' will be saved to localStorage."
 is_functional = true

@@ -59,6 +59,14 @@
           <label for="item{{- $index -}}"
             ><header><h3>{{- $item.title -}}</h3></header>
             <main><p>{{- $item.description -}}</p></main>
+            <main>
+              <details>
+                <summary>
+                  {{- T "consent-overlay-description-summary" -}}
+                </summary>
+                <p>{{- $item.description_data_stored -}}</p>
+              </details>
+            </main>
           </label>
         </label>
       </div>
