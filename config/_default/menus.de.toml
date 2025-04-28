@@ -73,23 +73,6 @@ name = 'Beispiele'
 pageRef = '/examples/'
 weight = 10
 
-[[main]]
-name = 'Bedingungen'
-pageRef = '/terms/'
-weight = 80
-
-[[main]]
-name = 'Impressum'
-parent = "Bedingungen"
-pageRef = '/terms/impressum/'
-weight = 81
-
-[[main]]
-name = 'Datenschutzerklärung'
-parent = "Bedingungen"
-pageRef = '/terms/privacy-policy/'
-weight = 82
-
 [[footer]]
 name = "Impressum"
 url = "/terms/impressum/"
