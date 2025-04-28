@@ -145,7 +145,7 @@ if (getLocalStorageOrRemove()) {
 addClickExec(document.querySelectorAll(".consent-settings"), () => {
   window.location.href = "#consent-overlay";
 });
-addClickExec(document.querySelectorAll(".consent-deny-all"), () => {
+addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
   modifyAllConsent(optionalScripts, "0");
 });
 addClickExec(document.querySelectorAll(".consent-accept-all"), () => {

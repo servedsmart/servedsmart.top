@@ -1,3 +1,13 @@
+<!--
+--File: consent.html
+--Author: Leopold Meinel (leo@meinel.dev)
+-------
+--Copyright (c) 2025 Leopold Meinel & contributors
+--SPDX ID: MIT
+--URL: https://opensource.org/licenses/MIT
+-------
+ -->
+
 <!doctype html>
 <!--
 --File = consent.html
@@ -18,10 +28,10 @@
         >{{- T "consent-text-href" -}}</a
       >{{- T "consent-text-end" -}}</span
     ><br />
-    <button class="btn consent-deny-all">
-      {{- T "consent-button-consent-deny-all" -}}</button
-    ><button class="btn consent-accept-all">
+    <button class="btn consent-accept-all">
       {{- T "consent-button-consent-accept-all" -}}</button
+    ><button class="btn consent-reject-optional">
+      {{- T "consent-button-consent-reject-optional" -}}</button
     ><button class="btn consent-settings">
       {{- T "consent-button-consent-settings" -}}
     </button>
@@ -54,10 +64,10 @@
       </div>
       {{- end -}}
       <div>
-        <button class="btn consent-deny-all">
-          {{- T "consent-button-consent-deny-all" -}}</button
-        ><button class="btn consent-accept-all">
+        <button class="btn consent-accept-all">
           {{- T "consent-button-consent-accept-all" -}}</button
+        ><button class="btn consent-reject-optional">
+          {{- T "consent-button-consent-reject-optional" -}}</button
         ><button
           id="consent-settings-confirm"
           class="btn consent-settings-confirm"
