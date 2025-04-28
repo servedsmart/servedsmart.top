@@ -101,8 +101,8 @@ Cookies sind kleine Dateien, die auf Ihrem Gerät gespeichert werden und die es 
 ### Wie wir diese Technologien nutzen
 
 - **Unbedingt erforderliche Cookies:** Notwendig für die Funktionalität der Website, wie Authentifizierung und Sicherheit. Sie benötigen keine Zustimmung.
-- **Präferenz-Cookies:** Erlauben Sie der Website, verbesserte Funktionalität und Personalisierung zu bieten, wie zum Beispiel das Speichern von Präferenzen.
-- **Statistik-Cookies:** Diese sammeln Informationen darüber, wie Besucher unsere Website nutzen, welche Seiten am häufigsten besucht werden und ob Fehlermeldungen von Websites empfangen werden. Diese Cookies helfen uns, unsere Website zu verbessern. Wir speichern diese Art von Cookies derzeit nicht.
+- **Präferenz-Cookies:** Ermöglichen der Website verbesserte Funktionalität und Personalisierung wie zum Beispiel das Speichern von Präferenzen.
+- **Statistik-Cookies:** Sammeln Informationen darüber, wie Besucher unsere Website nutzen, welche Seiten am häufigsten besucht werden und ob Fehlermeldungen von Websites empfangen werden. Diese Cookies helfen uns, unsere Website zu verbessern. Wir speichern diese Art von Cookies derzeit nicht.
 - **Marketing-Cookies:** Verwendet, um Werbung zu liefern, die auf Ihre Interessen angepasst sind. Sie werden auch verwendet, um die Anzahl der Anzeigen zu begrenzen und die Wirksamkeit der Werbekampagne zu messen. Wir speichern diese Art von Cookies derzeit nicht.
 
 ### Ihre Wahl und Zustimmung

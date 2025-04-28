@@ -102,7 +102,7 @@ Cookies are small data files placed on your device that enable us to remember yo
 
 - **Strictly necessary cookies:** Necessary for the website’s functionality, such as authentication and security. They do not require consent.
 - **Preferences cookies:** Enable the website to provide enhanced functionality and personalization, like remembering your preferences.
-- **Statistics cookies:** These collect information about how visitors use our website, which pages are visited most frequently, and if error messages are received from web pages. These cookies help us improve our website. We currently don't store this type of cookie.
+- **Statistics cookies:** Used to collect information about how visitors use our website, which pages are visited most frequently, and if error messages are received from web pages. These cookies help us improve our website. We currently don't store this type of cookie.
 - **Marketing cookies:** Used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of the advertising campaign. We currently don't store this type of cookie.
 
 ### Your Choices and Consent
