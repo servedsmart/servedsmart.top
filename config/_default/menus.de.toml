@@ -69,9 +69,31 @@
 #   weight = 20
 
 [[main]]
-name = 'Beispiele'
-pageRef = '/examples/'
+name = 'Beiträge'
+pageRef = '/posts/'
 weight = 10
+
+[[main]]
+name = 'Dienstleistungen'
+pageRef = '/services/'
+weight = 20
+
+[[main]]
+name = 'Angestellte'
+pageRef = '/employees/'
+weight = 30
+
+[[main]]
+name = 'Team'
+parent = 'Angestellte'
+pageRef = '/employees/team'
+weight = 31
+
+[[main]]
+name = 'Bewerben'
+parent = 'Angestellte'
+pageRef = '/employees/apply'
+weight = 32
 
 [[footer]]
 name = "Impressum"

@@ -5,14 +5,9 @@ description = "{{ replace .Name "-" " " | title }}"
 summary = "{{ replace .Name "-" " " | title }}"
 # Categories are generally used for broader, top-level topics.
 categories = [
- 'digitalisierung',
- 'unternehmen',
- 'heimkunden',
- 'website',
- 'iot',
- 'netzwerk',
- 'smart home',
- 'computer',
+ 'autoreparatur',
+ 'tuning',
+ 'mitarbeiter',
  'unternehmensintern',
  'rechtliches',
  'ankündigung',
@@ -20,27 +15,13 @@ categories = [
 ]
 # Tags are used for more specific, detailed topics.
 tags = [
- 'hugo',
- 'internetauftritt',
- 'statische website',
- 'website design',
- 'backup',
- 'home assistant',
- 'access point',
- 'glasfaser',
- 'router',
- 'wifi',
- 'wlan',
- 'zigbee',
- 'energie',
- 'licht',
- 'pflanzen',
- 'solar',
- 'linux',
- 'mac',
- 'windows',
- 'wartung',
+ 'autolackierung',
+ 'folieren',
+ 'ölwechsel',
+ 'reifenwechsel',
+ 'fensterreparatur',
  'bedingungen',
+ 'bewerben',
 ]
 # Remove this to publish.
 draft = true

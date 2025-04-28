@@ -1,22 +1,23 @@
 +++
-title = "Welcome to Served Smart!"
+title = "Welcome to an example website for an autoshop by Served Smart!"
 date = '2025-04-08T11:14:34+02:00'
-description = "Example websites for customers of Served Smart."
-summary = "Example websites for customers of Served Smart."
+description = "Repairs, maintenance and tuning. We offer everything with patience the necessary knowledge!"
+summary = "Repairs, maintenance and tuning. We offer everything with patience the necessary knowledge!"
 # Categories are generally used for broader, top-level topics.
 categories = [
- 'digitization',
- 'business',
- 'home',
- 'website',
+ 'car repair',
+ 'tuning',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [
- 'static website',
- 'website design',
+ 'car painting',
+ 'car wrapping',
+ 'oil change',
+ 'tire change',
+ 'window repair',
 ]
 [cascade]
 showReadingTime = false
 +++
 
-Click on [Show More](/examples/en/) to get to know our example websites.
+Repairs, maintenance and tuning. We offer everything with patience the necessary knowledge!

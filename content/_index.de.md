@@ -1,22 +1,23 @@
 +++
-title = "Willkommen bei Served Smart!"
+title = "Willkommen auf der Beispielwebsite eines Automechanikers von Served Smart!"
 date = '2025-04-08T11:14:34+02:00'
-description = "Beispielwebsites für Kunden von Served Smart."
-summary = "Beispielwebsites für Kunden von Served Smart."
+description = "Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nötigen Wissen!"
+summary = "Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nötigen Wissen!"
 # Categories are generally used for broader, top-level topics.
 categories = [
- 'digitalisierung',
- 'unternehmen',
- 'heimkunden',
- 'website',
+ 'autoreparatur',
+ 'tuning',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [
- 'statische website',
- 'website design',
+ 'autolackierung',
+ 'folieren',
+ 'ölwechsel',
+ 'reifenwechsel',
+ 'fensterreparatur',
 ]
 [cascade]
 showReadingTime = false
 +++
 
-Klicken Sie auf [Zeige Mehr](/examples/), um unsere Beispielwebsites aufzurufen.
+Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nötigen Wissen!

@@ -2,7 +2,7 @@ disabled = false
 languageCode = "en"
 languageName = "English"
 weight = 20
-title = "Served Smart"
+title = "Served Smart - Autoshop (Example website)"
 
 [params]
 displayName = "EN"
@@ -11,16 +11,16 @@ rtl = false
 dateFormat = "02 January 2006"
 #logo = "/img/android-chrome-512x512.png"
 # secondaryLogo = "/img/secondary-logo.png"
-description = "Take digitalization into your own hands - easy and stress-free! Services available in Berlin, Germany."
+description = "Repairs, maintenance and tuning. We offer everything with patience the necessary knowledge!"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
-name = "Leopold Johannes Meinel"
+name = "Autoshop (Example website)"
 email = "info@servedsmart.com"
 image = "/img/android-chrome-512x512.png"
 imageQuality = 96
-headline = "Hobby Coder with a passion for self/on-premise hosting"
-bio = "I enjoy self/on-premise hosting, creating static websites, coding and configuring networks."
+headline = "Autoshop with extensive experience and the best customer service"
+bio = "We enjoy restoring old cars, painting/wrapping, and are always helpful when it comes to repairs."
 links = [
  { email = "mailto:info@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
