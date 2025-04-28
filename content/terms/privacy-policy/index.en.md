@@ -116,7 +116,7 @@ Upon your first visit, our website will present you with a cookie consent banner
 
 We may update our use of cookies and tracking technologies to improve our services or comply with legal requirements. We will notify you of any significant changes and seek your consent where necessary.
 
-For more detailed information about the cookies we use, their purposes, and how you can manage your preferences, please visit our detailed [Cookie Policy](#consent-overlay).
+For more detailed information about the cookies we use, their purposes, and how you can manage your preferences, please visit our [Consent Settings](#consent-overlay).
 
 Should you have any questions or concerns about our use of cookies and tracking technologies, please do not hesitate to contact us at [privacy@servedsmart.com](mailto:privacy@servedsmart.com) or REPLACE_ME_TELEPHONE. Your privacy and the integrity of your personal data are of utmost importance to us.
 
