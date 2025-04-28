@@ -14,7 +14,7 @@ tags = [
 ]
 +++
 
-**Effective Date: 28 April 2025, 10:00:00 UTC**
+**Effective Date: 28 April 2025, 10:00 UTC**
 
 ## Introduction and Organizational Information
 
