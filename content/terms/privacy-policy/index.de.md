@@ -26,7 +26,7 @@ Unsere Hauptziele bei der Verarbeitung dieser Informationen sind:
 - Verbesserung unserer Produkte und Dienstleistungen, um die sich entwickelnden Anforderungen unserer Nutzer zu erfüllen.
 - Durchführung des notwendigen Geschäftsbetriebs, wie zum Beispiel Abrechnung und Kontoführung.
 
-Es ist unsere Politik, personenbezogene Daten mit größter Achtung der Privatsphäre und Sicherheit zu verarbeiten. Wir halten uns an alle relevanten Vorschriften und Richtlinien, um sicherzustellen, dass die von uns verarbeiteten Daten vor unbefugtem Zugriff, Offenlegung, Veränderung und Zerstörung geschützt sind. Unsere Praktiken sollen die Vertraulichkeit und Integrität Ihrer persönlichen Daten wahren und gleichzeitig die Bereitstellung der Dienstleistungen ermöglichen, die Sie uns anvertrauen.
+Es ist unsere Aufgabe und Richtlinie, personenbezogene Daten mit größter Achtung der Privatsphäre und Sicherheit zu verarbeiten. Wir halten uns an alle relevanten Vorschriften und Richtlinien, um sicherzustellen, dass die von uns verarbeiteten Daten vor unbefugtem Zugriff, Offenlegung, Veränderung und Zerstörung geschützt sind. Unsere Praktiken sollen die Vertraulichkeit und Integrität Ihrer persönlichen Daten wahren und gleichzeitig die Bereitstellung der Dienstleistungen ermöglichen, die Sie uns anvertrauen.
 
 Wir haben keinen ausgewiesenen Datenschutzbeauftragten (DSB), sind aber weiterhin uneingeschränkt verpflichtet, Ihre Datenschutzbedenken auszuräumen. Sollten Sie Fragen haben oder weitere Informationen darüber benötigen, wie wir personenbezogene Daten verwalten, wenden Sie sich bitte an uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE.
 
