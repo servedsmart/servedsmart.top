@@ -103,7 +103,7 @@
   background: rgba(var(--color-consent-overlay-background), 0.9);
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
   align-items: center;
 }
 #consent-overlay > div > div {
