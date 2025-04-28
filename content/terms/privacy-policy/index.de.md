@@ -49,7 +49,7 @@ Bei REPLACE_ME_COMPANY_NAME haben wir uns verpflichtet, Ihre persönlichen Daten
 
 Im Folgenden legen wir unsere Praktiken in diesem Bereich dar:
 
-### Teilen von Persönliche Daten
+### Teilen von Persönlichen Daten
 
 **Drittanbieter:** Wir könnten Ihre Daten an Drittanbieter weitergeben, die Dienstleistungen in unserem Auftrag erbringen. Solche vertrauenswürdigen Parteien haben möglicherweise Zugang zu persönlich identifizierbaren Informationen auf einer bedarfsgerechten Grundlage und sind vertraglich verpflichtet, Ihre Daten vertraulich zu behandeln. Es ist diesen Partnern untersagt, Ihre persönlichen Daten für andere Zwecke zu verwenden, als diese Dienste an REPLACE_ME_COMPANY_NAME zu erbringen, und sie sind verpflichtet, die Vertraulichkeit Ihrer Daten zu wahren.
 
@@ -159,7 +159,7 @@ Sie können uns auffordern, Ihre sensiblen persönlichen Daten (z. B. Ihre Sozia
 
 ### F. Recht auf Widerruf der Einwilligung
 
-REPLACE_ME_COMPANY_NAME verkauft oder teilt keine persönlichen Daten. Falls Ihre Daten verkauft oder weitergegeben werden, können Sie Ihr Recht nutzen, den Verkauf oder die Weitergabe personenbezogener Daten abzulehnen, indem Sie eine E-Mail an [privacy@servedsmart.com](mailto:privacy@servedsmart.com) senden.
+REPLACE_ME_COMPANY_NAME verkauft oder teilt keine persönlichen Daten. Falls Ihre Daten verkauft oder weitergegeben werden, können Sie Ihr Recht nutzen, den Verkauf oder die Weitergabe personenbezogener Daten abzulehnen, indem Sie eine email an [privacy@servedsmart.com](mailto:privacy@servedsmart.com) senden.
 
 ### G. Recht auf Nichtdiskriminierung
 
@@ -167,4 +167,4 @@ Sie haben das Recht für die Ausübung Ihrer Rechte, vor Diskriminierung geschü
 
 ### H. Anfragen stellen
 
-Sie können Ihre Anfrage per E-Mail an [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder telefonisch unter REPLACE_ME_TELEPHONE stellen. Wir vergleichen die Informationen, die Sie uns übermitteln, mit den Informationen, die wir in unseren Aufzeichnungen haben, um Ihre Anfrage zu überprüfen. Wir antworten dann auf Ihre Anfrage nach den gesetzlichen Anforderungen.
+Sie können Ihre Anfrage per email an [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder telefonisch unter REPLACE_ME_TELEPHONE stellen. Wir vergleichen die Informationen, die Sie uns übermitteln, mit den Informationen, die wir in unseren Aufzeichnungen haben, um Ihre Anfrage zu überprüfen. Wir antworten dann auf Ihre Anfrage nach den gesetzlichen Anforderungen.
