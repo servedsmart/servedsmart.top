@@ -89,3 +89,7 @@ name = 'Privacy Policy'
 parent = "Terms"
 pageRef = '/terms/privacy-policy/'
 weight = 82
+
+[[footer]]
+name = "Consent Settings"
+url = "#consent-overlay"

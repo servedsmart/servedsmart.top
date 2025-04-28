@@ -1,0 +1,20 @@
+###
+# File = consent.toml
+# Author = Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID = MIT
+# URL = https://opensource.org/licenses/MIT
+# -----
+###
+
+[[items]]
+title = "Appearance"
+description = "This code allows users to modify the website appearance. The data 'appearance' will be saved to localStorage."
+is_functional = false
+script_file = "consent-appearance.js"
+
+[[items]]
+title = "Consent Settings"
+description = "This data allows us to read a user's consent settings. The data 'optional-scripts' and 'consent-settings' will be saved to localStorage."
+is_functional = true
