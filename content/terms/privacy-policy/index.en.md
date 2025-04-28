@@ -16,9 +16,9 @@ tags = [
 
 **Effective Date: 28 April 2025, 10:00:00 UTC**
 
-## Introduction & Organizational Info
+## Introduction and Organizational Information
 
-We, at REPLACE_ME_COMPANY_NAME, are dedicated to serving our customers and contacts to the best of our abilities. Part of our commitment involves the responsible management of personal information collected through our website servedsmart.com, and any related interactions.
+We, at REPLACE_ME_COMPANY_NAME, are dedicated to serving our customers and contacts to the best of our abilities. Part of our commitment involves the responsible management of personal information collected through our website servedsmart.top, and any related interactions.
 
 Our primary goals in processing this information include:
 - Enhancing the user experience on our platform by understanding customer needs and preferences.
@@ -34,13 +34,13 @@ Your privacy is our priority. We are committed to processing your personal infor
 
 ## Scope and Application
 
-Our privacy policy is designed to protect the personal information of all our stakeholders, including website visitors, registered users, and customers. Whether you are just browsing our website servedsmart.com, using our services as a registered user, or engaging with us as a valued customer, we ensure that your personal data is processed with the highest standards of privacy and security. This policy outlines our practices and your rights related to personal information.
+Our privacy policy is designed to protect the personal information of all our stakeholders, including website visitors, registered users, and customers. Whether you are just browsing our website servedsmart.top, using our services as a registered user, or engaging with us as a valued customer, we ensure that your personal data is processed with the highest standards of privacy and security. This policy outlines our practices and your rights related to personal information.
 
 ## Data Storage and Protection
 
 ### Data Storage
 
-- Personal information is stored in secure servers located in the following locations: Europe, United States of America. For services that require international data transfer, we ensure that such transfers comply with all applicable laws and maintain data protection standards equivalent to those in our primary location. See [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/) for more details.
+- **Personal information is stored in secure servers located in the following locations:** Europe, United States of America. For services that require international data transfer, we ensure that such transfers comply with all applicable laws and maintain data protection standards equivalent to those in our primary location. See [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/) for more details.
 - **Data Hosting Partners:** We partner with reputable data hosting providers committed to using state-of-the-art security measures. These partners are selected based on their adherence to stringent data protection standards. See [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/) for more details.
 
 ## Data Sharing and Disclosure
@@ -76,7 +76,7 @@ Below is an overview of your rights and how you can exercise them:
 ### Your Rights
 
 - **Right of Access (Article 15 GDPR):** You have the right to request access to the personal information we hold about you and to obtain information about how we process it.
-- **Right to Rectification (Article 16 GDPR):** If you believe that any personal information we hold about you is incorrect or incomplete, you have the right to request its correction or completion.
+- **Right to Rectification (Article 16 GDPR):** If you believe that any personal information we hold about you is incorrect or incomplete, you have the right to request its correction.
 - **Right to Erasure (‘Right to be Forgotten’) (Article 17 GDPR):** You have the right to request the deletion of your personal information when it is no longer necessary for the purposes for which it was collected, among other circumstances.
 - **Right to Restriction of Processing (Article 18 GDPR):** You have the right to request that we restrict the processing of your personal information under certain conditions.
 - **Right to Data Portability (Article 20 GDPR):** You have the right to receive your personal information in a structured, commonly used, and machine-readable format and to transmit those data to another controller.
@@ -92,7 +92,7 @@ We are committed to facilitating the exercise of your rights and to ensuring you
 
 ## Cookies and Tracking Technologies
 
-At REPLACE_ME_COMPANY_NAME, we value your privacy and are committed to being transparent about our use of cookies and other tracking technologies on our website servedsmart.com. These technologies play a crucial role in ensuring the smooth operation of our digital platforms, enhancing your user experience, and providing insights that help us improve.
+At REPLACE_ME_COMPANY_NAME, we value your privacy and are committed to being transparent about our use of cookies and other tracking technologies on our website servedsmart.top. These technologies play a crucial role in ensuring the smooth operation of our digital platforms, enhancing your user experience, and providing insights that help us improve.
 
 ### Understanding Cookies and Tracking Technologies
 
@@ -100,23 +100,23 @@ Cookies are small data files placed on your device that enable us to remember yo
 
 ### How We Use These Technologies
 
-- **Essential Cookies:** Necessary for the website’s functionality, such as authentication and security. They do not require consent.
-- **Functional Cookies:** Enable the website to provide enhanced functionality and personalization, like remembering your preferences.
-- **Performance and Analytics Cookies:** These collect information about how visitors use our website, which pages are visited most frequently, and if error messages are received from web pages. These cookies help us improve our website. We currently don't store this type of cookie.
-- **Advertising and Targeting Cookies:** Used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of the advertising campaign. We currently don't store this type of cookie.
+- **Strictly necessary cookies:** Necessary for the website’s functionality, such as authentication and security. They do not require consent.
+- **Preferences cookies:** Enable the website to provide enhanced functionality and personalization, like remembering your preferences.
+- **Statistics cookies:** These collect information about how visitors use our website, which pages are visited most frequently, and if error messages are received from web pages. These cookies help us improve our website. We currently don't store this type of cookie.
+- **Marketing cookies:** Used to deliver advertisements more relevant to you and your interests. They are also used to limit the number of times you see an advertisement and help measure the effectiveness of the advertising campaign. We currently don't store this type of cookie.
 
 ### Your Choices and Consent
 
 Upon your first visit, our website will present you with a cookie consent banner, where you can:
-- **Accept All:** Consent to the use of all cookies and tracking technologies.
-- **Reject Optional:** Only essential cookies will be used to provide you with necessary website functions.
-- **Consent Settings:** Choose which categories of cookies you wish to allow.
+- **Accept all:** Consent to the use of all cookies and tracking technologies.
+- **Reject optional:** Only essential cookies will be used to provide you with necessary website functions.
+- **Consent settings:** Choose which categories of cookies you wish to allow.
 
 ### Changes to Our Cookie Use
 
 We may update our use of cookies and tracking technologies to improve our services or comply with legal requirements. We will notify you of any significant changes and seek your consent where necessary.
 
-For more detailed information about the cookies we use, their purposes, and how you can manage your preferences, please visit our detailed [Cookie Policy](https://servedsmart.com/#consent-overlay).
+For more detailed information about the cookies we use, their purposes, and how you can manage your preferences, please visit our detailed [Cookie Policy](https://servedsmart.top/#consent-overlay).
 
 Should you have any questions or concerns about our use of cookies and tracking technologies, please do not hesitate to contact us at [privacy@servedsmart.com](mailto:privacy@servedsmart.com) or REPLACE_ME_TELEPHONE. Your privacy and the integrity of your personal data are of utmost importance to us.
 
@@ -158,7 +158,7 @@ You can request us to only use your sensitive personal information (for example,
 
 ### F. Right to Opt-Out
 
-REPLACE_ME_COMPANY_NAME does not sell or share personal information. In case your data is sold or shared you can make use of your right to opt-out of the sale or sharing of personal information by submitting your request through the link on our website.
+REPLACE_ME_COMPANY_NAME does not sell or share personal information. In case your data is sold or shared you can make use of your right to opt-out of the sale or sharing of personal information by sending an email to [privacy@servedsmart.com](mailto:privacy@servedsmart.com).
 
 ### G. Right to Non-Discrimination
 
