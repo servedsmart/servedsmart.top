@@ -36,9 +36,9 @@ Ihre Privatsphäre ist unsere Priorität. Wir verpflichten uns, Ihre persönlich
 
 Unsere Datenschutzrichtlinie soll die persönlichen Daten aller unserer Teilhaber schützen, dies beinhaltet Website-Besucher, registrierte Nutzer und Kunden. Egal, ob Sie sich unsere Website nur anschauen, unsere Dienste als registrierter Benutzer nutzen oder mit uns als geschätzter Kunde interagieren, stellen wir sicher, dass Ihre persönlichen Daten mit den höchsten Privatsphäre- und Sicherheitsstandards verarbeitet werden. Diese Richtlinie legt unsere Praktiken und Ihre Rechte in Bezug auf persönliche Daten dar.
 
-## Datenspeicher und Schutz
+## Datenspeicherung und Datenschutz
 
-### Datenspeicher
+### Datenspeicherung
 
 - **Personenbezogene Daten werden an folgenden Standorten gespeichert:** Europa, Vereinigte Staaten von Amerika. Für Dienstleistungen, die eine internationale Datenübertragung erfordern, stellen wir sicher, dass diese Übertragungen alle geltenden Gesetze einhalten und die Datenschutzstandards beibehalten, die auch für den ursprünglichen Speicherort gelten. Siehe [Cloudflares Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) für weitere Details.
 - **Datenhosting-Partner**: Wir arbeiten mit seriösen Datenhosting-Anbietern zusammen, die sich für die Bereitstellung modernster Sicherheitsmaßnahmen einsetzen. Diese Partner werden aufgrund ihrer Einhaltung strenger Datenschutzstandards ausgewählt. Siehe [Cloudflares Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) für weitere Details.
