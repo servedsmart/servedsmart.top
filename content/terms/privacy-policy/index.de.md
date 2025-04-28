@@ -96,7 +96,7 @@ Bei REPLACE_ME_COMPANY_NAME schätzen wir Ihre Privatsphäre und sind bestrebt, 
 
 ### Cookies und Tracking-Technologien verstehen
 
-Cookies sind kleine Dateien, die auf Ihrem Gerät abgelegt werden und die es uns ermöglichen, Ihre Präferenzen zu speichern und Informationen über Ihre Websitenutzung zu sammeln. Tracking-Technologien wie Web-Beacons und Pixel-Tags helfen uns zu verstehen, wie Sie mit unserer Website interagieren und welche Seiten Sie besuchen.
+Cookies sind kleine Dateien, die auf Ihrem Gerät gespeichert werden und die es uns ermöglichen, Ihre Präferenzen zu speichern und Informationen über Ihre Websitenutzung zu sammeln. Tracking-Technologien wie Web-Beacons und Pixel-Tags helfen uns zu verstehen, wie Sie mit unserer Website interagieren und welche Seiten Sie besuchen.
 
 ### Wie wir diese Technologien nutzen
 
