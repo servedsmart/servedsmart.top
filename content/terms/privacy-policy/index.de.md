@@ -117,7 +117,7 @@ Bei Ihrem ersten Besuch wird Ihnen unsere Website ein Cookie-Zulassungsbanner vo
 
 Wir können unseren Einsatz von Cookies und Tracking-Technologien ändern, um unsere Dienste zu verbessern oder die gesetzlichen Anforderungen zu erfüllen. Wir werden Sie über wesentliche Änderungen informieren und Ihre Zustimmung einholen, wo dies erforderlich ist.
 
-Für detailliertere Informationen über die von uns verwendeten Cookies, deren Zwecke und wie Sie Ihre Präferenzen verwalten können, besuchen Sie bitte unsere detaillierte [Cookie-Richtlinie](https://servedsmart.top/#consent-overlay).
+Für detailliertere Informationen über die von uns verwendeten Cookies, deren Zwecke und wie Sie Ihre Präferenzen verwalten können, besuchen Sie bitte unsere detaillierte [Cookie-Richtlinie](#consent-overlay).
 
 Sollten Sie Fragen oder Bedenken bezüglich unserer Verwendung von Cookies und Tracking-Technologien haben, zögern Sie bitte nicht, uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE zu kontaktieren. Ihre Privatsphäre und die Integrität Ihrer persönlichen Daten sind für uns von größter Bedeutung.
 
