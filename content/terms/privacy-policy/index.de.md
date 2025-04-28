@@ -103,12 +103,11 @@ Cookies sind kleine Dateien, die auf Ihrem Gerät gespeichert werden und die es 
 - **Unbedingt erforderliche Cookies:** Notwendig für die Funktionalität der Website, wie Authentifizierung und Sicherheit. Sie benötigen keine Zustimmung.
 - **Präferenz-Cookies:** Ermöglichen der Website verbesserte Funktionalität und Personalisierung wie zum Beispiel das Speichern von Präferenzen.
 - **Statistik-Cookies:** Sammeln Informationen darüber, wie Besucher unsere Website nutzen, welche Seiten am häufigsten besucht werden und ob Fehlermeldungen von Websites empfangen werden. Diese Cookies helfen uns, unsere Website zu verbessern. Wir speichern diese Art von Cookies derzeit nicht.
-- **Marketing-Cookies:** Verwendet, um Werbung zu liefern, die auf Ihre Interessen angepasst sind. Sie werden auch verwendet, um die Anzahl der Anzeigen zu begrenzen und die Wirksamkeit der Werbekampagne zu messen. Wir speichern diese Art von Cookies derzeit nicht.
+- **Marketing-Cookies:** Verwendet, um Werbung zu schalten, die auf Ihre Interessen angepasst sind. Sie werden auch verwendet, um die Anzahl der Anzeigen zu begrenzen und die Wirksamkeit der Werbekampagne zu messen. Wir speichern diese Art von Cookies derzeit nicht.
 
 ### Ihre Wahl und Zustimmung
 
-Bei Ihrem ersten Besuch wird Ihnen unsere Website ein Cookie-Zulassungsbanner vorlegen, auf dem Sie Folgendes erreichen können:
-
+Bei Ihrem ersten Besuch wird Ihnen unsere Website ein Banner zur Cookie-Einwilligung zeigen, auf dem Sie folgende Auswahlmöglichkeiten haben:
 - **Alle akzeptieren:** Zustimmung zur Nutzung aller Cookies und Tracking-Technologien.
 - **Optionale ablehnen:** Nur unbedingt erforderliche Cookies werden verwendet, um Ihnen die notwendigen Website-Funktionen zur Verfügung zu stellen.
 - **Zustimmungseinstellungen:** Wählen Sie, welche Kategorien von Cookies Sie zulassen möchten.
