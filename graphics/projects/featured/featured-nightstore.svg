@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="0.19380604"
-     inkscape:cx="1684.674"
+     inkscape:cx="1687.2539"
      inkscape:cy="2579.899"
-     inkscape:window-width="1918"
+     inkscape:window-width="2724"
      inkscape:window-height="2132"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -138,8 +138,8 @@
      inkscape:label="Text"
      inkscape:highlight-color="#55be59"
      style="display:inline"><path
-       d="M 508,698.26217 V 571.73783 H 317.73783 V 698.26217 Z M 793.39326,571.73783 H 762 V 762 H 698.26217 V 571.73783 H 571.73783 V 762 H 253.04869 V 571.73783 H 222.60674 V 508 L 253.04869,349.13109 H 762 L 793.39326,508 Z M 762,254 v 63.73783 H 253.04869 V 254 Z"
+       d="M 508,696.28027 V 571.07389 H 319.71748 V 696.28027 Z M 790.42378,571.07389 H 759.35716 V 759.35416 H 696.28252 V 571.07389 H 571.07465 V 759.35416 H 255.70142 V 571.07389 h -30.12521 v -63.0739 l 30.12521,-157.21402 h 503.65574 l 31.06663,157.21402 z M 759.35716,256.64583 v 63.07389 H 255.70142 v -63.07389 z"
        id="text3"
-       style="font-size:1270px;font-family:'Hasklug Nerd Font Mono';-inkscape-font-specification:'Hasklug Nerd Font Mono';fill:#55be59;stroke:#55be59;stroke-width:0;stroke-linecap:round;stroke-dashoffset:1536"
+       style="font-size:1270px;font-family:'Hasklug Nerd Font Mono';-inkscape-font-specification:'Hasklug Nerd Font Mono';fill:#55be59;stroke:#ffffff;stroke-width:5.29167;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:1536;stroke-opacity:1"
        inkscape:label="nf-md-store"
        aria-label="󰓜" /></g></svg>
