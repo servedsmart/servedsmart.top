@@ -31,7 +31,7 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g2"
+     inkscape:current-layer="layer3"
      showguides="true"><sodipodi:guide
        position="0,508"
        orientation="0,1"
@@ -139,7 +139,8 @@
      inkscape:highlight-color="#55be59"
      style="display:inline"><g
        id="g2"
-       transform="matrix(0.75,0,0,0.75,127,127)"><g
+       transform="matrix(0.5,0,0,0.5,254,254)"
+       inkscape:label="logo"><g
          inkscape:label="Background"
          id="layer1-2"
          inkscape:highlight-color="#55be59"

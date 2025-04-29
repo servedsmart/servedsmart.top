@@ -138,7 +138,7 @@
      inkscape:label="Text"
      inkscape:highlight-color="#55be59"
      style="display:inline"><path
-       d="M 508,762 V 593.09 H 254 V 762 Z M 889,593.09 h -41.91 v 254 H 762 v -254 H 593.09 v 254 H 167.64 v -254 H 127 V 508 L 167.64,295.91 H 847.09 L 889,508 Z M 847.09,168.91 V 254 H 167.64 v -85.09 z"
+       d="M 508,698.26217 V 571.73783 H 317.73783 V 698.26217 Z M 793.39326,571.73783 H 762 V 762 H 698.26217 V 571.73783 H 571.73783 V 762 H 253.04869 V 571.73783 H 222.60674 V 508 L 253.04869,349.13109 H 762 L 793.39326,508 Z M 762,254 v 63.73783 H 253.04869 V 254 Z"
        id="text3"
        style="font-size:1270px;font-family:'Hasklug Nerd Font Mono';-inkscape-font-specification:'Hasklug Nerd Font Mono';fill:#55be59;stroke:#55be59;stroke-width:0;stroke-linecap:round;stroke-dashoffset:1536"
        inkscape:label="nf-md-store"
