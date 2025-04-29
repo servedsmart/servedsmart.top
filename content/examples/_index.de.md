@@ -1,5 +1,5 @@
 +++
-title = "Beispiele"
+title = "Beispielwebsites"
 date = '2025-04-08T11:14:34+02:00'
 description = "Rufen Sie unsere Beispielwebsites auf."
 summary = "Rufen Sie unsere Beispielwebsites auf."

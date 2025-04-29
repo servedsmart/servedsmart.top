@@ -69,7 +69,7 @@
 #   weight = 20
 
 [[main]]
-name = 'Examples'
+name = 'Example websites'
 pageRef = '/examples/'
 weight = 10
 
