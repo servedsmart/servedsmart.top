@@ -1,8 +1,8 @@
 +++
-title = "Car Painting"
+title = "Autolackierung"
 date = '2025-04-28T23:24:35+02:00'
-description = "Car Painting"
-summary = "Car Painting"
+description = "Autolackierung"
+summary = "Autolackierung"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'autoreparatur',

@@ -1,8 +1,8 @@
 +++
-title = "Tire Change"
+title = "Reifenwechsel"
 date = '2025-04-28T23:24:52+02:00'
-description = "Tire Change"
-summary = "Tire Change"
+description = "Reifenwechsel"
+summary = "Reifenwechsel"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'autoreparatur',

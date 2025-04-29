@@ -1,8 +1,8 @@
 +++
-title = "Employees"
+title = "Mitarbeiter"
 date = '2025-04-28T23:22:49+02:00'
-description = "Employees"
-summary = "Employees"
+description = "Mitarbeiter"
+summary = "Mitarbeiter"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'mitarbeiter',

@@ -79,19 +79,19 @@ pageRef = '/services/'
 weight = 20
 
 [[main]]
-name = 'Angestellte'
+name = 'Mitarbeiter'
 pageRef = '/employees/'
 weight = 30
 
 [[main]]
 name = 'Team'
-parent = 'Angestellte'
+parent = 'Mitarbeiter'
 pageRef = '/employees/team'
 weight = 31
 
 [[main]]
 name = 'Bewerben'
-parent = 'Angestellte'
+parent = 'Mitarbeiter'
 pageRef = '/employees/apply'
 weight = 32
 
