@@ -2,7 +2,7 @@ disabled = false
 languageCode = "de"
 languageName = "Deutsch"
 weight = 10
-title = "Served Smart"
+title = "Served Smart - Beispielwebsites"
 
 [params]
 displayName = "DE"
