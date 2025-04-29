@@ -18,5 +18,3 @@ tags = [
 [cascade]
 showReadingTime = false
 +++
-
-Klicken Sie auf [Zeige Mehr](/examples/), um unsere Beispielwebsites aufzurufen.
