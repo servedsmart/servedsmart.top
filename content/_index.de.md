@@ -1,5 +1,5 @@
 +++
-title = "Willkommen auf der Beispielwebsite eines Automechanikers von Served Smart!"
+title = "Willkommen auf der Beispielwebsite einer Autowerkstatt von Served Smart!"
 date = '2025-04-08T11:14:34+02:00'
 description = "Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nötigen Wissen!"
 summary = "Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nötigen Wissen!"
