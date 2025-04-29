@@ -6,7 +6,7 @@ summary = "Kebab"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'external',
- 'example',
+ 'example website',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [

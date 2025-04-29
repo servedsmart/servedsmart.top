@@ -6,7 +6,7 @@ summary = "Rufen Sie unsere Beispielwebsites auf."
 # Categories are generally used for broader, top-level topics.
 categories = [
  'extern',
- 'beispiel',
+ 'beispielwebsite',
 ]
 # Tags are used for more specific, detailed topics.
 tags = []
