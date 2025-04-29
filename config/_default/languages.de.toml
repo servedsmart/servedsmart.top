@@ -2,7 +2,7 @@ disabled = false
 languageCode = "de"
 languageName = "Deutsch"
 weight = 10
-title = "Served Smart - Beispielwebsites"
+title = "Served Smart - Bäckerei (Beispielwebsite)"
 
 [params]
 displayName = "DE"
@@ -11,16 +11,16 @@ rtl = false
 dateFormat = "02. January 2006"
 #logo = "/img/android-chrome-512x512.png"
 # secondaryLogo = "/img/secondary-logo.png"
-description = "Nehmen Sie die Digitalisierung selbst in die Hand - einfach und unkompliziert! Für Kunden in Berlin."
+description = "Die beste Bäckerei weit und breit. Mit gemütlichem Sitzbereich, guter Laune und knackfrischen Leckereien aller Art!"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
-name = "Leopold Johannes Meinel"
+name = "Bäckerei (Beispielwebsite)"
 email = "info@servedsmart.com"
 image = "/img/android-chrome-512x512.png"
 imageQuality = 96
-headline = "Hobby-Coder mit großer Begeisterung für IT"
-bio = "Begeistert von self/on-premise hosting, dem Erstellen von statischen Websites, Coden und dem Einrichten von Netzwerken."
+headline = "Traditionsbäckerei und Familienbetrieb"
+bio = "Begeistert vom Backen und Kaffeerösten. Alles was wir servieren ist frisch, regional und Handarbeit!"
 links = [
  { email = "mailto:info@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
