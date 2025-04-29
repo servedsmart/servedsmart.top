@@ -17,5 +17,5 @@ externalUrl = "https://bakery.servedsmart.top/en/"
 showReadingTime = false
 [_build]
 render = "false"
-list = "local"
+list = ""
 +++
