@@ -5,9 +5,10 @@ description = "Lebensmittel"
 summary = "Lebensmittel"
 # Categories are generally used for broader, top-level topics.
 categories = [
- 'frühstück',
- 'süßes gebäck',
+ 'alkohol',
+ 'getränke',
  'lebensmittel',
+ 'produkt',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [
