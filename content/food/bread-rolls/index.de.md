@@ -7,6 +7,7 @@ summary = "Brötchen"
 categories = [
  'frühstück',
  'lebensmittel',
+ 'produkt',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [

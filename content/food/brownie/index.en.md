@@ -7,6 +7,7 @@ summary = "Brownie"
 categories = [
  'sweet pastries',
  'food',
+ 'product',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [

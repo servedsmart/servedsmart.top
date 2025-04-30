@@ -12,7 +12,7 @@ categories = [
  'unternehmensintern',
  'rechtliches',
  'ankündigung',
- 'dienstleistung',
+ 'produkt',
 ]
 # Tags are used for more specific, detailed topics.
 tags = [
