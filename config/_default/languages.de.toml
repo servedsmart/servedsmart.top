@@ -15,7 +15,7 @@ description = "Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Ged
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
-name = "Autowerkstatt (Beispielwebsite)"
+name = "Served Smart - Autowerkstatt (Beispielwebsite)"
 email = "info@servedsmart.com"
 image = "/img/android-chrome-512x512.png"
 imageQuality = 96

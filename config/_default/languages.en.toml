@@ -1,3 +1,13 @@
+###
+# File: languages.en.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
 disabled = false
 languageCode = "en"
 languageName = "English"
@@ -15,7 +25,7 @@ description = "Repairs, maintenance and tuning. We offer everything with patienc
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
-name = "Autoshop (Example website)"
+name = "Served Smart - Autoshop (Example website)"
 email = "info@servedsmart.com"
 image = "/img/android-chrome-512x512.png"
 imageQuality = 96
