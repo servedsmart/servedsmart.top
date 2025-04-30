@@ -15,7 +15,7 @@ description = "Die beste Bäckerei weit und breit. Mit gemütlichem Sitzbereich,
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
-name = "Bäckerei (Beispielwebsite)"
+name = "Served Smart - Bäckerei (Beispielwebsite)"
 email = "info@servedsmart.com"
 image = "/img/android-chrome-512x512.png"
 imageQuality = 96
