@@ -9,7 +9,7 @@ displayName = "DE"
 isoCode = "de"
 rtl = false
 dateFormat = "02. January 2006"
-#logo = "/img/android-chrome-512x512.png"
+# logo = "/img/logo-optimized.svg"
 # secondaryLogo = "/img/secondary-logo.png"
 description = "Die beste Bäckerei weit und breit. Mit gemütlichem Sitzbereich, guter Laune und knackfrischen Leckereien aller Art!"
 # copyright = "Copy, _right?_ :thinking_face:"
@@ -17,7 +17,7 @@ description = "Die beste Bäckerei weit und breit. Mit gemütlichem Sitzbereich,
 [params.author]
 name = "Served Smart - Bäckerei (Beispielwebsite)"
 email = "info@servedsmart.com"
-image = "/img/android-chrome-512x512.png"
+image = "/img/author-512x512.webp"
 imageQuality = 96
 headline = "Traditionsbäckerei und Familienbetrieb"
 bio = "Begeistert vom Backen und Kaffeerösten. Alles was wir servieren ist frisch, regional und Handarbeit!"
