@@ -17,7 +17,7 @@ description = "Die beste Bäckerei weit und breit. Mit gemütlichem Sitzbereich,
 [params.author]
 name = "Served Smart - Bäckerei (Beispielwebsite)"
 email = "info@servedsmart.com"
-image = "/img/author-512x512.webp"
+image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Traditionsbäckerei und Familienbetrieb"
 bio = "Begeistert vom Backen und Kaffeerösten. Alles was wir servieren ist frisch, regional und Handarbeit!"
