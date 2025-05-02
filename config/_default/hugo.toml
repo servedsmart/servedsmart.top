@@ -3,7 +3,7 @@
 # https://blowfish.page/docs/getting-started/
 
 theme = "blowfish"                   # UNCOMMENT THIS LINE
-baseURL = 'https://servedsmart.top/'
+baseURL = 'https://pizzeria.servedsmart.top/'
 languageCode = "de"
 defaultContentLanguage = "de"
 
