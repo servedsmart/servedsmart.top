@@ -23,11 +23,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.10563298"
-     inkscape:cx="1230.6762"
-     inkscape:cy="378.66961"
-     inkscape:window-width="1918"
-     inkscape:window-height="2132"
+     inkscape:zoom="0.05281649"
+     inkscape:cx="870.94012"
+     inkscape:cy="2432.9523"
+     inkscape:window-width="958"
+     inkscape:window-height="1065"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -46,13 +46,11 @@
      inkscape:highlight-color="#4fc4a7"
      style="display:inline">
     <circle
-       class="cls-1"
+       style="fill:#4fc4a7;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1536;fill-opacity:1"
+       id="path3"
        cx="1920"
        cy="1920"
-       r="1920"
-       id="circle1"
-       style="fill:#4fc4a7;fill-opacity:1;stroke-width:0.999997"
-       inkscape:label="circle" />
+       r="1920" />
   </g>
   <g
      id="Icons"
