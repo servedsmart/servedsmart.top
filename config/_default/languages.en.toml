@@ -9,7 +9,7 @@ displayName = "EN"
 isoCode = "en"
 rtl = false
 dateFormat = "02 January 2006"
-#logo = "/img/android-chrome-512x512.png"
+# logo = "/img/logo-optimized.svg"
 # secondaryLogo = "/img/secondary-logo.png"
 description = "Nightstore with a wide range of products and the best prices around. We also offer many seasonal specialties."
 # copyright = "Copy, _right?_ :thinking_face:"
@@ -17,7 +17,7 @@ description = "Nightstore with a wide range of products and the best prices arou
 [params.author]
 name = "Served Smart - Nightstore (Example website)"
 email = "info@servedsmart.com"
-image = "/img/android-chrome-512x512.png"
+image = "/img/author-512x512.webp"
 imageQuality = 96
 headline = "Nightstore with the best employees"
 bio = "We appreciate nice customers and always try to do our best!"

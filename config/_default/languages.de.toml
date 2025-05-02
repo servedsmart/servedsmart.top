@@ -9,7 +9,7 @@ displayName = "DE"
 isoCode = "de"
 rtl = false
 dateFormat = "02. January 2006"
-#logo = "/img/android-chrome-512x512.png"
+# logo = "/img/logo-optimized.svg"
 # secondaryLogo = "/img/secondary-logo.png"
 description = "Spätkauf mit breitem Produktsortiment und den besten Preisen weit und breit. Außerdem bieten wir viele saisonale Spezialitäten."
 # copyright = "Copy, _right?_ :thinking_face:"
@@ -17,7 +17,7 @@ description = "Spätkauf mit breitem Produktsortiment und den besten Preisen wei
 [params.author]
 name = "Served Smart - Spätkauf (Beispielwebsite)"
 email = "info@servedsmart.com"
-image = "/img/android-chrome-512x512.png"
+image = "/img/author-512x512.webp"
 imageQuality = 96
 headline = "Spätkauf mit den besten Mitarbeitern"
 bio = "Wir freuen uns über nette Kunden und versuchen immer unser Bestes zu geben!"
