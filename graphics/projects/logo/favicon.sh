@@ -55,11 +55,8 @@ done
 # Create favicon.ico
 magick -background none "${INPUT}" -define icon:auto-resize="${SIZES_ICO}" "${OUTPUT_DIR}"/favicon.ico
 
-# Prompt user for file transfer
-read -rp "Transfer images to project dir? (Type 'yes' in capital letters): " choice
-if [[ "${choice}" == "YES" ]]; then
-    cp "${OUTPUT_DIR}"/*.png "${SCRIPT_DIR}"/../../../static/
-fi
+# Transfer files to project dir
+cp "${OUTPUT_DIR}"/*.png "${SCRIPT_DIR}"/../../../static/
 
 # Execute author.sh
 "${SCRIPT_DIR}"/author.sh

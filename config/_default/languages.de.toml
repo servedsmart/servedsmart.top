@@ -17,7 +17,7 @@ description = "Jede Arbeit mit Holz ist unser Ding. Wir sind sowohl Bautischlere
 [params.author]
 name = "Served Smart - Tischlerei (Beispielwebsite)"
 email = "info@servedsmart.com"
-image = "/img/author-512x512.webp"
+image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Tischlerei mit langjähriger Erfahrung und freundlichem und gut ausgebildetem Personal"
 bio = "Begeistert von der Restauration alter Möbel und der Herstellung/dem Einbau maßgeschneiderter Türen/Fensterrahmen etc."
