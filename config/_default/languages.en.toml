@@ -27,7 +27,7 @@ description = "Repairs, maintenance and tuning. We offer everything with patienc
 [params.author]
 name = "Served Smart - Autoshop (Example website)"
 email = "info@servedsmart.com"
-image = "/img/author-512x512.webp"
+image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Autoshop with extensive experience and the best customer service"
 bio = "We enjoy restoring old cars, painting/wrapping, and are always helpful when it comes to repairs."
