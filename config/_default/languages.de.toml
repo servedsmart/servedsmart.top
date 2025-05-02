@@ -2,7 +2,7 @@ disabled = false
 languageCode = "de"
 languageName = "Deutsch"
 weight = 10
-title = "Served Smart - Beispielwebsites"
+title = "Served Smart - Döner Kebab (Beispielwebsite)"
 
 [params]
 displayName = "DE"
@@ -11,16 +11,16 @@ rtl = false
 dateFormat = "02. January 2006"
 #logo = "/img/android-chrome-512x512.png"
 # secondaryLogo = "/img/secondary-logo.png"
-description = "Nehmen Sie die Digitalisierung selbst in die Hand - einfach und unkompliziert! Für Kunden in Berlin."
+description = "Stolzer Döner Kebab mit langer Tradition. Die besten Saußen, frischer Salat und ein saftiger Spieß!"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
-name = "Leopold Johannes Meinel"
+name = "Served Smart - Döner Kebab (Beispielwebsite)"
 email = "info@servedsmart.com"
 image = "/img/android-chrome-512x512.png"
 imageQuality = 96
-headline = "Hobby-Coder mit großer Begeisterung für IT"
-bio = "Begeistert von self/on-premise hosting, dem Erstellen von statischen Websites, Coden und dem Einrichten von Netzwerken."
+headline = "Moderner Imbiss im Herzen der Stadt"
+bio = "Unsere Zutaten sind frisch und regional. Unser Personal ist bis tief in die Nacht motiviert, Ihnen das beste Essen zu servieren."
 links = [
  { email = "mailto:info@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },

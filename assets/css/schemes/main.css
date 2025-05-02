@@ -9,41 +9,41 @@
  */
 
 /* https://github.com/nunocoracao/fugu */
-/* ./index.js generate 546f7d a1baa7 55be59 */
+/* ./index.js generate 756657 b39898 c44f4f */
 
 :root {
   --color-neutral: 255, 255, 255;
-  /* #546f7d */
+  /* #7a6652 */
   --color-neutral-50: 255, 255, 255;
   --color-neutral-100: 255, 255, 255;
-  --color-neutral-200: 212, 221, 226;
-  --color-neutral-300: 166, 186, 196;
-  --color-neutral-400: 121, 150, 165;
-  --color-neutral-500: 84, 111, 125;
-  --color-neutral-600: 68, 89, 101;
-  --color-neutral-700: 51, 68, 76;
-  --color-neutral-800: 35, 46, 52;
-  --color-neutral-900: 18, 24, 27;
-  /* #a1baa7 */
+  --color-neutral-200: 222, 217, 211;
+  --color-neutral-300: 190, 179, 167;
+  --color-neutral-400: 157, 140, 123;
+  --color-neutral-500: 117, 102, 87;
+  --color-neutral-600: 94, 82, 70;
+  --color-neutral-700: 70, 61, 52;
+  --color-neutral-800: 47, 41, 35;
+  --color-neutral-900: 23, 20, 17;
+  /* #b39898 */
   --color-primary-50: 255, 255, 255;
   --color-primary-100: 255, 255, 255;
   --color-primary-200: 255, 255, 255;
-  --color-primary-300: 249, 251, 250;
-  --color-primary-400: 205, 218, 208;
-  --color-primary-500: 161, 186, 167;
-  --color-primary-600: 137, 169, 145;
-  --color-primary-700: 114, 151, 123;
-  --color-primary-800: 95, 130, 103;
-  --color-primary-900: 78, 106, 85;
-  /* #55be59 */
+  --color-primary-300: 244, 240, 240;
+  --color-primary-400: 211, 196, 196;
+  --color-primary-500: 179, 152, 152;
+  --color-primary-600: 162, 129, 129;
+  --color-primary-700: 144, 106, 106;
+  --color-primary-800: 120, 89, 89;
+  --color-primary-900: 97, 71, 71;
+  /* #c44f4f */
   --color-secondary-50: 255, 255, 255;
   --color-secondary-100: 255, 255, 255;
-  --color-secondary-200: 251, 253, 251;
-  --color-secondary-300: 196, 232, 197;
-  --color-secondary-400: 140, 211, 143;
-  --color-secondary-500: 85, 190, 89;
-  --color-secondary-600: 65, 169, 69;
-  --color-secondary-700: 53, 140, 57;
-  --color-secondary-800: 42, 110, 45;
-  --color-secondary-900: 31, 81, 33;
+  --color-secondary-200: 254, 251, 251;
+  --color-secondary-300: 234, 194, 194;
+  --color-secondary-400: 215, 136, 136;
+  --color-secondary-500: 196, 79, 79;
+  --color-secondary-600: 175, 59, 59;
+  --color-secondary-700: 145, 49, 49;
+  --color-secondary-800: 114, 38, 38;
+  --color-secondary-900: 84, 28, 28;
 }
