@@ -23,17 +23,28 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.1232612"
-     inkscape:cx="1111.4609"
-     inkscape:cy="-1298.0565"
-     inkscape:window-width="1918"
-     inkscape:window-height="2132"
+     inkscape:zoom="0.10903289"
+     inkscape:cx="-325.58984"
+     inkscape:cy="898.8114"
+     inkscape:window-width="3840"
+     inkscape:window-height="2134"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="layer2"
+     showguides="false" />
   <defs
      id="defs1">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect17"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect16"
+       is_visible="true"
+       lpeversion="1" />
     <style
        id="style1">.cls-1{fill:#b82065;}.cls-2{fill:#d7156f;}.cls-3{fill:#c2aacf;}.cls-4{fill:#decee5;}.cls-5{fill:#f4e6f4;}.cls-6{fill:#14a36d;}.cls-7{fill:#15be79;}.cls-8{fill:#33db92;}.cls-9{fill:#fff;}.cls-10{fill:#ebd9ea;}.cls-11{fill:#f39e22;}.cls-12{fill:#f9c744;}.cls-13{fill:#c44a1a;}.cls-14{fill:#0989d8;}.cls-15{fill:#29a3fb;}.cls-16{fill:#7ed0fc;}.cls-17{fill:#ed72ab;}</style>
   </defs>
@@ -43,25 +54,29 @@
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="Background"
-     inkscape:highlight-color="#b82065">
+     inkscape:highlight-color="#b82065"
+     style="display:inline">
     <circle
-       class="cls-1"
-       cx="1920.0751"
-       cy="1920.0636"
-       r="1919.925"
-       id="circle1"
-       style="stroke-width:0.999997" />
+       style="display:inline;fill:#b82065;fill-opacity:1;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1536"
+       id="path16"
+       cx="1920"
+       cy="1920"
+       r="1920"
+       inkscape:label="path1"
+       sodipodi:insensitive="true" />
     <path
-       class="cls-2"
-       d="M 0,1918.2637 A 1917.2999,1917.2999 0 0 1 775.83032,378.30341 C 1627.4137,-253.59628 2829.9356,-75.614328 3461.8353,775.81896 a 1910.7747,1910.7747 0 0 1 374.4897,1020.03994 576.69754,576.69754 0 0 0 -106.8042,51.6019 c -178.807,110.5544 -315.0123,314.2623 -524.3455,333.3131 -143.6306,13.1254 -279.686,-69.3027 -383.2649,-169.6567 -103.5791,-100.3539 -186.5323,-221.3336 -295.5116,-315.9123 a 844.00799,844.00799 0 0 0 -1182.7963,75.0029 c -106.2791,119.1797 -198.9827,280.8111 -357.61395,300.0118 -215.63344,25.8009 -384.16502,-237.2344 -600.02346,-217.1335 -69.75272,6.5252 -132.9052,42.4517 -200.48284,60.0023 A 408.76598,408.76598 0 0 1 0,1918.2637 Z"
-       id="path1"
-       style="stroke-width:0.999997" />
+       id="path20"
+       style="fill:#d7156f;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:1536;fill-opacity:1"
+       d="M 0,1920 C 0,1410.7843 202.28513,922.42483 562.35498,562.35498 922.42483,202.28513 1410.7843,0 1920,0 2429.2157,0 2917.5752,202.28513 3277.645,562.35498 3637.7149,922.42483 3840,1410.7843 3840,1920 c 0,0 -56.2097,-164.6465 -266.1098,-187.0727 -315.4134,-33.6996 -417.1865,-396.8218 -960.4922,-380.6461 -697.5352,20.7674 -891.1681,658.6587 -1210.6883,703.0987 -403.85044,56.1689 -754.91629,-340.246 -943.344,-345.1675 C 188.92128,1703.1488 0,1920 0,1920 Z"
+       sodipodi:nodetypes="cssscssssc"
+       inkscape:label="path2" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Objects"
-     inkscape:highlight-color="#15be79">
+     inkscape:highlight-color="#15be79"
+     style="display:inline">
     <g
        inkscape:groupmode="layer"
        id="layer3"
