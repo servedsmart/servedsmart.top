@@ -17,7 +17,7 @@ description = "Nightstore with a wide range of products and the best prices arou
 [params.author]
 name = "Served Smart - Nightstore (Example website)"
 email = "info@servedsmart.com"
-image = "/img/author-512x512.webp"
+image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Nightstore with the best employees"
 bio = "We appreciate nice customers and always try to do our best!"

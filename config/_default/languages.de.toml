@@ -17,7 +17,7 @@ description = "Spätkauf mit breitem Produktsortiment und den besten Preisen wei
 [params.author]
 name = "Served Smart - Spätkauf (Beispielwebsite)"
 email = "info@servedsmart.com"
-image = "/img/author-512x512.webp"
+image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Spätkauf mit den besten Mitarbeitern"
 bio = "Wir freuen uns über nette Kunden und versuchen immer unser Bestes zu geben!"
