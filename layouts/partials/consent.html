@@ -8,16 +8,6 @@
 -------
  -->
 
-<!doctype html>
-<!--
---File = consent.html
---Author = Leopold Meinel (leo@meinel.dev)
--------
---Copyright (c) 2025 Leopold Meinel & contributors
---SPDX ID = MIT
---URL = https://opensource.org/licenses/MIT
--------
- -->
 {{- $style := resources.Get "css/consent.css" | minify | fingerprint -}}
 <link rel="stylesheet" href="{{- $style.Permalink -}}" />
 
