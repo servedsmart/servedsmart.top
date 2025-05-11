@@ -12,24 +12,37 @@
 <link rel="stylesheet" href="{{- $style.Permalink -}}" />
 
 <div id="consent-notice-container">
-  <div id="consent-notice">
-    <span
-      >{{- T "consent-text-start" -}}<a href="#consent-overlay"
+  <div
+    id="consent-notice"
+    class="text-base font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
+  >
+    <span class="text-base font-medium text-neutral-800 dark:text-neutral"
+      >{{- T "consent-text-start" -}}<a
+        class="text-base font-semibold text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+        href="#consent-overlay"
         >{{- T "consent-text-href" -}}</a
       >{{- T "consent-text-end" -}}</span
     ><br />
-    <button class="btn consent-accept-all">
+    <button
+      class="btn consent-accept-all bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+    >
       {{- T "consent-button-consent-accept-all" -}}</button
-    ><button class="btn consent-reject-optional">
+    ><button
+      class="btn consent-reject-optional bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+    >
       {{- T "consent-button-consent-reject-optional" -}}</button
-    ><button class="btn consent-settings">
+    ><button
+      class="btn consent-settings bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+    >
       {{- T "consent-button-consent-settings" -}}
     </button>
   </div>
 </div>
 <div id="consent-overlay-container">
-  <div id="consent-overlay">
-    <div>
+  <div id="consent-overlay" class="overflow-auto">
+    <div
+      class="text-base font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
+    >
       {{- $currentLang := $.Site.Language.Lang -}} {{- $data := index
       $.Site.Data $currentLang "consent" "items" -}} {{- range $index, $item :=
       $data -}}
@@ -47,9 +60,19 @@
             disabled{{end}}
           />
           <label for="item{{- $index -}}"
-            ><header><h3>{{- $item.title -}}</h3></header>
-            <main><p>{{- $item.description -}}</p></main>
-            <main>
+            ><header
+              class="text-base font-bold text-neutral-800 dark:text-neutral-300"
+            >
+              <h3>{{- $item.title -}}</h3>
+            </header>
+            <main
+              class="text-base font-medium text-neutral-500 dark:text-neutral"
+            >
+              <p>{{- $item.description -}}</p>
+            </main>
+            <main
+              class="text-base font-medium text-neutral-500 dark:text-neutral"
+            >
               <details>
                 <summary>
                   {{- T "consent-overlay-description-summary" -}}
@@ -62,13 +85,17 @@
       </div>
       {{- end -}}
       <div>
-        <button class="btn consent-accept-all">
+        <button
+          class="btn consent-accept-all bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+        >
           {{- T "consent-button-consent-accept-all" -}}</button
-        ><button class="btn consent-reject-optional">
+        ><button
+          class="btn consent-reject-optional bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+        >
           {{- T "consent-button-consent-reject-optional" -}}</button
         ><button
           id="consent-settings-confirm"
-          class="btn consent-settings-confirm"
+          class="btn consent-settings-confirm bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
           data-consentvalue="{{ $currentLang := $.Site.Language.Lang }}{{ $data := index $.Site.Data $currentLang `consent` `items` }}{{ range $data }}{{ if .is_functional}}{{ else }}0{{ end }}{{ end }}"
         >
           {{- T "consent-button-consent-settings-confirm" -}}
