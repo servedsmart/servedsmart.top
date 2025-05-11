@@ -9,13 +9,7 @@
  */
 
 :root {
-  --color-consent-background: var(--color-neutral-800);
-  --color-consent-border: var(--color-primary-400);
-  --color-consent-button-text: var(--color-primary-400);
-  --color-consent-notice-text-decoration: var(--color-primary-400);
   --color-consent-overlay-background: var(--color-neutral-900);
-  --color-consent-overlay-main-text: var(--color-primary-400);
-  --color-consent-text: var(--color-neutral);
   --color-form-background: var(--color-neutral);
   --color-form-control-disabled: var(--color-neutral-400);
   --color-form-control: var(--color-secondary-500);
@@ -47,34 +41,14 @@
   top: 0;
   align-items: center;
 }
-#consent-notice,
-#consent-overlay button.btn,
-#consent-notice button.btn,
-#consent-overlay > div {
-  border-color: rgb(var(--color-consent-border));
-  border-radius: 0.25rem;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-}
 #consent-notice button.btn,
 #consent-overlay button.btn {
-  position: relative;
-  color: rgb(var(--color-consent-button-text));
   cursor: pointer;
   padding: 10px;
   margin: 10px 10px 0px 10px;
-  font-weight: var(--font-weight-semibold);
-  display: inline-block;
-}
-#consent-notice button.btn:hover,
-#consent-overlay button.btn:hover {
-  border-color: transparent;
 }
 #consent-notice,
 #consent-overlay > div {
-  color: rgb(var(--color-consent-text));
-  background: rgb(var(--color-consent-background));
   padding: 25px;
   max-width: 60rem;
   margin: auto;
@@ -89,11 +63,6 @@
 #consent-notice span {
   margin-right: 1rem;
 }
-#consent-notice span a:hover {
-  text-decoration: underline;
-  text-decoration-color: rgb(var(--color-consent-notice-text-decoration));
-  text-decoration-thickness: 2px;
-}
 #consent-overlay.active,
 #consent-overlay > div > div {
   display: flex;
@@ -103,7 +72,6 @@
   background: rgba(var(--color-consent-overlay-background), 0.9);
   width: 100vw;
   height: 100vh;
-  overflow: auto;
   align-items: center;
 }
 #consent-overlay > div > div {
@@ -115,12 +83,6 @@
   flex-wrap: wrap;
   margin: 0;
   justify-content: center;
-}
-#consent-overlay header {
-  font-weight: var(--font-weight-bold);
-}
-#consent-overlay main {
-  color: rgb(var(--color-consent-overlay-main-text));
 }
 .form-control {
   align-items: center;
