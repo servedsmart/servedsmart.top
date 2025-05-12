@@ -8,6 +8,25 @@
  * -----
  */
 
+// Wait for readyState
+function waitForReadyState(fn) {
+  if (
+    document.readyState === "interactive" ||
+    document.readyState === "complete"
+  ) {
+    fn();
+  } else {
+    document.addEventListener("readystatechange", function checkReadyState() {
+      if (
+        document.readyState === "interactive" ||
+        document.readyState === "complete"
+      ) {
+        fn();
+        document.removeEventListener("readystatechange", checkReadyState);
+      }
+    });
+  }
+}
 // Set localStorage
 function setLocalStorage(consentValue) {
   localStorage.setItem("optional-scripts", optionalScripts.toString());
@@ -116,52 +135,57 @@ function deactivateWithParent(element) {
   window.location.hash = "#consent-exit";
 }
 
-// Load functional javascript
-loadFunctionalJS();
+waitForReadyState(() => {
+  // Set empty hash
+  window.location.hash = "#";
 
-// Uncheck checkboxes
-setUnchecked(
-  document.querySelectorAll("#consent-overlay input:not([disabled])")
-);
+  // Load functional javascript
+  loadFunctionalJS();
 
-// Open consent-overlay if hash is #consent-overlay
-window.onhashchange = () => {
-  if (window.location.hash === "#consent-overlay") {
-    activateWithParent(document.getElementById("consent-overlay"));
-  }
-};
+  // Uncheck checkboxes
+  setUnchecked(
+    document.querySelectorAll("#consent-overlay input:not([disabled])")
+  );
 
-// Load javascript if user has consented or show notice
-if (getLocalStorageOrRemove()) {
-  const consentValue = getLocalStorageOrRemove();
-  setConsentInputs(consentValue);
-  loadJS(optionalScripts, consentValue);
-} else {
-  activateWithParent(document.getElementById("consent-notice"));
-}
-// Handle consent buttons
-addClickExec(document.querySelectorAll(".consent-settings"), () => {
-  window.location.href = "#consent-overlay";
-});
-addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
-  modifyAllConsent(optionalScripts, "0");
-});
-addClickExec(document.querySelectorAll(".consent-accept-all"), () => {
-  modifyAllConsent(optionalScripts, "1");
-});
-document
-  .getElementById("consent-settings-confirm")
-  .addEventListener("click", (event) => {
-    setConsentValue();
-    loadOptionalJS(event.currentTarget.dataset.consentvalue);
-  });
-// Remove active attribute if clicking outside of div
-document
-  .getElementById("consent-overlay")
-  .addEventListener("click", (event) => {
-    if (
-      !document.querySelector("#consent-overlay > div").contains(event.target)
-    ) {
-      deactivateWithParent(event.currentTarget);
+  // Open consent-overlay if hash is #consent-overlay
+  window.onhashchange = () => {
+    if (window.location.hash === "#consent-overlay") {
+      activateWithParent(document.getElementById("consent-overlay"));
     }
+  };
+
+  // Load javascript if user has consented or show notice
+  if (getLocalStorageOrRemove()) {
+    const consentValue = getLocalStorageOrRemove();
+    setConsentInputs(consentValue);
+    loadJS(optionalScripts, consentValue);
+  } else {
+    activateWithParent(document.getElementById("consent-notice"));
+  }
+  // Handle consent buttons
+  addClickExec(document.querySelectorAll(".consent-settings"), () => {
+    window.location.href = "#consent-overlay";
   });
+  addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
+    modifyAllConsent(optionalScripts, "0");
+  });
+  addClickExec(document.querySelectorAll(".consent-accept-all"), () => {
+    modifyAllConsent(optionalScripts, "1");
+  });
+  document
+    .getElementById("consent-settings-confirm")
+    .addEventListener("click", (event) => {
+      setConsentValue();
+      loadOptionalJS(event.currentTarget.dataset.consentvalue);
+    });
+  // Remove active attribute if clicking outside of div
+  document
+    .getElementById("consent-overlay")
+    .addEventListener("click", (event) => {
+      if (
+        !document.querySelector("#consent-overlay > div").contains(event.target)
+      ) {
+        deactivateWithParent(event.currentTarget);
+      }
+    });
+});
