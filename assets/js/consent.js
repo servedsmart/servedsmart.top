@@ -77,8 +77,7 @@ function setConsentInputs(consentValue) {
     "#consent-overlay input:not([disabled])"
   );
   elements.forEach(function (element, index) {
-    if (consentValue[index] === "1") element.checked = true;
-    else element.checked = false;
+    element.checked = consentValue[index] === "1";
   });
 }
 // Set consent value from checkboxes
@@ -88,8 +87,7 @@ function setConsentValue() {
   );
   let consentValue = "";
   elements.forEach(function (element) {
-    if (element.checked) consentValue = consentValue + "1";
-    else consentValue = consentValue + "0";
+    consentValue = element.checked ? consentValue + "1" : consentValue + "0";
   });
   document.getElementById("consent-settings-confirm").dataset.consentvalue =
     consentValue;
