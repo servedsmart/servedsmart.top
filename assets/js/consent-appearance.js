@@ -8,6 +8,7 @@
  * -----
  */
 
+// Wait for readyState
 function waitForReadyState(fn) {
   if (
     document.readyState === "interactive" ||
@@ -15,15 +16,15 @@ function waitForReadyState(fn) {
   ) {
     fn();
   } else {
-    const intervalId = setInterval(() => {
+    document.addEventListener("readystatechange", function checkReadyState() {
       if (
         document.readyState === "interactive" ||
         document.readyState === "complete"
       ) {
         fn();
-        clearInterval(intervalId);
+        document.removeEventListener("readystatechange", checkReadyState);
       }
-    }, 100);
+    });
   }
 }
 var updateMeta = () => {
