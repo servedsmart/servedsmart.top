@@ -37,8 +37,11 @@
 #consent-overlay-container.active {
   display: flex;
 }
+#consent-notice-container,
 #consent-overlay-container {
   top: 0;
+}
+#consent-overlay-container {
   align-items: center;
 }
 #consent-notice button.btn,
@@ -69,7 +72,6 @@
   flex-wrap: nowrap;
 }
 #consent-overlay {
-  background: rgba(var(--color-consent-overlay-background), 0.9);
   width: 100vw;
   height: 100vh;
   align-items: center;
