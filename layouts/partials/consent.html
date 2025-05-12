@@ -11,14 +11,14 @@
 {{- $style := resources.Get "css/consent.css" | minify | fingerprint -}}
 <link rel="stylesheet" href="{{- $style.Permalink -}}" />
 
-<div id="consent-notice-container">
+<div id="consent-notice-container" class="backdrop-blur">
   <div
     id="consent-notice"
-    class="text-base font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
+    class="text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
   >
-    <span class="text-base font-medium text-neutral-800 dark:text-neutral"
+    <span class="text-lg font-medium text-neutral-800 dark:text-neutral"
       >{{- T "consent-text-start" -}}<a
-        class="text-base font-semibold text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+        class="text-lg font-medium text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
         href="#consent-overlay"
         >{{- T "consent-text-href" -}}</a
       >{{- T "consent-text-end" -}}</span
@@ -38,10 +38,10 @@
     </button>
   </div>
 </div>
-<div id="consent-overlay-container">
+<div id="consent-overlay-container" class="backdrop-blur">
   <div id="consent-overlay" class="overflow-auto">
     <div
-      class="text-base font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
+      class="text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
     >
       {{- $currentLang := $.Site.Language.Lang -}} {{- $data := index
       $.Site.Data $currentLang "consent" "items" -}} {{- range $index, $item :=
@@ -61,7 +61,7 @@
           />
           <label for="item{{- $index -}}"
             ><header
-              class="text-base font-bold text-neutral-800 dark:text-neutral-300"
+              class="text-lg font-bold text-neutral-800 dark:text-neutral-300"
             >
               <h3>{{- $item.title -}}</h3>
             </header>
@@ -71,7 +71,7 @@
               <p>{{- $item.description -}}</p>
             </main>
             <main
-              class="text-base font-medium text-neutral-500 dark:text-neutral"
+              class="text-base font-light text-neutral-500 dark:text-neutral"
             >
               <details>
                 <summary>
