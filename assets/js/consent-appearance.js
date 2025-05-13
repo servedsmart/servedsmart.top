@@ -9,15 +9,13 @@
  */
 
 // Wait for readyState
-function waitForReadyState(fn) {
+function waitForReadyState(function_) {
   if (["interactive", "complete"].includes(document.readyState)) {
-    fn();
+    function_();
   } else {
-    document.addEventListener("readystatechange", function checkReadyState() {
-      if (["interactive", "complete"].includes(document.readyState)) {
-        fn();
-        document.removeEventListener("readystatechange", checkReadyState);
-      }
+    window.addEventListener("DOMContentLoaded", function handler() {
+      function_();
+      document.removeEventListener("DOMContentLoaded", handler);
     });
   }
 }
