@@ -24,10 +24,13 @@
 #consent-notice-container,
 #consent-overlay-container,
 #consent-overlay {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  top: 0;
   justify-content: center;
 }
 #consent-notice-container {
@@ -36,10 +39,6 @@
 #consent-notice-container.active,
 #consent-overlay-container.active {
   display: flex;
-}
-#consent-notice-container,
-#consent-overlay-container {
-  top: 0;
 }
 #consent-overlay-container {
   align-items: center;
@@ -72,8 +71,6 @@
   flex-wrap: nowrap;
 }
 #consent-overlay {
-  width: 100vw;
-  height: 100vh;
   align-items: center;
 }
 #consent-overlay > div > div {
