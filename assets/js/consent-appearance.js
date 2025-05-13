@@ -10,17 +10,11 @@
 
 // Wait for readyState
 function waitForReadyState(fn) {
-  if (
-    document.readyState === "interactive" ||
-    document.readyState === "complete"
-  ) {
+  if (["interactive", "complete"].includes(document.readyState)) {
     fn();
   } else {
     document.addEventListener("readystatechange", function checkReadyState() {
-      if (
-        document.readyState === "interactive" ||
-        document.readyState === "complete"
-      ) {
+      if (["interactive", "complete"].includes(document.readyState)) {
         fn();
         document.removeEventListener("readystatechange", checkReadyState);
       }
