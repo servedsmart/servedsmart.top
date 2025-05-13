@@ -9,15 +9,13 @@
  */
 
 // Wait for readyState
-function waitForReadyState(fn) {
+function waitForReadyState(function_) {
   if (["interactive", "complete"].includes(document.readyState)) {
-    fn();
+    function_();
   } else {
-    document.addEventListener("readystatechange", function checkReadyState() {
-      if (["interactive", "complete"].includes(document.readyState)) {
-        fn();
-        document.removeEventListener("readystatechange", checkReadyState);
-      }
+    window.addEventListener("DOMContentLoaded", function handler() {
+      function_();
+      document.removeEventListener("DOMContentLoaded", handler);
     });
   }
 }
@@ -81,9 +79,9 @@ function setCheckboxes(consentValue) {
   const elements = document.querySelectorAll(
     "#consent-overlay input:not([disabled])"
   );
-  elements.forEach((element, index) => {
-    element.checked = consentValue[index] === "1";
-  });
+  elements.forEach(
+    (element, index) => (element.checked = consentValue[index] === "1")
+  );
 }
 // Set consent value from checkboxes
 function setConsentValue() {
@@ -98,17 +96,15 @@ function setConsentValue() {
 }
 // Set all elements unchecked
 function setUnchecked(elements) {
-  elements.forEach((element) => {
-    element.checked = false;
-  });
+  elements.forEach((element) => (element.checked = false));
 }
 // Handle event listeners on click for elements
-function addClickExec(elements, fn) {
+function addClickExec(elements, function_) {
   if (elements instanceof HTMLElement) {
     elements = [elements];
   }
   elements.forEach((element) => {
-    element.addEventListener("click", fn);
+    element.addEventListener("click", function_);
   });
 }
 // Activate element and parentElement
@@ -126,7 +122,7 @@ function deactivateWithParent(element) {
 waitForReadyState(() => {
   // Set empty hash if in consent-overlay
   if (window.location.hash === "#consent-overlay") {
-    window.location.hash = "#";
+    window.location.hash = "#consent-exit";
   }
 
   // Load functional javascript
@@ -153,9 +149,6 @@ waitForReadyState(() => {
     activateWithParent(document.getElementById("consent-notice"));
   }
   // Handle consent buttons
-  addClickExec(document.querySelectorAll(".consent-settings"), () => {
-    window.location.href = "#consent-overlay";
-  });
   addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
     const consentValue = getConsentValue(optionalScripts, "0");
     loadOptionalJS(consentValue);
@@ -163,6 +156,9 @@ waitForReadyState(() => {
   addClickExec(document.querySelectorAll(".consent-accept-all"), () => {
     const consentValue = getConsentValue(optionalScripts, "1");
     loadOptionalJS(consentValue);
+  });
+  addClickExec(document.getElementById("consent-settings"), () => {
+    window.location.href = "#consent-overlay";
   });
   addClickExec(document.getElementById("consent-settings-confirm"), (event) => {
     setConsentValue();
