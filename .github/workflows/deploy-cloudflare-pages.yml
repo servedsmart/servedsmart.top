@@ -28,6 +28,6 @@ jobs:
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_AUTOSHOP }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID_AUTOSHOP }}
-          command: pages deploy ./public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME_AUTOSHOP }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy ./public --project-name=servedsmart-example-autoshop
