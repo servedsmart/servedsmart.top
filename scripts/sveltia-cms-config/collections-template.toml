@@ -1,0 +1,90 @@
+###
+# File: collections-template.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+[[collections]]
+name = "$name"
+label = "$label"
+slug = "{{title}}"
+path = "{{slug}}/index"
+folder = "$folder"
+format = "toml-frontmatter"
+media_folder = ""
+public_folder = ""
+create = true
+i18n = true
+
+[collections.editor]
+preview = true
+
+[[collections.fields]]
+name = "title"
+label = "Title"
+widget = "string"
+i18n = true
+
+[[collections.fields]]
+name = "date"
+label = "Date"
+widget = "datetime"
+default = "{{now}}"
+format = "YYYY-MM-DDTHH:mm:ssZ"
+picker_utc = true
+i18n = "duplicate"
+
+[[collections.fields]]
+name = "description"
+label = "Description"
+widget = "string"
+required = false
+i18n = true
+
+[[collections.fields]]
+name = "summary"
+label = "Summary"
+widget = "string"
+required = false
+i18n = true
+
+[[collections.fields]]
+name = "categories"
+label = "Categories"
+widget = "select"
+multiple = true
+required = false
+i18n = true
+options = "$categories"
+
+[[collections.fields]]
+name = "tags"
+label = "Tags"
+widget = "select"
+multiple = true
+required = false
+i18n = true
+options = "$tags"
+
+[[collections.fields]]
+name = "draft"
+label = "Draft"
+widget = "boolean"
+default = false
+i18n = "duplicate"
+
+[[collections.fields]]
+name = "body"
+label = "Body"
+widget = "markdown"
+modes = ["rich_text", "raw"]
+sanitize_preview = true
+required = false
+i18n = true
+
+[collections.index_file]
+name = "_index"

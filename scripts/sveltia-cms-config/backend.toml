@@ -1,0 +1,15 @@
+###
+# File: backend.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+[backend]
+name = "github"
+repo = "$repo"
+branch = "$branch"
+base_url = "$base_url"

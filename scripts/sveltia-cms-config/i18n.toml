@@ -1,0 +1,14 @@
+###
+# File: i18n.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+[i18n]
+structure = "multiple_files"
+locales = "$locales"
+default_locale = "$default_locale"
