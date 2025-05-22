@@ -30,7 +30,7 @@ done
 locales="$(jq -cn --args -- '$ARGS.positional' "${LOCALES[@]}")"
 
 # Get language specific categories and tags from archetypes
-ARCHETYPE_FILES=("${SCRIPT_DIR}"/../archetypes/default/*.md)
+ARCHETYPE_FILES=("${SCRIPT_DIR}"/../archetypes/external/*.md)
 if [[ "${#ARCHETYPE_FILES[@]}" -ne "${#ARCHETYPE_FILES[@]}" ]]; then
     echo "ERROR: There is not the same number of language files as the number of archetype files."
     exit 1
@@ -90,8 +90,6 @@ collections="$(
 )"
 
 # Combine everything into one file
-OUTPUT_DIR="${SCRIPT_DIR}"/../assets/json/edit-cms
-mkdir -p "${OUTPUT_DIR}"
 {
     jq -cn --arg repo "${REPO}" --arg branch "${BRANCH}" --arg base_url "${BASE_URL}" "${backend}"
     jq -cn "${collections}"
@@ -99,4 +97,4 @@ mkdir -p "${OUTPUT_DIR}"
     jq -cn --arg default_locale "${default_locale}" --argjson locales "${locales}" "${i18n}"
     jq -cn "${media_libraries}"
     jq -cn "${slug}"
-} | jq -Scs 'add' >"${OUTPUT_DIR}"/config.json
+} | jq -Scs 'add' >"${SCRIPT_DIR}"/../assets/json/edit-cms-config.json

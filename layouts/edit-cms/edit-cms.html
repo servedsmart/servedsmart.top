@@ -18,7 +18,7 @@
   </head>
   <body>
     <div id="content">{{ .Content }}</div>
-    {{- $config := resources.Get "json/edit-cms/config.json" | minify |
+    {{- $config := resources.Get "json/edit-cms-config.json" | minify |
     fingerprint -}}
     <link
       href="{{- $config.RelPermalink -}}"
@@ -26,10 +26,10 @@
       rel="cms-config-url"
     />
     <!-- FIXME: This should also use '| minify'. It currently fails with:
-                ERROR MINIFY: failed to transform "/js/sveltia-cms.js" (text/javascript): unexpected => in expression on line 514 and column 14817
+                ERROR MINIFY: failed to transform "/js/edit-cms-sveltia.js" (text/javascript): unexpected => in expression on line 514 and column 14817
                 514: ...ield:"",pattern:""})=>{if(!e)return t;if(...
      -->
-    {{- $sveltiaCms := resources.Get "js/sveltia-cms.js" | fingerprint -}}
-    <script src="{{- $sveltiaCms.RelPermalink -}}"></script>
+    {{- $sveltia := resources.Get "js/edit-cms-sveltia.js" | fingerprint -}}
+    <script src="{{- $sveltia.RelPermalink -}}"></script>
   </body>
 </html>

@@ -78,6 +78,14 @@ required = false
 i18n = "duplicate"
 
 [[collections.fields]]
+name = "externalUrl"
+label = "External link"
+widget = "string"
+required = false
+hint = "Transform page into external link."
+i18n = true
+
+[[collections.fields]]
 name = "body"
 label = "Body"
 widget = "markdown"
