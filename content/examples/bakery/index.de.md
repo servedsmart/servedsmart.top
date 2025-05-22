@@ -2,7 +2,6 @@
 title = "Bäckerei"
 date = '2025-04-10T22:25:03+02:00'
 description = "Bäckerei"
-summary = "Bäckerei"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'extern',

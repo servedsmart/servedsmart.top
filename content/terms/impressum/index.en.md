@@ -2,7 +2,6 @@
 title = 'Legal Disclosure'
 date = '2025-03-02T22:04:49+01:00'
 description = 'Legal Disclosure'
-summary = 'Legal Disclosure'
 # Categories are generally used for broader, top-level topics.
 categories = [
  'internal',

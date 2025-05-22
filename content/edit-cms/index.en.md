@@ -2,7 +2,6 @@
 title = "Edit Page"
 date = '2025-05-19T22:03:17+02:00'
 description = "Edit Page"
-summary = "Edit Page"
 # Categories are generally used for broader, top-level topics.
 categories = [
 ]

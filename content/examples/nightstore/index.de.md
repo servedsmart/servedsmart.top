@@ -2,7 +2,6 @@
 title = "Spätkauf"
 date = '2025-04-10T22:25:12+02:00'
 description = "Spätkauf"
-summary = "Spätkauf"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'extern',

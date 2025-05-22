@@ -2,7 +2,6 @@
 title = "Example websites"
 date = '2025-04-08T11:14:34+02:00'
 description = "Get to know our example websites."
-summary = "Get to know our example websites."
 # Categories are generally used for broader, top-level topics.
 categories = [
  'external',
