@@ -1,0 +1,97 @@
+###
+# File: collections-template.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+[[collections]]
+name = "$name"
+label = "$label"
+slug = "{{title}}"
+path = "{{slug}}/index"
+folder = "$folder"
+format = "toml-frontmatter"
+media_folder = ""
+public_folder = ""
+create = true
+i18n = true
+
+[collections.editor]
+preview = true
+
+[[collections.fields]]
+name = "title"
+label = "Title"
+widget = "string"
+hint = "Should be unique, short and descriptive."
+i18n = true
+
+[[collections.fields]]
+name = "date"
+label = "Date"
+widget = "datetime"
+default = "{{now}}"
+format = "YYYY-MM-DDTHH:mm:ssZ"
+picker_utc = true
+hint = "Date when the page was originally created."
+i18n = "duplicate"
+
+[[collections.fields]]
+name = "description"
+label = "Description"
+widget = "string"
+required = false
+hint = "Description for SEO purposes. Should be less than 160 characters."
+i18n = true
+
+[[collections.fields]]
+name = "categories"
+label = "Categories"
+widget = "select"
+options = "$categories"
+multiple = true
+required = false
+hint = "Categories for SEO purposes that are sorted by language. 5 to 10 categories are usually recommended."
+i18n = true
+
+[[collections.fields]]
+name = "tags"
+label = "Tags"
+widget = "select"
+options = "$tags"
+multiple = true
+required = false
+hint = "Tags for SEO purposes that are sorted by language. 3 to 10 tags are usually recommended."
+i18n = true
+
+[[collections.fields]]
+name = "draft"
+label = "Draft"
+widget = "boolean"
+required = false
+hint = "If true, saves this as a draft and doesn't publish the page."
+i18n = "duplicate"
+
+[[collections.fields]]
+name = "externalUrl"
+label = "External link"
+widget = "string"
+required = false
+hint = "Transforms page into external link. Format: https://example.com."
+i18n = true
+
+[[collections.fields]]
+name = "body"
+label = "Body"
+widget = "markdown"
+modes = ["rich_text", "raw"]
+sanitize_preview = true
+hint = "Can include formatted text, headings, lists, images, ..."
+i18n = true
+
+[collections.index_file]
+name = "_index"

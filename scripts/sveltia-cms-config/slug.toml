@@ -1,0 +1,14 @@
+###
+# File: slug.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+[slug]
+encoding = "ascii"
+clean_accents = true
+sanitize_replacement = "_"
