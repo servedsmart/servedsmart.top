@@ -2,7 +2,6 @@
 title = "Chips"
 date = '2025-04-30T11:59:32+02:00'
 description = "Chips"
-summary = "Chips"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'lebensmittel',
