@@ -14,8 +14,6 @@ tags = [
 ]
 +++
 
-**Gültigkeitsdatum: 28. April 2025, 10:00 UTC**
-
 ## Einführung und Organisatorische Informationen
 
 Wir, bei REPLACE_ME_COMPANY_NAME, sind bestrebt, unsere Kunden und Kontakte nach besten Kräften zu bedienen. Ein Teil unseres Engagements beinhaltet die verantwortungsvolle Verwaltung personenbezogener Daten, die über unsere Website servedsmart.top gesammelt wurden, und alle damit verbundenen Interaktionen.

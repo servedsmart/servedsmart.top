@@ -14,8 +14,6 @@ tags = [
 ]
 +++
 
-**Effective Date: 28 April 2025, 10:00 UTC**
-
 ## Introduction and Organizational Information
 
 We, at REPLACE_ME_COMPANY_NAME, are dedicated to serving our customers and contacts to the best of our abilities. Part of our commitment involves the responsible management of personal information collected through our website servedsmart.top, and any related interactions.
