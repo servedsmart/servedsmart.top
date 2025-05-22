@@ -1,0 +1,18 @@
+###
+# File: media-libraries.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+[media_libraries.default.config.transformations.raster_image]
+format = "webp"
+quality = 85
+width = 2048
+height = 2048
+
+[media_libraries.default.config.transformations.svg]
+optimize = true

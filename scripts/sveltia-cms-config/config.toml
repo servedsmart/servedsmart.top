@@ -1,0 +1,15 @@
+###
+# File: config.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+site_url = "$site_url"
+publish_mode = "simple"
+show_preview_links = false
+media_folder = "static/img"
+public_folder = "/img"
