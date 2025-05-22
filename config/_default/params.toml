@@ -53,7 +53,7 @@ cardViewScreenWidth = false
 layoutBackgroundBlur = true  # only used when layout equals background
 
 [article]
-showDate = false
+showDate = true
 showViews = false
 showLikes = false
 showDateOnlyInArticle = false
