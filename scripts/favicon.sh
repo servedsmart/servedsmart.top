@@ -16,8 +16,8 @@ set -e
 SCRIPT_DIR="$(dirname -- "$(readlink -f -- "${0}")")"
 
 # Define variables
-INPUT="${SCRIPT_DIR}"/logo.svg
-OUTPUT_DIR="${SCRIPT_DIR}"/favicon
+INPUT="${SCRIPT_DIR}"/../graphics/projects/logo/logo.svg
+OUTPUT_DIR="${SCRIPT_DIR}"/../graphics/projects/logo/favicon
 ## These will only be exported as png
 SIZES=(
     16
@@ -56,7 +56,7 @@ done
 magick -background none "${INPUT}" -define icon:auto-resize="${SIZES_ICO}" "${OUTPUT_DIR}"/favicon.ico
 
 # Transfer files to project dir
-cp "${OUTPUT_DIR}"/*.png "${SCRIPT_DIR}"/../../../static/
+cp "${OUTPUT_DIR}"/*.png "${SCRIPT_DIR}"/../static/
 
 # Execute author.sh
 "${SCRIPT_DIR}"/author.sh

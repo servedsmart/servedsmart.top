@@ -2,7 +2,6 @@
 title = "Pizza Margherita"
 date = '2025-05-02T15:12:14+02:00'
 description = "Pizza Margherita"
-summary = "Pizza Margherita"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'main course',
