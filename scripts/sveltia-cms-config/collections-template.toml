@@ -74,7 +74,7 @@ options = "$tags"
 name = "draft"
 label = "Draft"
 widget = "boolean"
-default = false
+required = false
 i18n = "duplicate"
 
 [[collections.fields]]
@@ -83,7 +83,6 @@ label = "Body"
 widget = "markdown"
 modes = ["rich_text", "raw"]
 sanitize_preview = true
-required = false
 i18n = true
 
 [collections.index_file]
