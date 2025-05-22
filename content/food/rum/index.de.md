@@ -1,7 +1,8 @@
 +++
 title = "Rum"
 date = '2025-04-30T11:59:37+02:00'
-description = "Rum"e generally used for broader, top-level topics.
+description = "Rum"
+# Categories are generally used for broader, top-level topics.
 categories = [
  'alkohol',
  'produkt',
