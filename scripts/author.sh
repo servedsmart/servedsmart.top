@@ -16,8 +16,8 @@ set -e
 SCRIPT_DIR="$(dirname -- "$(readlink -f -- "${0}")")"
 
 # Define variables
-INPUT="${SCRIPT_DIR}"/logo.svg
-OUTPUT_DIR="${SCRIPT_DIR}"/author
+INPUT="${SCRIPT_DIR}"/../graphics/projects/logo/logo.svg
+OUTPUT_DIR="${SCRIPT_DIR}"/../graphics/projects/logo/author
 SIZE=512
 OUTPUT="${OUTPUT_DIR}"/author-"${SIZE}"x"${SIZE}".png
 
@@ -29,4 +29,4 @@ magick -background none -bordercolor none "${INPUT}" -border 15% -resize "${SIZE
 oxipng -a -s -o 4 "${OUTPUT}"
 
 # Transfer files to project dir
-cp "${OUTPUT}" "${SCRIPT_DIR}"/../../../assets/img/
+cp "${OUTPUT}" "${SCRIPT_DIR}"/../assets/img/
