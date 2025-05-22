@@ -2,7 +2,6 @@
 title = "Ölwechsel"
 date = '2025-04-28T23:24:46+02:00'
 description = "Ölwechsel"
-summary = "Ölwechsel"
 # Categories are generally used for broader, top-level topics.
 categories = [
  'autoreparatur',
