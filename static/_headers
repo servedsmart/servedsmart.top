@@ -89,9 +89,9 @@
   Referrer-Policy: no-referrer
   # https://owasp.org/www-project-secure-headers/#clear-site-data
   # https://owasp.org/www-project-secure-headers/#cross-origin-embedder-policy
-  Cross-Origin-Embedder-Policy : require-corp
+  Cross-Origin-Embedder-Policy: require-corp
   # https://owasp.org/www-project-secure-headers/#cross-origin-opener-policy
-  Cross-Origin-Opener-Policy : same-origin
+  Cross-Origin-Opener-Policy: same-origin
   # https://owasp.org/www-project-secure-headers/#cross-origin-resource-policy
   Cross-Origin-Resource-Policy: same-origin
   # Deprecated: https://owasp.org/www-project-secure-headers/#x-xss-protection
