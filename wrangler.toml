@@ -1,0 +1,21 @@
+###
+# File: wrangler.toml
+# Author: Leopold Meinel (leo@meinel.dev)
+# -----
+# Copyright (c) 2025 Leopold Meinel & contributors
+# SPDX ID: MIT
+# URL: https://opensource.org/licenses/MIT
+# -----
+###
+
+name = "servedsmart-example-bakery"
+compatibility_date = "2025-05-23"
+workers_dev = false
+preview_urls = false
+send_metrics = false
+
+routes = [{ pattern = "bakery.servedsmart.top", custom_domain = true }]
+
+[assets]
+directory = "./public/"
+not_found_handling = "404-page"
