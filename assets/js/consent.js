@@ -19,72 +19,17 @@ function waitForReadyState(function_) {
     });
   }
 }
-// Set localStorage
-function setLocalStorage(consentValue) {
-  localStorage.setItem("optional-scripts", optionalScripts.toString());
+
+// Store consentValue in localStorage
+function setConsentValueStorage(consentValue) {
+  localStorage.setItem(
+    "optional-script-hashes",
+    optionalScriptHashes.toString()
+  );
   localStorage.setItem("consent-settings", consentValue);
 }
-// Get from localStorage or remove if optionalScripts don't match
-function getLocalStorageOrRemove() {
-  const storedScripts = localStorage.getItem("optional-scripts");
-  if (storedScripts === optionalScripts.toString()) {
-    return localStorage.getItem("consent-settings");
-  } else {
-    localStorage.removeItem("optional-scripts");
-    localStorage.removeItem("consent-settings");
-    return null;
-  }
-}
-// Calculate consentValue, string should be either "0" or "1"
-function getConsentValue(scripts, string) {
-  return scripts.map(() => string).join("");
-}
-// Load optional javascript
-function loadOptionalJS(consentValue) {
-  deactivateWithParent(document.getElementById("consent-notice"));
-  deactivateWithParent(document.getElementById("consent-overlay"));
-  if (!consentValue) {
-    setLocalStorage("0");
-    return;
-  }
-  setCheckboxes(consentValue);
-  setLocalStorage(consentValue);
-  loadJS(optionalScripts, consentValue);
-}
-// Load functional javascript
-function loadFunctionalJS() {
-  const consentValue = getConsentValue(functionalScripts, "1");
-  loadJS(functionalScripts, consentValue);
-}
-// Load javascript
-function loadJS(scripts, consentValue) {
-  const documentScripts = Array.from(document.querySelectorAll("script")).map(
-    (scr) => scr.src
-  );
-  scripts.forEach((value, key) => {
-    if (
-      !documentScripts.includes(value) &&
-      !documentScripts.includes(window.location.origin + value) &&
-      consentValue[key] === "1"
-    ) {
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = value;
-      document.body.appendChild(script);
-    }
-  });
-}
-// Set checkboxes from consentValue
-function setCheckboxes(consentValue) {
-  const elements = document.querySelectorAll(
-    "#consent-overlay input:not([disabled])"
-  );
-  elements.forEach(
-    (element, index) => (element.checked = consentValue[index] === "1")
-  );
-}
 // Set consent value from checkboxes
-function setConsentValue() {
+function setConsentValueDataset() {
   const elements = document.querySelectorAll(
     "#consent-overlay input:not([disabled])"
   );
@@ -94,19 +39,36 @@ function setConsentValue() {
   document.getElementById("consent-settings-confirm").dataset.consentvalue =
     consentValue;
 }
+// Calculate consentValue, string should be either "0" or "1"
+function getConsentValue(scripts, string) {
+  return scripts.map(() => string).join("");
+}
+// Get stored consentValue from localStorage or remove if optionalScripts don't match
+function getConsentValueStorage() {
+  const storedScriptHashes = localStorage.getItem("optional-script-hashes");
+  if (storedScriptHashes === optionalScriptHashes.toString()) {
+    return localStorage.getItem("consent-settings");
+  } else {
+    localStorage.removeItem("optional-script-hashes");
+    localStorage.removeItem("consent-settings");
+    return null;
+  }
+}
+
+// Set checkboxes from consentValue
+function setCheckboxes(consentValue) {
+  const elements = document.querySelectorAll(
+    "#consent-overlay input:not([disabled])"
+  );
+  elements.forEach(
+    (element, index) => (element.checked = consentValue[index] === "1")
+  );
+}
 // Set all elements unchecked
 function setUnchecked(elements) {
   elements.forEach((element) => (element.checked = false));
 }
-// Handle event listeners on click for elements
-function addClickExec(elements, function_) {
-  if (elements instanceof HTMLElement) {
-    elements = [elements];
-  }
-  elements.forEach((element) => {
-    element.addEventListener("click", function_);
-  });
-}
+
 // Activate element and parentElement
 function activateWithParent(element) {
   element.classList.add("active");
@@ -119,50 +81,85 @@ function deactivateWithParent(element) {
   window.location.hash = "#consent-exit";
 }
 
-waitForReadyState(() => {
-  // Set empty hash if in consent-overlay
-  if (window.location.hash === "#consent-overlay") {
-    window.location.hash = "#consent-exit";
+// Load javascript
+function loadScripts(scripts, hashes, consentValue) {
+  const documentScripts = Array.from(document.querySelectorAll("script")).map(
+    (scr) => scr.src
+  );
+  scripts.forEach((value, key) => {
+    if (
+      !documentScripts.includes(value) &&
+      !documentScripts.includes(window.location.origin + value) &&
+      consentValue[key] === "1"
+    ) {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = value;
+      script.integrity = hashes[key];
+      document.body.appendChild(script);
+    }
+  });
+}
+// Load functional javascript
+function loadFunctionalScripts() {
+  const consentValue = getConsentValue(functionalScripts, "1");
+  loadScripts(functionalScripts, functionalScriptHashes, consentValue);
+}
+// Load optional javascript
+function loadOptionalScripts(consentValue) {
+  deactivateWithParent(document.getElementById("consent-notice"));
+  deactivateWithParent(document.getElementById("consent-overlay"));
+  if (!consentValue) {
+    setConsentValueStorage("0");
+    return;
   }
+  setCheckboxes(consentValue);
+  setConsentValueStorage(consentValue);
+  loadScripts(optionalScripts, optionalScriptHashes, consentValue);
+}
 
+// Handle event listeners on click for elements
+function addClickExec(elements, function_) {
+  if (elements instanceof HTMLElement) {
+    elements = [elements];
+  }
+  elements.forEach((element) => {
+    element.addEventListener("click", function_);
+  });
+}
+
+waitForReadyState(() => {
   // Load functional javascript
-  loadFunctionalJS();
+  loadFunctionalScripts();
 
   // Uncheck checkboxes
   setUnchecked(
     document.querySelectorAll("#consent-overlay input:not([disabled])")
   );
 
-  // Open consent-overlay if hash is #consent-overlay
-  window.onhashchange = () => {
-    if (window.location.hash === "#consent-overlay") {
-      activateWithParent(document.getElementById("consent-overlay"));
-    }
-  };
-
   // Load javascript if user has consented or show notice
-  const consentValue = getLocalStorageOrRemove();
+  const consentValue = getConsentValueStorage();
   if (consentValue) {
     setCheckboxes(consentValue);
-    loadJS(optionalScripts, consentValue);
+    loadScripts(optionalScripts, optionalScriptHashes, consentValue);
   } else {
     activateWithParent(document.getElementById("consent-notice"));
   }
   // Handle consent buttons
   addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
     const consentValue = getConsentValue(optionalScripts, "0");
-    loadOptionalJS(consentValue);
+    loadOptionalScripts(consentValue);
   });
   addClickExec(document.querySelectorAll(".consent-accept-all"), () => {
     const consentValue = getConsentValue(optionalScripts, "1");
-    loadOptionalJS(consentValue);
+    loadOptionalScripts(consentValue);
   });
   addClickExec(document.getElementById("consent-settings"), () => {
     window.location.href = "#consent-overlay";
   });
   addClickExec(document.getElementById("consent-settings-confirm"), (event) => {
-    setConsentValue();
-    loadOptionalJS(event.currentTarget.dataset.consentvalue);
+    setConsentValueDataset();
+    loadOptionalScripts(event.currentTarget.dataset.consentvalue);
   });
   addClickExec(document.getElementById("consent-overlay"), (event) => {
     if (
@@ -171,4 +168,16 @@ waitForReadyState(() => {
       deactivateWithParent(event.currentTarget);
     }
   });
+
+  // Set consent-exit hash if in consent-overlay
+  if (window.location.hash === "#consent-overlay") {
+    window.location.hash = "#consent-exit";
+  }
+
+  // Open consent-overlay if hash is #consent-overlay
+  window.onhashchange = () => {
+    if (window.location.hash === "#consent-overlay") {
+      activateWithParent(document.getElementById("consent-overlay"));
+    }
+  };
 });
