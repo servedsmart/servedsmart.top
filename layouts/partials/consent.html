@@ -106,21 +106,17 @@
   </div>
 </div>
 
-<script>
-  const optionalScripts = [];
-  const functionalScripts = [];
-  {{- $currentLang := $.Site.Language.Lang -}}
-  {{- range index $.Site.Data $currentLang "consent" "items" -}}
-      {{- if .script_file -}}
-          {{- $script_file := resources.Get (printf "js/%s" .script_file) -}}
-          {{- $script_file = $script_file | resources.ExecuteAsTemplate (printf "js/%s" .script_file) . | resources.Minify | resources.Fingerprint "sha512" -}}
-          {{- if .is_functional -}}
-              functionalScripts.push("{{- $script_file.RelPermalink -}}");
-          {{- else -}}
-              optionalScripts.push("{{- $script_file.RelPermalink -}}");
-          {{- end -}}
-      {{- end -}}
-  {{- end -}}
-</script>
+{{- $consent_variables := resources.Get "js/consent-variables.js" |
+resources.ExecuteAsTemplate "js/consent-variables.js" . | resources.Minify |
+resources.Fingerprint "sha512" -}}
+<script
+  type="text/javascript"
+  src="{{- $consent_variables.RelPermalink -}}"
+  integrity="{{- $consent_variables.Data.Integrity -}}"
+></script>
 {{- $consent := resources.Get "js/consent.js" | minify | fingerprint -}}
-<script src="{{- $consent.RelPermalink -}}"></script>
+<script
+  type="text/javascript"
+  src="{{- $consent.RelPermalink -}}"
+  integrity="{{- $consent.Data.Integrity -}}"
+></script>
