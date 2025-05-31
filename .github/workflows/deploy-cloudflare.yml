@@ -17,7 +17,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo
+      - name: Install Dependencies - Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "latest"
@@ -34,11 +34,12 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_0 }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
+      - name: Install Dependencies - System Dependencies
+        run: sudo apt-get install -y yq
+
       - name: Deploy via API
-        uses: mikefarah/yq@master
         env:
           CLOUDFLARE_API_TOKEN_1: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
           CLOUDFLARE_ZONE_ID_0: ${{ secrets.CLOUDFLARE_ZONE_ID_0 }}
           JSON_SECRETS: ${{ toJson(secrets) }}
-        with:
-          cmd: ./.github/scripts/deploy-cloudflare-api.sh
+        run: ./.github/scripts/deploy-cloudflare-api.sh
