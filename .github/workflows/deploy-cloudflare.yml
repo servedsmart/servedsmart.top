@@ -40,4 +40,5 @@ jobs:
           CLOUDFLARE_API_TOKEN_1: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
           CLOUDFLARE_ZONE_ID_0: ${{ secrets.CLOUDFLARE_ZONE_ID_0 }}
           JSON_SECRETS: ${{ toJson(secrets) }}
-        run: ./.github/scripts/deploy-cloudflare-api.sh
+        with:
+          cmd: ./.github/scripts/deploy-cloudflare-api.sh
