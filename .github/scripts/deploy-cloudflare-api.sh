@@ -29,7 +29,8 @@ DELIMITER="p4qqrKQ3QZ8nNs6QqTNWwEYFaAoqYWceGkwshO82TPdYFWa2tA68oBRn29IbkYvn"
 for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
     ### Build current branch
     git restore .
-    git switch "${branch}"
+    git fetch origin "${branch}" --depth=1
+    git switch --recurse-submodules "${branch}"
     hugo --enableGitInfo --minify -e "production" -d ./public
     ### Get content of <script> tags as array
     SCRIPT_TAG_CONTENT="$(find "${ROOT_DIR}"/public -type f -name "*.html" -exec sh -c 'hxnormalize -xe "${1}" | hxselect -ics '"${DELIMITER}"' script' _ {} \;)"
