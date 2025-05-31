@@ -28,8 +28,16 @@ jobs:
           HUGO_ENV: "production"
         run: hugo --enableGitInfo --minify -e "production" -d ./public
 
-      - name: Deploy
+      - name: Deploy to Workers
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_0 }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Deploy via API
+        uses: mikefarah/yq@master
+        env:
+          CLOUDFLARE_API_TOKEN_1: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
+          CLOUDFLARE_ZONE_ID_0: ${{ secrets.CLOUDFLARE_ZONE_ID_0 }}
+          JSON_SECRETS: ${{ toJson(secrets) }}
+        run: ./.github/scripts/deploy-cloudflare-api.sh
