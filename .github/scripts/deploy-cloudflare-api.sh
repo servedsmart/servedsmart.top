@@ -18,7 +18,7 @@ SCRIPT_DIR="$(dirname -- "$(readlink -f -- "${0}")")"
 . "${SCRIPT_DIR}"/deploy-cloudflare-api.conf
 
 # Make copy of current repo
-ROOT_DIR="${SCRIPT_DIR}"/site
+ROOT_DIR=/tmp/site
 cp -R "${SCRIPT_DIR}"/../.. "${ROOT_DIR}"
 cd "${ROOT_DIR}"
 
