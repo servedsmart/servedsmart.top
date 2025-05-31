@@ -65,11 +65,15 @@ TAG_CONTENT_HASHES=()
 update_tag_content_hashes "style"
 declare -a STYLE_HASHES+=("${TAG_CONTENT_HASHES[@]}")
 ### Fetch remote branches and get hashes for each
-echo "DEBUG: $(git remote -v)"
-git remote add origin "${REPO_URL}"
-echo "DEBUG: $(git remote -v)"
 git remote set-branches origin '*'
-git pull --depth=1
+git fetch --depth=1
+for target_branch in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
+    #### Track all remote branches if not main or HEAD
+    if [[ "${target_branch}" == "origin/main" || "${target_branch}" == "origin" ]]; then
+        continue
+    fi
+    git branch --track "${target_branch#origin/}" "$target_branch"
+done
 echo "DEBUG: $(pwd)"
 echo "DEBUG: $(git for-each-ref --format='%(refname:short)' refs/heads)"
 for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
