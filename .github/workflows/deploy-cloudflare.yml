@@ -35,7 +35,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Install Dependencies - System Dependencies
-        run: sudo apt-get install -y yq
+        run: sudo apt-get install -y html-xml-utils yq
 
       - name: Deploy via API
         env:
