@@ -27,7 +27,8 @@ cd "${ROOT_DIR}"
 ### Set DELIMITER to fixed 64 byte string.
 DELIMITER="p4qqrKQ3QZ8nNs6QqTNWwEYFaAoqYWceGkwshO82TPdYFWa2tA68oBRn29IbkYvn"
 ### Fetch remote branches and loop through them
-git pull --all --depth=1
+git remote set-branches origin '*'
+git fetch --depth=1
 for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
     #### Build current branch
     git restore .
