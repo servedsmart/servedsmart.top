@@ -66,7 +66,8 @@ update_tag_content_hashes "style"
 declare -a STYLE_HASHES+=("${TAG_CONTENT_HASHES[@]}")
 ### Fetch remote branches and get hashes for each
 git remote set-branches origin '*'
-git fetch --depth=1
+git pull --depth=1
+echo "DEBUG: $(pwd)"
 echo "DEBUG: $(git for-each-ref --format='%(refname:short)' refs/heads)"
 for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
     echo "DEBUG: ${target_branch}"
