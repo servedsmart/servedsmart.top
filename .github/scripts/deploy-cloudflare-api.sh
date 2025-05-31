@@ -26,17 +26,18 @@ cd "${ROOT_DIR}"
 ## Get SCRIPT_HASHES and STYLE_HASHES for every branch
 ### Set DELIMITER to fixed 64 byte string.
 DELIMITER="p4qqrKQ3QZ8nNs6QqTNWwEYFaAoqYWceGkwshO82TPdYFWa2tA68oBRn29IbkYvn"
+### Fetch remote branches and loop through them
+git pull --all --depth=1
 for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
-    ### Build current branch
+    #### Build current branch
     git restore .
-    git fetch origin "${branch}" --depth=1
     git switch --recurse-submodules "${branch}"
     hugo --enableGitInfo --minify -e "production" -d ./public
-    ### Get content of <script> tags as array
+    #### Get content of <script> tags as array
     SCRIPT_TAG_CONTENT="$(find "${ROOT_DIR}"/public -type f -name "*.html" -exec sh -c 'hxnormalize -xe "${1}" | hxselect -ics '"${DELIMITER}"' script' _ {} \;)"
     SCRIPT_TAG_CONTENT="${SCRIPT_TAG_CONTENT//$'\n'/\\n}"
     readarray -t SCRIPTS < <(printf '%s\n' "${SCRIPT_TAG_CONTENT}" | awk -v RS="${DELIMITER}" '1')
-    ### Remove empty elements and duplicates
+    #### Remove empty elements and duplicates
     SCRIPTS_LENGTH="${#SCRIPTS[@]}"
     for ((i = 0; i < SCRIPTS_LENGTH; i++)); do
         if [[ -z "${SCRIPTS[${i}]}" ]]; then
@@ -48,22 +49,22 @@ for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
         SCRIPTS_["${script}"]=1
     done
     readarray -t SCRIPTS < <(printf '%s\n' "${!SCRIPTS_[@]}")
-    ### Get SCRIPT_HASHES from SCRIPTS
+    #### Get SCRIPT_HASHES from SCRIPTS
     for script_ in "${SCRIPTS[@]}"; do
         script="$(printf "%b\n" "${script_}")"
         SCRIPT_HASHES+=("'sha256-$(printf '%s\n' "$(printf '%s' "${script}" | openssl sha256 -binary | openssl base64)'")")
     done
-    ### Remove duplicates
+    #### Remove duplicates
     declare -A SCRIPT_HASHES_
     for script_hash in "${SCRIPT_HASHES[@]}"; do
         SCRIPT_HASHES_["${script_hash}"]=1
     done
     readarray -t SCRIPT_HASHES < <(printf '%s\n' "${!SCRIPT_HASHES_[@]}")
-    ### Get content of <style> tags as array
+    #### Get content of <style> tags as array
     STYLE_TAG_CONTENT="$(find "${ROOT_DIR}"/public -type f -name "*.html" -exec sh -c 'hxnormalize -xe "${1}" | hxselect -ics '"${DELIMITER}"' style' _ {} \;)"
     STYLE_TAG_CONTENT="${STYLE_TAG_CONTENT//$'\n'/\\n}"
     readarray -t STYLES < <(printf '%s\n' "${STYLE_TAG_CONTENT}" | awk -v RS="${DELIMITER}" '1')
-    ### Remove empty elements and duplicates
+    #### Remove empty elements and duplicates
     STYLES_LENGTH="${#STYLES[@]}"
     for ((i = 0; i < STYLES_LENGTH; i++)); do
         if [[ -z "${STYLES[${i}]}" ]]; then
@@ -75,12 +76,12 @@ for branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
         STYLES_["${style}"]=1
     done
     readarray -t STYLES < <(printf '%s\n' "${!STYLES_[@]}")
-    ### Get STYLE_HASHES from STYLES
+    #### Get STYLE_HASHES from STYLES
     for style_ in "${STYLES[@]}"; do
         style="$(printf "%b\n" "${style_}")"
         STYLE_HASHES+=("'sha256-$(printf '%s\n' "$(printf '%s' "${style}" | openssl sha256 -binary | openssl base64)'")")
     done
-    ### Remove duplicates
+    #### Remove duplicates
     declare -A STYLE_HASHES_
     for style_hash in "${STYLE_HASHES[@]}"; do
         STYLE_HASHES_["${style_hash}"]=1
