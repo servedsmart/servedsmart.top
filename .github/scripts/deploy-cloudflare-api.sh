@@ -67,11 +67,14 @@ declare -a STYLE_HASHES+=("${TAG_CONTENT_HASHES[@]}")
 ### Fetch remote branches and get hashes for each
 git remote set-branches origin '*'
 git fetch --depth=1
+echo "DEBUG: $(git for-each-ref --format='%(refname:short)' refs/heads)"
 for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
+    echo "DEBUG: ${target_branch}"
     #### Build current branch if not main
     if [[ "${target_branch}" == "main" ]]; then
         continue
     fi
+    echo "DEBUG: ${target_branch}"
     git restore .
     git switch --recurse-submodules "${target_branch}"
     hugo --enableGitInfo --minify -e "production" -d ./public
