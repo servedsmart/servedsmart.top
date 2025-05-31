@@ -74,15 +74,11 @@ for target_branch in $(git for-each-ref --format='%(refname:short)' refs/remotes
     fi
     git branch --track "${target_branch#origin/}" "$target_branch"
 done
-echo "DEBUG: $(pwd)"
-echo "DEBUG: $(git for-each-ref --format='%(refname:short)' refs/heads)"
 for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
-    echo "DEBUG: ${target_branch}"
     #### Build current branch if not main
     if [[ "${target_branch}" == "main" ]]; then
         continue
     fi
-    echo "DEBUG: ${target_branch}"
     git restore .
     git switch --recurse-submodules "${target_branch}"
     hugo --enableGitInfo --minify -e "production" -d ./public
@@ -348,6 +344,7 @@ if [[ -n "${RULESET_ID}" ]]; then
     RESPONSE="$(curl -s https://api.cloudflare.com/client/v4/zones/"${CLOUDFLARE_ZONE_ID_0}"/rulesets/"${RULESET_ID}" -X PUT -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN_1}" --json "${JSON_RESPONSE_HEADER_TRANSFORM_RULESET}")"
     if ! jq -e ".success" <<<"${RESPONSE}" >/dev/null 2>&1; then
         echo "ERROR: Cloudflare API Request unsuccessful. PUT https://api.cloudflare.com/client/v4/zones/CLOUDFLARE_ZONE_ID_0/rulesets/RULESET_ID failed."
+        echo "DEBUG: ${RESPONSE}"
         exit 1
     fi
     echo "Cloudflare API Request successful. PUT https://api.cloudflare.com/client/v4/zones/CLOUDFLARE_ZONE_ID_0/rulesets/RULESET_ID succeeded."
