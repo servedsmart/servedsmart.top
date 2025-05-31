@@ -97,8 +97,8 @@ git switch --recurse-submodules "main"
 ## https://content-security-policy.com/
 RULES_CSP_DEFAULT=(
     "default-src 'none'"
-    "script-src 'self' ${SCRIPT_HASHES[@]}"
-    "style-src 'self' ${STYLE_HASHES[@]}"
+    "script-src 'self' ${SCRIPT_HASHES[*]}"
+    "style-src 'self' ${STYLE_HASHES[*]}"
     "img-src 'self' blob: data:"
     "connect-src 'self'"
     "font-src 'self'"
