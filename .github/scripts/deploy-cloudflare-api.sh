@@ -23,9 +23,12 @@ cp -R "${SCRIPT_DIR}"/../.. "${ROOT_DIR}"
 cd "${ROOT_DIR}"
 
 # Response Header Transform Rules
+# FIXME: Some inline scripts are apparently created in index.js, not sure how we can fix that since they are generated dynamically...
+# FIXME: styles is empty all the time but I'm pretty sure that there are a lot of inline styles that should get matched here
 tag_content_hashes_update() {
     ## Get content of tags as array
     TAG_TYPE="${1}"
+    TARGET_BRANCH="${2}"
     TAG_CONTENT=""
     while IFS= read -r file; do
         TAG_CONTENT+="$(pup -f "${file}" "${TAG_TYPE} json{}")"
@@ -33,36 +36,46 @@ tag_content_hashes_update() {
     TAG_CONTENT_JSON="$(printf '%s\n' "${TAG_CONTENT}" | jq -Scs 'add | map(select(has("text"))) | unique_by(.text) | map(.text)')"
     readarray -t TAG_CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${TAG_CONTENT_JSON}")
     ## Get TAG_CONTENT_HASHES from TAG_CONTENTS
+    TAG_CONTENT_HASHES=()
     for tag_content_ in "${TAG_CONTENTS[@]}"; do
         tag_content="$(printf "%b\n" "${tag_content_}")"
         TAG_CONTENT_HASHES+=("'sha256-$(printf '%s\n' "$(printf '%s' "${tag_content}" | openssl sha256 -binary | openssl base64)'")")
     done
+    if [[ "${TAG_TYPE}" == "script" ]]; then
+        SCRIPT_HASHES["${TARGET_BRANCH}"]="${TAG_CONTENT_HASHES[*]}"
+    elif [[ "${TAG_TYPE}" == "style" ]]; then
+        STYLE_HASHES["${TARGET_BRANCH}"]="${TAG_CONTENT_HASHES[*]}"
+    fi
 }
 script_hashes_remove_duplicates() {
     ## Remove duplicates
-    declare -A SCRIPT_HASHES_
-    for hash in "${SCRIPT_HASHES[@]}"; do
-        SCRIPT_HASHES_["${hash}"]=1
+    TARGET_BRANCH="${1}"
+    readarray -td' ' SCRIPT_HASHES_ <<<"${SCRIPT_HASHES["${TARGET_BRANCH}"]}"
+    declare -A SCRIPT_HASHES__
+    for hash in "${SCRIPT_HASHES_[@]}"; do
+        SCRIPT_HASHES__["${hash}"]=1
     done
-    readarray -t SCRIPT_HASHES < <(printf '%s\n' "${!SCRIPT_HASHES_[@]}")
+    SCRIPT_HASHES["${TARGET_BRANCH}"]="${!SCRIPT_HASHES__[*]}"
 }
 style_hashes_remove_duplicates() {
     ## Remove duplicates
-    declare -A STYLE_HASHES_
-    for hash in "${STYLE_HASHES[@]}"; do
-        STYLE_HASHES_["${hash}"]=1
+    TARGET_BRANCH="${1}"
+    readarray -td' ' STYLE_HASHES_ <<<"${STYLE_HASHES["${TARGET_BRANCH}"]}"
+    declare -A STYLE_HASHES__
+    for hash in "${STYLE_HASHES_[@]}"; do
+        STYLE_HASHES__["${hash}"]=1
     done
-    readarray -t STYLE_HASHES < <(printf '%s\n' "${!STYLE_HASHES_[@]}")
+    STYLE_HASHES["${TARGET_BRANCH}"]="${!STYLE_HASHES__[*]}"
 }
 ## Get SCRIPT_HASHES and STYLE_HASHES for every branch
+declare -A SCRIPT_HASHES
+declare -A STYLE_HASHES
 ### Get hashes for main
-#### Get SCRIPT_HASHES and STYLE_HASHES from tag_content_hashes_update()
-TAG_CONTENT_HASHES=()
-tag_content_hashes_update "script"
-declare -a SCRIPT_HASHES+=("${TAG_CONTENT_HASHES[@]}")
-TAG_CONTENT_HASHES=()
-tag_content_hashes_update "style"
-declare -a STYLE_HASHES+=("${TAG_CONTENT_HASHES[@]}")
+hugo --enableGitInfo --minify -e "production" -d ./public
+tag_content_hashes_update "script" "main"
+script_hashes_remove_duplicates "main"
+tag_content_hashes_update "style" "main"
+style_hashes_remove_duplicates "main"
 ### Fetch remote branches and get hashes for each
 git remote set-branches origin '*'
 git fetch --depth=1
@@ -81,22 +94,18 @@ for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads);
     git restore .
     git switch --recurse-submodules "${target_branch}"
     hugo --enableGitInfo --minify -e "production" -d ./public
-    #### Get SCRIPT_HASHES and STYLE_HASHES from tag_content_hashes_update()
-    TAG_CONTENT_HASHES=()
-    tag_content_hashes_update "script"
-    declare -a SCRIPT_HASHES+=("${TAG_CONTENT_HASHES[@]}")
-    TAG_CONTENT_HASHES=()
-    tag_content_hashes_update "style"
-    declare -a STYLE_HASHES+=("${TAG_CONTENT_HASHES[@]}")
+    #### Get hashes
+    tag_content_hashes_update "script" "${target_branch}"
+    script_hashes_remove_duplicates "${target_branch}"
+    tag_content_hashes_update "style" "${target_branch}"
+    style_hashes_remove_duplicates "${target_branch}"
 done
-## Remove duplicate hashes
-script_hashes_remove_duplicates
-style_hashes_remove_duplicates
 ## Restore and switch back to main
 git restore .
 git switch --recurse-submodules "main"
 
 ## https://content-security-policy.com/
+## FIXME: This whole array will have to be reworked to match will have to use SCRIPT_HASHES["${TARGET_BRANCH}"] and STYLE_HASHES["${TARGET_BRANCH}"]
 RULES_CSP_DEFAULT=(
     "default-src 'none'"
     "script-src 'self' ${SCRIPT_HASHES[*]}"
@@ -252,6 +261,7 @@ for file in "${ROOT_DIR}"/config/_default/languages.*.toml; do
 done
 ## https://developers.cloudflare.com/ruleset-engine/rulesets-api/create/
 ### https://developers.cloudflare.com/rules/transform/response-header-modification/create-api/
+### FIXME: This whole block will have to match a uri's domain and for each one, add the custom CSP accessible from an array that will have to be created
 JSON_RESPONSE_HEADER_TRANSFORM_RULESET="$(
     cat <<EOF | jq -c
 {
