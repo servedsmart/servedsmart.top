@@ -39,12 +39,12 @@ set_hashes() {
         SELECTORS=("[${TYPE}]" "${TYPE}" "${TYPE}")
     fi
     TARGET_BRANCH="${2}"
-    CONTENT_JSON_RAW=""
+    CONTENT_JSON=""
     while IFS= read -r file; do
-        CONTENT_JSON_RAW+="$(pup -f "${file}" "${SELECTORS[0]} json{}")"
+        CONTENT_JSON+="$(pup -f "${file}" "${SELECTORS[0]} json{}")"
     done < <(grep -rl --include="*.html" "${SELECTORS[1]}" "${tmp_dir}"/public)
     unset IFS
-    CONTENT_JSON="$(printf '%s\n' "${CONTENT_JSON_RAW}" | jq -Scs "add | map(select(has(\"${SELECTORS[2]}\"))) | unique_by(.${SELECTORS[2]}) | map(.${SELECTORS[2]})")"
+    CONTENT_JSON="$(printf '%s\n' "${CONTENT_JSON}" | jq -Scs "add | map(select(has(\"${SELECTORS[2]}\"))) | unique_by(.${SELECTORS[2]}) | map(.${SELECTORS[2]})")"
     readarray -t CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${CONTENT_JSON}")
     ## Get HASHES from CONTENTS
     readarray -t HASHES < <(get_hashes)
