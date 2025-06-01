@@ -24,30 +24,36 @@ cd "${tmp_dir}"
 
 # Response Header Transform Rules
 # FIXME: Some inline scripts are apparently created in index.js, not sure how we can fix that since they are generated dynamically...
-# FIXME: styles is empty all the time but I'm pretty sure that there are a lot of inline styles that should get matched here
-tag_content_hashes_update() {
-    ## Get content of tags as array
-    TAG_TYPE="${1}"
-    TARGET_BRANCH="${2}"
-    TAG_CONTENT=""
-    while IFS= read -r file; do
-        TAG_CONTENT+="$(pup -f "${file}" "${TAG_TYPE} json{}")"
-    done < <(grep -rl --include="*.html" "${TAG_TYPE}" "${tmp_dir}"/public)
-    TAG_CONTENT_JSON="$(printf '%s\n' "${TAG_CONTENT}" | jq -Scs 'add | map(select(has("text"))) | unique_by(.text) | map(.text)')"
-    readarray -t TAG_CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${TAG_CONTENT_JSON}")
-    ## Get TAG_CONTENT_HASHES from TAG_CONTENTS
-    TAG_CONTENT_HASHES=()
-    for tag_content_ in "${TAG_CONTENTS[@]}"; do
-        tag_content="$(printf "%b\n" "${tag_content_}")"
-        TAG_CONTENT_HASHES+=("'sha256-$(printf '%s\n' "$(printf '%s' "${tag_content}" | openssl sha256 -binary | openssl base64)'")")
+get_hashes() {
+    for content_ in "${CONTENTS[@]}"; do
+        content="$(printf "%b\n" "${content_}")"
+        printf '%s\n' "'sha256-$(printf '%s\n' "$(printf '%s' "${content}" | openssl sha256 -binary | openssl base64)'")"
     done
-    if [[ "${TAG_TYPE}" == "script" ]]; then
-        SCRIPT_HASHES["${TARGET_BRANCH}"]="${TAG_CONTENT_HASHES[*]}"
-    elif [[ "${TAG_TYPE}" == "style" ]]; then
-        STYLE_HASHES["${TARGET_BRANCH}"]="${TAG_CONTENT_HASHES[*]}"
+}
+set_hashes() {
+    ## Get content of tags as array
+    TYPE="${1}"
+    if [[ "${TYPE}" == "script" ]]; then
+        SELECTORS=("${TYPE}" "${TYPE}" "text")
+    elif [[ "${TYPE}" == "style" ]]; then
+        SELECTORS=("[${TYPE}]" "${TYPE}" "${TYPE}")
+    fi
+    TARGET_BRANCH="${2}"
+    CONTENT_JSON_RAW=""
+    while IFS= read -r file; do
+        CONTENT_JSON_RAW+="$(pup -f "${file}" "${SELECTORS[0]} json{}")"
+    done < <(grep -rl --include="*.html" "${SELECTORS[1]}" "${tmp_dir}"/public)
+    CONTENT_JSON="$(printf '%s\n' "${CONTENT_JSON_RAW}" | jq -Scs "add | map(select(has(\"${SELECTORS[2]}\"))) | unique_by(.${SELECTORS[2]}) | map(.${SELECTORS[2]})")"
+    readarray -t CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${CONTENT_JSON}")
+    ## Get HASHES from CONTENTS
+    readarray -t HASHES < <(get_hashes)
+    if [[ "${TYPE}" == "script" ]]; then
+        SCRIPT_HASHES["${TARGET_BRANCH}"]="${HASHES[*]}"
+    elif [[ "${TYPE}" == "style" ]]; then
+        STYLE_HASHES["${TARGET_BRANCH}"]="${HASHES[*]}"
     fi
 }
-script_hashes_remove_duplicates() {
+set_unique_script_hashes() {
     ## Remove duplicates
     TARGET_BRANCH="${1}"
     readarray -td' ' SCRIPT_HASHES_ <<<"${SCRIPT_HASHES["${TARGET_BRANCH}"]}"
@@ -57,7 +63,7 @@ script_hashes_remove_duplicates() {
     done
     SCRIPT_HASHES["${TARGET_BRANCH}"]="${!SCRIPT_HASHES__[*]}"
 }
-style_hashes_remove_duplicates() {
+set_unique_style_hashes() {
     ## Remove duplicates
     TARGET_BRANCH="${1}"
     readarray -td' ' STYLE_HASHES_ <<<"${STYLE_HASHES["${TARGET_BRANCH}"]}"
@@ -71,11 +77,11 @@ style_hashes_remove_duplicates() {
 declare -A SCRIPT_HASHES
 declare -A STYLE_HASHES
 ### Get hashes for main
-hugo --enableGitInfo --minify -e "production" -d ./public
-tag_content_hashes_update "script" "main"
-script_hashes_remove_duplicates "main"
-tag_content_hashes_update "style" "main"
-style_hashes_remove_duplicates "main"
+hugo --enableGitInfo -d ./public
+set_hashes "script" "main"
+set_unique_script_hashes "main"
+set_hashes "style" "main"
+set_unique_style_hashes "main"
 ### Fetch remote branches and get hashes for each
 git remote set-branches origin '*'
 git fetch --depth=1
@@ -93,12 +99,12 @@ for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads);
     fi
     git restore .
     git switch --recurse-submodules "${target_branch}"
-    hugo --enableGitInfo --minify -e "production" -d ./public
+    hugo --enableGitInfo -d ./public
     #### Get hashes
-    tag_content_hashes_update "script" "${target_branch}"
-    script_hashes_remove_duplicates "${target_branch}"
-    tag_content_hashes_update "style" "${target_branch}"
-    style_hashes_remove_duplicates "${target_branch}"
+    set_hashes "script" "${target_branch}"
+    set_unique_script_hashes "${target_branch}"
+    set_hashes "style" "${target_branch}"
+    set_unique_style_hashes "${target_branch}"
 done
 ## Restore and switch back to main
 git restore .
