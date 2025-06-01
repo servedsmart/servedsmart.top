@@ -34,8 +34,8 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_0 }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      - name: Install Dependencies - System Dependencies
-        run: sudo apt-get install -y yq
+      - name: Install Dependencies - yq
+        run: pip install yq
 
       - name: Install Dependencies - pup
         run: ./.github/scripts/install-dependency-pup.sh
