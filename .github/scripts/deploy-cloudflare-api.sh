@@ -18,9 +18,9 @@ SCRIPT_DIR="$(dirname -- "$(readlink -f -- "${0}")")"
 . "${SCRIPT_DIR}"/deploy-cloudflare-api.conf
 
 # Make copy of current repo
-ROOT_DIR="$(mktemp -d /tmp/site-XXXXXX)"
-cp -R "${SCRIPT_DIR}"/../.. "${ROOT_DIR}"
-cd "${ROOT_DIR}"
+TMP_DIR="$(mktemp -d /tmp/site-XXXXXX)"
+cp -R "${SCRIPT_DIR}"/../.. "${TMP_DIR}"
+cd "${TMP_DIR}"
 
 # Response Header Transform Rules
 # FIXME: Some inline scripts are apparently created in index.js, not sure how we can fix that since they are generated dynamically...
@@ -32,7 +32,7 @@ tag_content_hashes_update() {
     TAG_CONTENT=""
     while IFS= read -r file; do
         TAG_CONTENT+="$(pup -f "${file}" "${TAG_TYPE} json{}")"
-    done < <(grep -rl --include="*.html" "${TAG_TYPE}" "${ROOT_DIR}"/public)
+    done < <(grep -rl --include="*.html" "${TAG_TYPE}" "${TMP_DIR}"/public)
     TAG_CONTENT_JSON="$(printf '%s\n' "${TAG_CONTENT}" | jq -Scs 'add | map(select(has("text"))) | unique_by(.text) | map(.text)')"
     readarray -t TAG_CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${TAG_CONTENT_JSON}")
     ## Get TAG_CONTENT_HASHES from TAG_CONTENTS
@@ -251,8 +251,8 @@ for ((i = 0; i < RULES_PP_DEFAULT_LENGTH; i++)); do
 done
 ## Generate EXPRESSION_CMS with languages used
 EXPRESSION_CMS="(starts_with(http.request.uri.path, \\\"/edit-cms\\\"))"
-DEFAULT_LOCALE="$(tomlq -cr ".defaultContentLanguage" "${ROOT_DIR}"/config/_default/hugo.toml)"
-for file in "${ROOT_DIR}"/config/_default/languages.*.toml; do
+DEFAULT_LOCALE="$(tomlq -cr ".defaultContentLanguage" "${TMP_DIR}"/config/_default/hugo.toml)"
+for file in "${TMP_DIR}"/config/_default/languages.*.toml; do
     LOCALE="$(basename "${file}" .toml | cut -d. -f2)"
     if [[ "${LOCALE}" != "${DEFAULT_LOCALE}" ]]; then
         ### Append expression
