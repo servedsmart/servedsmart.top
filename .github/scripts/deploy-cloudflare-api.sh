@@ -26,21 +26,11 @@ cd "${ROOT_DIR}"
 tag_content_hashes_update() {
     ## Get content of tags as array
     TAG_TYPE="${1}"
-    TAG_CONTENT="$(find "${ROOT_DIR}"/public -type f -name "*.html" -exec sh -c 'hxnormalize -xe "${1}" | hxselect -ics '"${DELIMITER}"' '"${TAG_TYPE}"'' _ {} \;)"
-    TAG_CONTENT="${TAG_CONTENT//$'\n'/\\n}"
-    readarray -t TAG_CONTENTS < <(printf '%s\n' "${TAG_CONTENT}" | awk -v RS="${DELIMITER}" '1')
-    ## Remove empty elements and duplicates
-    TAG_CONTENTS_LENGTH="${#TAG_CONTENTS[@]}"
-    for ((i = 0; i < TAG_CONTENTS_LENGTH; i++)); do
-        if [[ -z "${TAG_CONTENTS[${i}]}" ]]; then
-            unset 'TAG_CONTENTS[${i}]'
-        fi
-    done
-    declare -A TAG_CONTENTS_
-    for tag_content in "${TAG_CONTENTS[@]}"; do
-        TAG_CONTENTS_["${tag_content}"]=1
-    done
-    readarray -t TAG_CONTENTS < <(printf '%s\n' "${!TAG_CONTENTS_[@]}")
+    while IFS= read -r file; do
+        TAG_CONTENT+="$(pup -f "${file}" "${TAG_TYPE} json{}")"
+    done < <(grep -rl --include="*.html" "${TAG_TYPE}" "${ROOT_DIR}"/public)
+    TAG_CONTENT_JSON="$(printf '%s\n' "${TAG_CONTENT}" | jq -Scs 'add | map(select(has("text"))) | unique_by(.text) | map(.text)')"
+    readarray -t TAG_CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${TAG_CONTENT_JSON}")
     ## Get TAG_CONTENT_HASHES from TAG_CONTENTS
     for tag_content_ in "${TAG_CONTENTS[@]}"; do
         tag_content="$(printf "%b\n" "${tag_content_}")"
@@ -64,8 +54,6 @@ style_hashes_remove_duplicates() {
     readarray -t STYLE_HASHES < <(printf '%s\n' "${!STYLE_HASHES_[@]}")
 }
 ## Get SCRIPT_HASHES and STYLE_HASHES for every branch
-### Set DELIMITER to fixed 64 byte string.
-DELIMITER="p4qqrKQ3QZ8nNs6QqTNWwEYFaAoqYWceGkwshO82TPdYFWa2tA68oBRn29IbkYvn"
 ### Get hashes for main
 #### Get SCRIPT_HASHES and STYLE_HASHES from tag_content_hashes_update()
 TAG_CONTENT_HASHES=()
