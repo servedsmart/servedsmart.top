@@ -78,7 +78,7 @@ set_unique_style_hashes() {
 declare -A SCRIPT_HASHES
 declare -A STYLE_HASHES
 ### Get hashes for main
-hugo --enableGitInfo -d ./public
+hugo --enableGitInfo --minify -e "production" -d ./public
 set_hashes "script" "main"
 set_unique_script_hashes "main"
 set_hashes "style" "main"
@@ -101,7 +101,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     fi
     git restore .
     git switch --recurse-submodules "${target_branch}"
-    hugo --enableGitInfo -d ./public
+    hugo --enableGitInfo --minify -e "production" -d ./public
     #### Get hashes
     set_hashes "script" "${target_branch}"
     set_unique_script_hashes "${target_branch}"
