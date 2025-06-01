@@ -30,6 +30,10 @@
                 514: ...ield:"",pattern:""})=>{if(!e)return t;if(...
      -->
     {{- $sveltia := resources.Get "js/edit-cms-sveltia.js" | fingerprint -}}
-    <script src="{{- $sveltia.RelPermalink -}}"></script>
+    <script
+      type="text/javascript"
+      src="{{- $sveltia.RelPermalink -}}"
+      integrity="{{- $sveltia.Data.Integrity -}}"
+    ></script>
   </body>
 </html>
