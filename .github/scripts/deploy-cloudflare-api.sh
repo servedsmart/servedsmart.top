@@ -93,7 +93,8 @@ for target_branch in $(git for-each-ref --format='%(refname:short)' refs/remotes
     fi
     git branch --track "${target_branch#origin/}" "$target_branch"
 done
-for target_branch in $(git for-each-ref --format='%(refname:short)' refs/heads); do
+readarray -t TARGET_BRANCHES < <(git for-each-ref --format='%(refname:short)' refs/heads)
+for target_branch in "${TARGET_BRANCHES[@]}"; do
     #### Build current branch if not main
     if [[ "${target_branch}" == "main" ]]; then
         continue
