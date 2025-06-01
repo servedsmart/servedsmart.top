@@ -26,6 +26,7 @@ cd "${ROOT_DIR}"
 tag_content_hashes_update() {
     ## Get content of tags as array
     TAG_TYPE="${1}"
+    TAG_CONTENT=""
     while IFS= read -r file; do
         TAG_CONTENT+="$(pup -f "${file}" "${TAG_TYPE} json{}")"
     done < <(grep -rl --include="*.html" "${TAG_TYPE}" "${ROOT_DIR}"/public)
