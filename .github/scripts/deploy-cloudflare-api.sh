@@ -112,40 +112,36 @@ git switch --recurse-submodules "main"
 
 ## https://content-security-policy.com/
 ## FIXME: This whole array will have to be reworked to match will have to use SCRIPT_HASHES["${TARGET_BRANCH}"] and STYLE_HASHES["${TARGET_BRANCH}"]
-RULES_CSP_DEFAULT=(
+RULES_CSP_TEMPLATE=(
     "default-src 'none'"
     "script-src 'self' ${SCRIPT_HASHES[*]}"
     "style-src 'self' ${STYLE_HASHES[*]}"
-    "img-src 'self' blob: data:"
-    "connect-src 'self'"
-    "font-src 'self'"
+    "img-src 'self' data:"
+    "object-src 'self'"
+    "media-src 'self'"
+    "frame-src 'self' https://www.youtube-nocookie.com"
+    "child-src 'self' https://www.youtube-nocookie.com"
+    "form-action 'self';"
+    "frame-ancestors 'none'"
+    "base-uri 'self'"
+    "upgrade-insecure-requests"
+)
+### https://github.com/sveltia/sveltia-cms?tab=readme-ov-file#setting-up-content-security-policy
+RULES_CSP_CMS=(
+    "default-src 'none'"
+    "script-src 'self' https://unpkg.com"
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com"
+    "img-src 'self' blob: data: https://*.githubusercontent.com"
     "object-src 'self'"
     "media-src blob:"
     "frame-src blob: https://www.youtube-nocookie.com"
     "child-src blob: https://www.youtube-nocookie.com"
-    "form-action 'none'"
+    "form-action 'self';"
     "frame-ancestors 'none'"
-    "base-uri 'none'"
-    "worker-src 'none'"
-    "manifest-src 'self'"
-    "prefetch-src 'none'"
-    "require-trusted-types-for 'script'"
-    "trusted-types 'none'"
+    "base-uri 'self'"
     "upgrade-insecure-requests"
-    "block-all-mixed-content"
-)
-### https://github.com/sveltia/sveltia-cms?tab=readme-ov-file#setting-up-content-security-policy
-RULES_CSP_CMS=(
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com"
     "font-src 'self' https://fonts.gstatic.com"
-    "img-src 'self' blob: data: https://*.githubusercontent.com"
-    "media-src blob:"
-    "frame-src blob: https://www.youtube-nocookie.com"
-    "child-src blob: https://www.youtube-nocookie.com"
-    "script-src 'self' https://unpkg.com"
     "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com"
-    "upgrade-insecure-requests"
-    "block-all-mixed-content"
 )
 RULES_CSP_DEFAULT_LENGTH="${#RULES_CSP_DEFAULT[@]}"
 for ((i = 0; i < RULES_CSP_DEFAULT_LENGTH; i++)); do
