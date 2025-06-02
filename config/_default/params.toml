@@ -28,6 +28,8 @@ highlightCurrentMenuArea = true
 smartTOC = false
 smartTOCHideUnfocusedChildren = false
 
+fingerprintAlgorithm = "sha256" # Valid values are "sha512" (default), "sha384", "sha256"
+
 giteaDefaultServer = ""
 forgejoDefaultServer = ""
 
