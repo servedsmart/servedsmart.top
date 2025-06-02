@@ -51,7 +51,7 @@ set_hashes() {
     target_branch="${2}"
     JSON_CONTENT=""
     while IFS= read -r file; do
-        JSON_CONTENT+="$(/pup -f "${file}" "${selectors[0]} json{}")"
+        JSON_CONTENT+="$(pup -f "${file}" "${selectors[0]} json{}")"
     done < <(grep -rl --include="*.html" "${selectors[1]}" "${tmp_dir}"/public)
     JSON_CONTENT="$(printf '%s\n' "${JSON_CONTENT}" | jq -Scs "add | map(select(has(\"${selectors[2]}\"))) | unique_by(.${selectors[2]}) | map(.${selectors[2]})")"
     readarray -t CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${JSON_CONTENT}")
