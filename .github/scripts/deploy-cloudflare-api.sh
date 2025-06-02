@@ -23,62 +23,77 @@ cp -R "${SCRIPT_DIR}"/../.. "${tmp_dir}"
 cd "${tmp_dir}"
 
 # Response Header Transform Rules
-# FIXME: Some inline scripts are apparently created in index.js, not sure how we can fix that since they are generated dynamically...
-get_hashes() {
+get_hashes_inline() {
     for content_ in "${CONTENTS[@]}"; do
         content="$(printf "%b\n" "${content_}")"
-        printf '%s\n' "'sha256-$(printf '%s\n' "$(printf '%s' "${content}" | openssl sha256 -binary | openssl base64)'")"
+        printf '%s\n' "'sha256-$(printf '%s\n' "$(printf '%s' "${content}" | openssl sha256 -binary | openssl base64 -A)'")"
     done
+}
+get_hashes_files() {
+    pattern="${1}"
+    while IFS= read -r file; do
+        printf '%s\n' "'sha512-$(printf '%s\n' "$(openssl sha512 -binary "${file}" | openssl base64 -A)'")"
+    done < <(find "${tmp_dir}"/public -type f -name "${pattern}")
+}
+get_hashes_regex_match() {
+    # FIXME: Also match single quoted inline scripts and find a better way to do this...
+    pattern="${1}"
+    printf '%s\n' "'sha256-$(printf '%s\n' "$(grep -rhoP "${pattern}" "${tmp_dir}"/public | sed 's/^"//;s/"$//' | openssl sha256 -binary | openssl base64 -A)'")"
 }
 set_hashes() {
     ## Get content of tags as array
-    TYPE="${1}"
-    if [[ "${TYPE}" == "script" ]]; then
-        SELECTORS=("${TYPE}" "${TYPE}" "text")
-    elif [[ "${TYPE}" == "style" ]]; then
-        SELECTORS=("[${TYPE}]" "${TYPE}" "${TYPE}")
+    type="${1}"
+    if [[ "${type}" == "script" ]]; then
+        selectors=("${type}" "${type}" "text")
+    elif [[ "${type}" == "style" ]]; then
+        selectors=("[${type}]" "${type}" "${type}")
     fi
-    TARGET_BRANCH="${2}"
+    target_branch="${2}"
     JSON_CONTENT=""
     while IFS= read -r file; do
-        JSON_CONTENT+="$(pup -f "${file}" "${SELECTORS[0]} json{}")"
-    done < <(grep -rl --include="*.html" "${SELECTORS[1]}" "${tmp_dir}"/public)
-    unset IFS
-    JSON_CONTENT="$(printf '%s\n' "${JSON_CONTENT}" | jq -Scs "add | map(select(has(\"${SELECTORS[2]}\"))) | unique_by(.${SELECTORS[2]}) | map(.${SELECTORS[2]})")"
+        JSON_CONTENT+="$(/pup -f "${file}" "${selectors[0]} json{}")"
+    done < <(grep -rl --include="*.html" "${selectors[1]}" "${tmp_dir}"/public)
+    JSON_CONTENT="$(printf '%s\n' "${JSON_CONTENT}" | jq -Scs "add | map(select(has(\"${selectors[2]}\"))) | unique_by(.${selectors[2]}) | map(.${selectors[2]})")"
     readarray -t CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${JSON_CONTENT}")
-    ## Get HASHES from CONTENTS
-    readarray -t HASHES < <(get_hashes)
-    if [[ "${TYPE}" == "script" ]]; then
-        SCRIPT_HASHES["${TARGET_BRANCH}"]="${HASHES[*]}"
-    elif [[ "${TYPE}" == "style" ]]; then
-        STYLE_HASHES["${TARGET_BRANCH}"]="${HASHES[*]}"
+    ## Get HASHES and add to either SCRIPT_HASHES or STYLE_HASHES
+    HASHES=()
+    readarray -t HASHES_ < <(get_hashes_inline)
+    if [[ "${type}" == "script" ]]; then
+        readarray -t HASHES < <(get_hashes_files "*.js")
+        HASHES+=("${HASHES_[@]}")
+        SCRIPT_HASHES["${target_branch}"]="${HASHES[*]}"
+    elif [[ "${type}" == "style" ]]; then
+        readarray -t HASHES < <(get_hashes_regex_match '"(\.[^{"]+|\#[^{"]+)\{[^}"]+\}(?:(\.[^{"]+|\#[^{"]+)\{[^}"]+\})+"')
+        HASHES+=("${HASHES_[@]}")
+        STYLE_HASHES["${target_branch}"]="${HASHES[*]}"
     fi
 }
 set_unique_script_hashes() {
     ## Remove duplicates
-    TARGET_BRANCH="${1}"
-    readarray -td' ' SCRIPT_HASHES_ <<<"${SCRIPT_HASHES["${TARGET_BRANCH}"]}"
+    target_branch="${1}"
+    IFS=' ' read -r -a SCRIPT_HASHES_ <<<"${SCRIPT_HASHES["${target_branch}"]}"
     declare -A SCRIPT_HASHES__
     for hash in "${SCRIPT_HASHES_[@]}"; do
         SCRIPT_HASHES__["${hash}"]=1
     done
-    SCRIPT_HASHES["${TARGET_BRANCH}"]="${!SCRIPT_HASHES__[*]}"
+    SCRIPT_HASHES["${target_branch}"]="${!SCRIPT_HASHES__[*]}"
 }
 set_unique_style_hashes() {
     ## Remove duplicates
-    TARGET_BRANCH="${1}"
-    readarray -td' ' STYLE_HASHES_ <<<"${STYLE_HASHES["${TARGET_BRANCH}"]}"
+    target_branch="${1}"
+    IFS=' ' read -r -a STYLE_HASHES_ <<<"${STYLE_HASHES["${target_branch}"]}"
     declare -A STYLE_HASHES__
     for hash in "${STYLE_HASHES_[@]}"; do
         STYLE_HASHES__["${hash}"]=1
     done
-    STYLE_HASHES["${TARGET_BRANCH}"]="${!STYLE_HASHES__[*]}"
+    STYLE_HASHES["${target_branch}"]="${!STYLE_HASHES__[*]}"
 }
 ## Get SCRIPT_HASHES and STYLE_HASHES for every branch
 declare -A SCRIPT_HASHES
 declare -A STYLE_HASHES
 ### Get hashes for main
-hugo --enableGitInfo --minify -e "production" -d ./public
+hugo --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
+rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
 set_hashes "script" "main"
 set_unique_script_hashes "main"
 set_hashes "style" "main"
@@ -100,8 +115,10 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         continue
     fi
     git restore .
+    git clean -fdx
     git switch --recurse-submodules "${target_branch}"
-    hugo --enableGitInfo --minify -e "production" -d ./public
+    hugo --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
+    rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
     #### Get hashes
     set_hashes "script" "${target_branch}"
     set_unique_script_hashes "${target_branch}"
@@ -110,24 +127,38 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
 done
 ## Restore and switch back to main
 git restore .
+git clean -fdx
 git switch --recurse-submodules "main"
 
 ## https://content-security-policy.com/
-## FIXME: This whole array will have to be reworked to match will have to use SCRIPT_HASHES["${TARGET_BRANCH}"] and STYLE_HASHES["${TARGET_BRANCH}"]
-RULES_CSP_TEMPLATE=(
-    "default-src 'none'"
-    "script-src 'self' ${SCRIPT_HASHES[*]}"
-    "style-src 'self' ${STYLE_HASHES[*]}"
-    "img-src 'self' data:"
+### Create a default csp for every target_branch
+declare -A CSP_DEFAULT
+for target_branch in "${TARGET_BRANCHES[@]}"; do
+    RULES_CSP_DEFAULT=(
+        "default-src 'none'"
+        "script-src 'self' 'strict-dynamic' 'unsafe-hashes' ${SCRIPT_HASHES["${target_branch}"]}"
+        "style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
+        "img-src 'self' data:"
         "object-src 'none'"
-    "media-src 'self'"
-    "frame-src 'self' https://www.youtube-nocookie.com"
-    "child-src 'self' https://www.youtube-nocookie.com"
-    "form-action 'self';"
-    "frame-ancestors 'none'"
-    "base-uri 'self'"
-    "upgrade-insecure-requests"
-)
+        "media-src 'self'"
+        "frame-src 'self' https://www.youtube-nocookie.com"
+        "child-src 'self' https://www.youtube-nocookie.com"
+        "form-action 'self'"
+        "frame-ancestors 'none'"
+        "base-uri 'self'"
+        "upgrade-insecure-requests"
+    )
+    RULES_CSP_DEFAULT_LENGTH="${#RULES_CSP_DEFAULT[@]}"
+    for ((i = 0; i < RULES_CSP_DEFAULT_LENGTH; i++)); do
+        if ((i != RULES_CSP_DEFAULT_LENGTH - 1)); then
+            #### Join into string
+            CSP_DEFAULT["${target_branch}"]+="${RULES_CSP_DEFAULT[${i}]}; "
+            continue
+        fi
+        #### Join into string
+        CSP_DEFAULT["${target_branch}"]+="${RULES_CSP_DEFAULT[${i}]}"
+    done
+done
 ### https://github.com/sveltia/sveltia-cms?tab=readme-ov-file#setting-up-content-security-policy
 RULES_CSP_CMS=(
     "default-src 'none'"
@@ -138,23 +169,13 @@ RULES_CSP_CMS=(
     "media-src blob:"
     "frame-src blob: https://www.youtube-nocookie.com"
     "child-src blob: https://www.youtube-nocookie.com"
-    "form-action 'self';"
+    "form-action 'self'"
     "frame-ancestors 'none'"
     "base-uri 'self'"
     "upgrade-insecure-requests"
     "font-src 'self' https://fonts.gstatic.com"
     "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com"
 )
-RULES_CSP_DEFAULT_LENGTH="${#RULES_CSP_DEFAULT[@]}"
-for ((i = 0; i < RULES_CSP_DEFAULT_LENGTH; i++)); do
-    if ((i != RULES_CSP_DEFAULT_LENGTH - 1)); then
-        #### Join into string
-        CSP_DEFAULT+="${RULES_CSP_DEFAULT[${i}]}; "
-        continue
-    fi
-    #### Join into string
-    CSP_DEFAULT+="${RULES_CSP_DEFAULT[${i}]}"
-done
 RULES_CSP_CMS_LENGTH="${#RULES_CSP_CMS[@]}"
 for ((i = 0; i < RULES_CSP_CMS_LENGTH; i++)); do
     if ((i != RULES_CSP_CMS_LENGTH - 1)); then
@@ -265,76 +286,17 @@ for file in "${tmp_dir}"/config/_default/languages.*.toml; do
 done
 ## https://developers.cloudflare.com/ruleset-engine/rulesets-api/create/
 ### https://developers.cloudflare.com/rules/transform/response-header-modification/create-api/
-### FIXME: This whole block will have to match a uri's domain and for each one, add the custom CSP accessible from an array that will have to be created
 JSON_RESPONSE_HEADER_TRANSFORM_RULESET="$(
     cat <<EOF | jq -c
 {
-  "name": "Secure HTTP Response Headers",
+  "name": "HTTP Response Headers",
   "description": "Generated by ${REPO_URL}",
   "kind": "zone",
   "phase": "http_response_headers_transform",
   "rules": [
     {
-      "expression": "true",
-      "description": "Secure HTTP Response Headers",
-      "action": "rewrite",
-      "action_parameters": {
-        "headers": {
-          "Content-Security-Policy": {
-            "operation": "set",
-            "value": "${CSP_DEFAULT}"
-          },
-          "Permissions-Policy": {
-            "operation": "set",
-            "value": "${PP_DEFAULT}"
-          },
-          "X-XSS-Protection": {
-            "operation": "set",
-            "value": "0"
-          },
-          "X-Frame-Options": {
-            "operation": "set",
-            "value": "DENY"
-          },
-          "X-Content-Type-Options": {
-            "operation": "set",
-            "value": "nosniff"
-          },
-          "Referrer-Policy": {
-            "operation": "set",
-            "value": "no-referrer"
-          },
-          "Cross-Origin-Embedder-Policy": {
-            "operation": "set",
-            "value": "require-corp; report-to=\"default\";"
-          },
-          "Cross-Origin-Opener-Policy": {
-            "operation": "set",
-            "value": "same-origin; report-to=\"default\";"
-          },
-          "Cross-Origin-Resource-Policy": {
-            "operation": "set",
-            "value": "same-origin"
-          },
-          "X-Permitted-Cross-Domain-Policies": {
-            "operation": "set",
-            "value": "none"
-          },
-          "Public-Key-Pins": {
-            "operation": "remove"
-          },
-          "X-Powered-By": {
-            "operation": "remove"
-          },
-          "X-AspNet-Version": {
-            "operation": "remove"
-          }
-        }
-      }
-    },
-    {
       "expression": "${EXPRESSION_CMS}",
-      "description": "Secure HTTP Response Headers for edit-cms",
+      "description": "HTTP Response Headers for edit-cms",
       "action": "rewrite",
       "action_parameters": {
         "headers": {
@@ -349,6 +311,80 @@ JSON_RESPONSE_HEADER_TRANSFORM_RULESET="$(
 }
 EOF
 )"
+for target_branch in "${TARGET_BRANCHES[@]}"; do
+    if [[ "${target_branch}" == "main" ]]; then
+        DOMAIN_DEFAULT="${TARGET_DOMAIN}"
+        EXPRESSION_DEFAULT="(http.host eq \\\"${DOMAIN_DEFAULT}\\\")"
+    else
+        DOMAIN_DEFAULT="${target_branch}.${TARGET_DOMAIN}"
+        #### FIXME: This should also allow custom domains that are not equivalent to the branch, but I don't need that for now.
+        EXPRESSION_DEFAULT="(http.host eq \\\"${target_branch}.${TARGET_DOMAIN}\\\")"
+    fi
+    JSON_CSP_RULE="$(
+        cat <<EOF | jq -c
+{
+  "expression": "${EXPRESSION_DEFAULT}",
+  "description": "HTTP Response Headers for ${DOMAIN_DEFAULT}",
+  "action": "rewrite",
+  "action_parameters": {
+    "headers": {
+      "Content-Security-Policy": {
+        "operation": "set",
+        "value": "${CSP_DEFAULT["${target_branch}"]}"
+      },
+      "Permissions-Policy": {
+        "operation": "set",
+        "value": "${PP_DEFAULT}"
+      },
+      "X-XSS-Protection": {
+        "operation": "set",
+        "value": "0"
+      },
+      "X-Frame-Options": {
+        "operation": "set",
+        "value": "DENY"
+      },
+      "X-Content-Type-Options": {
+        "operation": "set",
+        "value": "nosniff"
+      },
+      "Referrer-Policy": {
+        "operation": "set",
+        "value": "no-referrer"
+      },
+      "Cross-Origin-Embedder-Policy": {
+        "operation": "set",
+        "value": "require-corp; report-to=\"default\";"
+      },
+      "Cross-Origin-Opener-Policy": {
+        "operation": "set",
+        "value": "same-origin; report-to=\"default\";"
+      },
+      "Cross-Origin-Resource-Policy": {
+        "operation": "set",
+        "value": "same-origin"
+      },
+      "X-Permitted-Cross-Domain-Policies": {
+        "operation": "set",
+        "value": "none"
+      },
+      "Public-Key-Pins": {
+        "operation": "remove"
+      },
+      "X-Powered-By": {
+        "operation": "remove"
+      },
+      "X-AspNet-Version": {
+        "operation": "remove"
+      }
+    }
+  }
+}
+EOF
+    )"
+    JSON_RESPONSE_HEADER_TRANSFORM_RULESET="$(jq -c --argjson json_csp_rule "${JSON_CSP_RULE}" '.rules |= [ $json_csp_rule ] + .' <<<"${JSON_RESPONSE_HEADER_TRANSFORM_RULESET}")"
+done
+
 ## Check if ruleset exists and either update or create ruleset
 API_LIST_RULESETS_ZONE="$(curl -s https://api.cloudflare.com/client/v4/zones/"${CLOUDFLARE_ZONE_ID_0}"/rulesets -X GET -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN_1}")"
 if ! jq -e ".success" <<<"${API_LIST_RULESETS_ZONE}" >/dev/null 2>&1; then
