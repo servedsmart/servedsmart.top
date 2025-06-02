@@ -8,7 +8,8 @@
 -------
  -->
 
-{{- $style := resources.Get "css/consent.css" | minify | fingerprint -}}
+{{- $style := resources.Get "css/consent.css" | minify | fingerprint
+(.Site.Params.fingerprintAlgorithm | default "sha512") -}}
 <link rel="stylesheet" href="{{- $style.Permalink -}}" />
 
 <div id="consent-notice-container" class="backdrop-blur">
@@ -108,13 +109,14 @@
 
 {{- $consent_variables := resources.Get "js/consent-variables.js" |
 resources.ExecuteAsTemplate "js/consent-variables.js" . | resources.Minify |
-resources.Fingerprint "sha512" -}}
+resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
 <script
   type="text/javascript"
   src="{{- $consent_variables.RelPermalink -}}"
   integrity="{{- $consent_variables.Data.Integrity -}}"
 ></script>
-{{- $consent := resources.Get "js/consent.js" | minify | fingerprint -}}
+{{- $consent := resources.Get "js/consent.js" | minify | fingerprint
+(.Site.Params.fingerprintAlgorithm | default "sha512") -}}
 <script
   type="text/javascript"
   src="{{- $consent.RelPermalink -}}"
