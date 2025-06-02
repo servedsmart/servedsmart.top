@@ -28,12 +28,6 @@ jobs:
           HUGO_ENV: "production"
         run: hugo --enableGitInfo --minify -e "production" -d ./public
 
-      - name: Deploy to Workers
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_0 }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
       - name: Install Dependencies - yq
         run: pip install yq
 
@@ -46,3 +40,9 @@ jobs:
           CLOUDFLARE_ZONE_ID_0: ${{ secrets.CLOUDFLARE_ZONE_ID_0 }}
           JSON_SECRETS: ${{ toJson(secrets) }}
         run: ./.github/scripts/deploy-cloudflare-api.sh
+
+      - name: Deploy to Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN_0 }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
