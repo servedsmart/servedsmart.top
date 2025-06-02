@@ -136,8 +136,12 @@ declare -A CSP_DEFAULT
 for target_branch in "${TARGET_BRANCHES[@]}"; do
     RULES_CSP_DEFAULT=(
         "default-src 'none'"
-        "script-src 'self' 'strict-dynamic' 'unsafe-hashes' ${SCRIPT_HASHES["${target_branch}"]}"
-        "style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
+        # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        #"script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
+        "script-src 'self' 'unsafe-inline'"
+        # FIXME: Uncomment below after CSP is working correctly. Currently get_hashes_regex_match doesn't seem to work correctly and some other style elements are not loading. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
+        "style-src 'self' 'unsafe-inline'"
         "img-src 'self' data:"
         "object-src 'none'"
         "media-src 'self'"
