@@ -14,7 +14,7 @@ const functionalScriptHashes = [];
 {{- $currentLang := $.Site.Language.Lang -}}
 {{- range index $.Site.Data $currentLang "consent" "items" -}}
     {{- if .script_file -}}
-        {{- $script_file := resources.Get (printf "js/%s" .script_file) | resources.ExecuteAsTemplate (printf "js/%s" .script_file) . | resources.Minify | resources.Fingerprint "sha512" -}}
+        {{- $script_file := resources.Get (printf "js/%s" .script_file) | resources.ExecuteAsTemplate (printf "js/%s" .script_file) . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
         {{- if .is_functional -}}
             functionalScripts.push("{{- $script_file.RelPermalink -}}");
             functionalScriptHashes.push("{{- $script_file.Data.Integrity -}}");
