@@ -149,6 +149,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         "child-src 'self' https://www.youtube-nocookie.com"
         "form-action 'self'"
         "frame-ancestors 'none'"
+        "manifest-src 'self';"
         "base-uri 'self'"
         "upgrade-insecure-requests"
     )
@@ -175,6 +176,7 @@ RULES_CSP_CMS=(
     "child-src blob: https://www.youtube-nocookie.com"
     "form-action 'self'"
     "frame-ancestors 'none'"
+    "manifest-src 'self';"
     "base-uri 'self'"
     "upgrade-insecure-requests"
     "font-src 'self' https://fonts.gstatic.com"
