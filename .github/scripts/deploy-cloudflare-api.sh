@@ -32,7 +32,8 @@ get_hashes_inline() {
 get_hashes_files() {
     pattern="${1}"
     while IFS= read -r file; do
-        printf '%s\n' "'sha512-$(printf '%s\n' "$(openssl sha512 -binary "${file}" | openssl base64 -A)'")"
+        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
+        printf '%s\n' "'sha256-$(printf '%s\n' "$(openssl sha256 -binary "${file}" | openssl base64 -A)'")"
     done < <(find "${tmp_dir}"/public -type f -name "${pattern}")
 }
 get_hashes_regex_match() {

@@ -19,7 +19,7 @@
   <body>
     <div id="content">{{ .Content }}</div>
     {{- $config := resources.Get "json/edit-cms-config.json" | minify |
-    fingerprint -}}
+    fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <link
       href="{{- $config.RelPermalink -}}"
       type="application/json"
@@ -29,7 +29,8 @@
                 ERROR MINIFY: failed to transform "/js/edit-cms-sveltia.js" (text/javascript): unexpected => in expression on line 514 and column 14817
                 514: ...ield:"",pattern:""})=>{if(!e)return t;if(...
      -->
-    {{- $sveltia := resources.Get "js/edit-cms-sveltia.js" | fingerprint -}}
+    {{- $sveltia := resources.Get "js/edit-cms-sveltia.js" | fingerprint
+    (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <script
       type="text/javascript"
       src="{{- $sveltia.RelPermalink -}}"
