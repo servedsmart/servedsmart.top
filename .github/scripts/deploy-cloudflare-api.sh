@@ -143,7 +143,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         # FIXME: Uncomment below after CSP is working correctly. Currently get_hashes_regex_match doesn't seem to work correctly and some other style elements are not loading. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
         #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
         "style-src 'self' 'unsafe-inline'"
-        "img-src 'self' data:"
+        "img-src 'self' blob: data:"
         "object-src 'none'"
         "media-src 'self'"
         "frame-src 'self' https://www.youtube-nocookie.com"
