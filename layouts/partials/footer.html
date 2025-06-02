@@ -73,7 +73,8 @@
     {{ end }}
   </script>
   {{ $jsProcess := resources.Get "js/process.js" }} {{ $jsProcess = $jsProcess |
-  resources.Minify | resources.Fingerprint "sha512" }}
+  resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm |
+  default "sha512") }}
   <script
     type="text/javascript"
     src="{{ $jsProcess.RelPermalink }}"
