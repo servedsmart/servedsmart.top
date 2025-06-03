@@ -32,9 +32,10 @@
     $config | resources.Minify | resources.Fingerprint
     (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <link
-      href="{{- $config.RelPermalink -}}"
       type="application/json"
+      href="{{- $config.RelPermalink -}}"
       rel="cms-config-url"
+      integrity="{{- $config.Data.Integrity -}}"
     />
     <!-- FIXME: This should also use '| resources.Minify'. It currently fails with:
                 ERROR MINIFY: failed to transform "/js/edit-cms-sveltia.js" (text/javascript): unexpected => in expression on line 514 and column 14817

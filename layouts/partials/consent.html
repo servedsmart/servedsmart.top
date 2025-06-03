@@ -13,7 +13,12 @@
 {{- $style := resources.Get "css/consent.css" -}} {{- $style = $style |
 resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm |
 default "sha512") -}}
-<link rel="stylesheet" href="{{- $style.Permalink -}}" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="{{- $style.Permalink -}}"
+  integrity="{{- $style.Data.Integrity -}}"
+/>
 
 <div id="consent-notice-container" class="backdrop-blur">
   <div
