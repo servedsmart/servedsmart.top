@@ -1,3 +1,13 @@
+<!--
+--File: edit-cms.html
+--Author: Leopold Meinel (leo@meinel.dev)
+-------
+--Copyright (c) 2025 Leopold Meinel & contributors
+--SPDX ID: MIT
+--URL: https://opensource.org/licenses/MIT
+-------
+ -->
+
 <!doctype html>
 <!--
 --File: edit-cms.html
@@ -18,19 +28,21 @@
   </head>
   <body>
     <div id="content">{{ .Content }}</div>
-    {{- $config := resources.Get "json/edit-cms-config.json" | minify |
-    fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+    {{- $config := resources.Get "json/edit-cms-config.json" -}} {{- $config =
+    $config | resources.Minify | resources.Fingerprint
+    (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <link
       href="{{- $config.RelPermalink -}}"
       type="application/json"
       rel="cms-config-url"
     />
-    <!-- FIXME: This should also use '| minify'. It currently fails with:
+    <!-- FIXME: This should also use '| resources.Minify'. It currently fails with:
                 ERROR MINIFY: failed to transform "/js/edit-cms-sveltia.js" (text/javascript): unexpected => in expression on line 514 and column 14817
                 514: ...ield:"",pattern:""})=>{if(!e)return t;if(...
      -->
-    {{- $sveltia := resources.Get "js/edit-cms-sveltia.js" | fingerprint
-    (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+    {{- $sveltia := resources.Get "js/edit-cms-sveltia.js" -}} {{- $sveltia =
+    $sveltia | resources.Fingerprint (.Site.Params.fingerprintAlgorithm |
+    default "sha512") -}}
     <script
       type="text/javascript"
       src="{{- $sveltia.RelPermalink -}}"
