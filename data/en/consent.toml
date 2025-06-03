@@ -8,6 +8,8 @@
 # -----
 ###
 
+# Based on: https://hugocodex.org/add-ons/cookie-consent/#manage-consent
+
 [[items]]
 title = "Appearance"
 description = "This code allows users to modify the website appearance."
