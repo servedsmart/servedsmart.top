@@ -390,7 +390,6 @@ EOF
     )"
     JSON_RESPONSE_HEADER_TRANSFORM_RULESET="$(jq -c --argjson json_csp_rule "${JSON_CSP_RULE}" '.rules |= [ $json_csp_rule ] + .' <<<"${JSON_RESPONSE_HEADER_TRANSFORM_RULESET}")"
 done
-
 ## Check if ruleset exists and either update or create ruleset
 API_LIST_RULESETS_ZONE="$(curl -s https://api.cloudflare.com/client/v4/zones/"${CLOUDFLARE_ZONE_ID_0}"/rulesets -X GET -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN_1}")"
 if ! jq -e ".success" <<<"${API_LIST_RULESETS_ZONE}" >/dev/null 2>&1; then
