@@ -138,9 +138,10 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     RULES_CSP_DEFAULT=(
         "default-src 'none'"
         # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
         #"script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
         "script-src 'self' 'unsafe-inline'"
-        # FIXME: Uncomment below after CSP is working correctly. Currently get_hashes_regex_match doesn't seem to work correctly and some other style elements are not loading. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2196
         #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
         "style-src 'self' 'unsafe-inline'"
         "img-src 'self' blob: data:"
