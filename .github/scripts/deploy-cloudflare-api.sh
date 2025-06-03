@@ -32,14 +32,8 @@ get_hashes_inline() {
 get_hashes_files() {
     pattern="${1}"
     while IFS= read -r file; do
-        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
         printf '%s\n' "'sha256-$(printf '%s\n' "$(openssl sha256 -binary "${file}" | openssl base64 -A)'")"
     done < <(find "${tmp_dir}"/public -type f -name "${pattern}")
-}
-get_hashes_regex_match() {
-    # FIXME: Also match single quoted inline scripts and find a better way to do this...
-    pattern="${1}"
-    printf '%s\n' "'sha256-$(printf '%s\n' "$(grep -rhoP "${pattern}" "${tmp_dir}"/public | sed 's/^"//;s/"$//' | openssl sha256 -binary | openssl base64 -A)'")"
 }
 set_hashes() {
     ## Get content of tags as array
@@ -54,7 +48,7 @@ set_hashes() {
     while IFS= read -r file; do
         JSON_CONTENT+="$(pup -f "${file}" "${selectors[0]} json{}")"
     done < <(grep -rl --include="*.html" "${selectors[1]}" "${tmp_dir}"/public)
-    JSON_CONTENT="$(printf '%s\n' "${JSON_CONTENT}" | jq -Scs "add | map(select(has(\"${selectors[2]}\"))) | unique_by(.${selectors[2]}) | map(.${selectors[2]})")"
+    JSON_CONTENT="$(printf '%s\n' "${JSON_CONTENT}" | jq -Scs "add | [ .. | select(type == \"object\" and has(\"${selectors[2]}\")) ] | unique_by(.${selectors[2]}) | map(.${selectors[2]})")"
     readarray -t CONTENTS < <(jq -r '.[] | gsub("\n"; "\\n")' <<<"${JSON_CONTENT}")
     ## Get HASHES and add to either SCRIPT_HASHES or STYLE_HASHES
     HASHES=()
@@ -64,7 +58,6 @@ set_hashes() {
         HASHES+=("${HASHES_[@]}")
         SCRIPT_HASHES["${target_branch}"]="${HASHES[*]}"
     elif [[ "${type}" == "style" ]]; then
-        readarray -t HASHES < <(get_hashes_regex_match '"(\.[^{"]+|\#[^{"]+)\{[^}"]+\}(?:(\.[^{"]+|\#[^{"]+)\{[^}"]+\})+"')
         HASHES+=("${HASHES_[@]}")
         STYLE_HASHES["${target_branch}"]="${HASHES[*]}"
     fi
@@ -138,9 +131,13 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     RULES_CSP_DEFAULT=(
         "default-src 'none'"
         # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
+        # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
         #"script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
         "script-src 'self' 'unsafe-inline'"
-        # FIXME: Uncomment below after CSP is working correctly. Currently get_hashes_regex_match doesn't seem to work correctly and some other style elements are not loading. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        # FIXME: Uncomment below after CSP is working correctly. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
+        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2196
+        # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
         #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
         "style-src 'self' 'unsafe-inline'"
         "img-src 'self' blob: data:"
@@ -391,7 +388,6 @@ EOF
     )"
     JSON_RESPONSE_HEADER_TRANSFORM_RULESET="$(jq -c --argjson json_csp_rule "${JSON_CSP_RULE}" '.rules |= [ $json_csp_rule ] + .' <<<"${JSON_RESPONSE_HEADER_TRANSFORM_RULESET}")"
 done
-
 ## Check if ruleset exists and either update or create ruleset
 API_LIST_RULESETS_ZONE="$(curl -s https://api.cloudflare.com/client/v4/zones/"${CLOUDFLARE_ZONE_ID_0}"/rulesets -X GET -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN_1}")"
 if ! jq -e ".success" <<<"${API_LIST_RULESETS_ZONE}" >/dev/null 2>&1; then
