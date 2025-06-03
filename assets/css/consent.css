@@ -8,8 +8,8 @@
  * -----
  */
 
+/* Based on: https://hugocodex.org/add-ons/cookie-consent/#manage-consent */
 :root {
-  --color-consent-overlay-background: var(--color-neutral-900);
   --color-form-background: var(--color-neutral);
   --color-form-control-disabled: var(--color-neutral-400);
   --color-form-control: var(--color-secondary-500);
@@ -84,6 +84,8 @@
   margin: 0;
   justify-content: center;
 }
+
+/* Based on: https://moderncss.dev/pure-css-custom-checkbox-style/ */
 .form-control {
   align-items: center;
   display: grid;
@@ -97,7 +99,6 @@
   color: rgb(var(--color-form-control-disabled));
   cursor: not-allowed;
 }
-
 input[type="checkbox"] {
   /* Add if not using autoprefixer */
   -webkit-appearance: none;

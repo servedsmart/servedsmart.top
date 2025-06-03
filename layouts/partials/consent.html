@@ -8,8 +8,11 @@
 -------
  -->
 
-{{- $style := resources.Get "css/consent.css" | minify | fingerprint
-(.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+<!-- Based on: https://hugocodex.org/add-ons/cookie-consent/#manage-consent -->
+
+{{- $style := resources.Get "css/consent.css" -}} {{- $style = $style |
+resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm |
+default "sha512") -}}
 <link rel="stylesheet" href="{{- $style.Permalink -}}" />
 
 <div id="consent-notice-container" class="backdrop-blur">
@@ -98,7 +101,6 @@
         ><button
           id="consent-settings-confirm"
           class="btn consent-settings-confirm bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
-          data-consentvalue="{{ $currentLang := $.Site.Language.Lang }}{{ $data := index $.Site.Data $currentLang `consent` `items` }}{{ range $data }}{{ if .is_functional}}{{ else }}0{{ end }}{{ end }}"
         >
           {{- T "consent-button-consent-settings-confirm" -}}
         </button>
@@ -107,16 +109,9 @@
   </div>
 </div>
 
-{{- $consent_variables := resources.Get "js/consent-variables.js" |
-resources.ExecuteAsTemplate "js/consent-variables.js" . | resources.Minify |
+{{- $consent := resources.Get "js/consent.js" -}} {{- $consent = $consent |
+resources.ExecuteAsTemplate "js/consent.js" . | resources.Minify |
 resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
-<script
-  type="text/javascript"
-  src="{{- $consent_variables.RelPermalink -}}"
-  integrity="{{- $consent_variables.Data.Integrity -}}"
-></script>
-{{- $consent := resources.Get "js/consent.js" | minify | fingerprint
-(.Site.Params.fingerprintAlgorithm | default "sha512") -}}
 <script
   type="text/javascript"
   src="{{- $consent.RelPermalink -}}"

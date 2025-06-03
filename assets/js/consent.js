@@ -8,6 +8,8 @@
  * -----
  */
 
+// Based on: https://hugocodex.org/add-ons/cookie-consent/#manage-consent
+
 // Wait for readyState
 function waitForReadyState(function_) {
   if (["interactive", "complete"].includes(document.readyState)) {
@@ -28,23 +30,12 @@ function setConsentValueStorage(consentValue) {
   );
   localStorage.setItem("consent-settings", consentValue);
 }
-// Set consent value from checkboxes
-function setConsentValueDataset() {
-  const elements = document.querySelectorAll(
-    "#consent-overlay input:not([disabled])"
-  );
-  const consentValue = Array.from(elements)
-    .map((element) => (element.checked ? "1" : "0"))
-    .join("");
-  document.getElementById("consent-settings-confirm").dataset.consentvalue =
-    consentValue;
-}
 // Calculate consentValue, string should be either "0" or "1"
 function getConsentValue(scripts, string) {
   return scripts.map(() => string).join("");
 }
 // Get stored consentValue from localStorage or remove if optionalScripts don't match
-function getConsentValueStorage() {
+function getConsentValueFromStorage() {
   const storedScriptHashes = localStorage.getItem("optional-script-hashes");
   if (storedScriptHashes === optionalScriptHashes.toString()) {
     return localStorage.getItem("consent-settings");
@@ -53,6 +44,15 @@ function getConsentValueStorage() {
     localStorage.removeItem("consent-settings");
     return null;
   }
+}
+// Get consent value from checkboxes
+function getConsentValueFromCheckboxes() {
+  const elements = document.querySelectorAll(
+    "#consent-overlay input:not([disabled])"
+  );
+  return Array.from(elements)
+    .map((element) => (element.checked ? "1" : "0"))
+    .join("");
 }
 
 // Set checkboxes from consentValue
@@ -128,6 +128,24 @@ function addClickExec(elements, function_) {
   });
 }
 
+const optionalScripts = [];
+const optionalScriptHashes = [];
+const functionalScripts = [];
+const functionalScriptHashes = [];
+{{- $currentLang := $.Site.Language.Lang -}}
+{{- range index $.Site.Data $currentLang "consent" "items" -}}
+    {{- if .script_file -}}
+        {{- $script_file := resources.Get (printf "js/%s" .script_file) | resources.ExecuteAsTemplate (printf "js/%s" .script_file) . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+        {{- if .is_functional -}}
+            functionalScripts.push("{{- $script_file.RelPermalink -}}");
+            functionalScriptHashes.push("{{- $script_file.Data.Integrity -}}");
+        {{- else -}}
+            optionalScripts.push("{{- $script_file.RelPermalink -}}");
+            optionalScriptHashes.push("{{- $script_file.Data.Integrity -}}");
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
 waitForReadyState(() => {
   // Load functional javascript
   loadFunctionalScripts();
@@ -138,7 +156,7 @@ waitForReadyState(() => {
   );
 
   // Load javascript if user has consented or show notice
-  const consentValue = getConsentValueStorage();
+  const consentValue = getConsentValueFromStorage();
   if (consentValue) {
     setCheckboxes(consentValue);
     loadScripts(optionalScripts, optionalScriptHashes, consentValue);
@@ -158,8 +176,10 @@ waitForReadyState(() => {
     window.location.href = "#consent-overlay";
   });
   addClickExec(document.getElementById("consent-settings-confirm"), (event) => {
-    setConsentValueDataset();
-    loadOptionalScripts(event.currentTarget.dataset.consentvalue);
+    // Get value of checkboxes
+    const consentValue = getConsentValueFromCheckboxes();
+    // NOTE: event.currentTarget.dataset.consentvalue only for optional scripts
+    loadOptionalScripts(consentValue);
   });
   addClickExec(document.getElementById("consent-overlay"), (event) => {
     if (
