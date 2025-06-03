@@ -32,14 +32,8 @@ get_hashes_inline() {
 get_hashes_files() {
     pattern="${1}"
     while IFS= read -r file; do
-        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
         printf '%s\n' "'sha256-$(printf '%s\n' "$(openssl sha256 -binary "${file}" | openssl base64 -A)'")"
     done < <(find "${tmp_dir}"/public -type f -name "${pattern}")
-}
-get_hashes_regex_match() {
-    # FIXME: Also match single quoted inline scripts and find a better way to do this...
-    pattern="${1}"
-    printf '%s\n' "'sha256-$(printf '%s\n' "$(grep -rhoP "${pattern}" "${tmp_dir}"/public | sed 's/^"//;s/"$//' | openssl sha256 -binary | openssl base64 -A)'")"
 }
 set_hashes() {
     ## Get content of tags as array
@@ -64,7 +58,6 @@ set_hashes() {
         HASHES+=("${HASHES_[@]}")
         SCRIPT_HASHES["${target_branch}"]="${HASHES[*]}"
     elif [[ "${type}" == "style" ]]; then
-        readarray -t HASHES < <(get_hashes_regex_match '"(\.[^{"]+|\#[^{"]+)\{[^}"]+\}(?:(\.[^{"]+|\#[^{"]+)\{[^}"]+\})+"')
         HASHES+=("${HASHES_[@]}")
         STYLE_HASHES["${target_branch}"]="${HASHES[*]}"
     fi
@@ -139,11 +132,12 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         "default-src 'none'"
         # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
         # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
-        #"script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
-        "script-src 'self' 'unsafe-inline'"
+        "script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
+        #"script-src 'self' 'unsafe-inline'"
+        # FIXME: Uncomment below after CSP is working correctly. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
         # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2196
-        #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
-        "style-src 'self' 'unsafe-inline'"
+        "style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
+        #"style-src 'self' 'unsafe-inline'"
         "img-src 'self' blob: data:"
         "object-src 'none'"
         "media-src 'self'"
