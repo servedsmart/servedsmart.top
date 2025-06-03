@@ -110,8 +110,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     fi
     git restore .
     git clean -fdx
-    # FIXME: Readd --recurse-submodules
-    git switch "${target_branch}"
+    git switch --recurse-submodules "${target_branch}"
     hugo --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
     rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
     #### Get hashes
@@ -123,8 +122,7 @@ done
 ## Restore and switch back to main
 git restore .
 git clean -fdx
-# FIXME: Readd --recurse-submodules
-git switch "main"
+git switch --recurse-submodules "main"
 
 ## https://content-security-policy.com/
 ### Create a default csp for every target_branch
@@ -134,14 +132,14 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         "default-src 'none'"
         # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
         # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
-        # FIXME: Recomment
-        "script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
-        #"script-src 'self' 'unsafe-inline'"
+        # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
+        #"script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
+        "script-src 'self' 'unsafe-inline'"
         # FIXME: Uncomment below after CSP is working correctly. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
         # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2196
-        # FIXME: Recomment
-        "style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
-        #"style-src 'self' 'unsafe-inline'"
+        # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
+        #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
+        "style-src 'self' 'unsafe-inline'"
         "img-src 'self' blob: data:"
         "object-src 'none'"
         "media-src 'self'"
