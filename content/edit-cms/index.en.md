@@ -11,7 +11,7 @@ tags = [
 layout = "edit-cms"
 xml = "false"
 showReadingTime = false
-[_build]
+[build]
 render = "false"
 list = "local"
 +++
