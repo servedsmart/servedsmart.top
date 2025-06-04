@@ -1,13 +1,3 @@
-/*
- * File: consent-appearance.js
- * Author: Leopold Meinel (leo@meinel.dev)
- * -----
- * Copyright (c) 2025 Leopold Meinel & contributors
- * SPDX ID: MIT
- * URL: https:opensource.org/licenses/MIT
- * -----
- */
-
 // Wait for readyState
 function waitForReadyState(function_) {
   if (["interactive", "complete"].includes(document.readyState)) {
@@ -19,14 +9,13 @@ function waitForReadyState(function_) {
     });
   }
 }
+
 var updateMeta = () => {
   var elem, style;
-  elem = document.querySelector("body");
+  elem = document.querySelector('body');
   style = getComputedStyle(elem);
-  document
-    .querySelector('meta[name="theme-color"]')
-    .setAttribute("content", style.backgroundColor);
-};
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', style.backgroundColor);
+}
 
 {{ if and (.Site.Params.Logo) (.Site.Params.SecondaryLogo) }}
 {{ $primaryLogo := resources.Get .Site.Params.Logo }}
@@ -35,31 +24,29 @@ var updateMeta = () => {
 var updateLogo = (targetAppearance) => {
   var imgElems = document.querySelectorAll("img.logo");
   var logoContainers = document.querySelectorAll("span.logo");
-
-  targetLogoPath =
-    targetAppearance == "{{ .Site.Params.DefaultAppearance }}"
-      ? "{{ $primaryLogo.RelPermalink }}"
-      : "{{ $secondaryLogo.RelPermalink }}";
+  
+  targetLogoPath = 
+    targetAppearance == "{{ .Site.Params.DefaultAppearance }}" ?
+    "{{ $primaryLogo.RelPermalink }}" : "{{ $secondaryLogo.RelPermalink }}"
   for (const elem of imgElems) {
-    elem.setAttribute("src", targetLogoPath);
+    elem.setAttribute("src", targetLogoPath)
   }
 
   {{ if eq $primaryLogo.MediaType.SubType "svg" }}
-  targetContent =
-    targetAppearance == "{{ .Site.Params.DefaultAppearance }}"
-      ? `{{ $primaryLogo.Content | safeHTML }}`
-      : `{{ $secondaryLogo.Content | safeHTML }}`;
+  targetContent = 
+    targetAppearance == "{{ .Site.Params.DefaultAppearance }}" ?
+    `{{ $primaryLogo.Content | safeHTML }}` : `{{ $secondaryLogo.Content | safeHTML }}`
   for (const container of logoContainers) {
     container.innerHTML = targetContent;
   }
   {{ end }}
-};
+}
 {{ end }}
 {{- end }}
 
 var getTargetAppearance = () => {
-  return document.documentElement.classList.contains("dark") ? "dark" : "light";
-};
+  return document.documentElement.classList.contains("dark") ? "dark" : "light"
+}
 
 // Usage
 waitForReadyState(() => {
@@ -73,7 +60,10 @@ waitForReadyState(() => {
     switcher.addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
       var targetAppearance = getTargetAppearance();
-      localStorage.setItem("appearance", targetAppearance);
+      localStorage.setItem(
+        "appearance",
+        targetAppearance
+      );
       updateMeta();
       this.updateLogo?.(targetAppearance);
     });
@@ -86,7 +76,10 @@ waitForReadyState(() => {
     switcherMobile.addEventListener("click", () => {
       document.documentElement.classList.toggle("dark");
       var targetAppearance = getTargetAppearance();
-      localStorage.setItem("appearance", targetAppearance);
+      localStorage.setItem(
+        "appearance",
+        targetAppearance
+      );
       updateMeta();
       this.updateLogo?.(targetAppearance);
     });
