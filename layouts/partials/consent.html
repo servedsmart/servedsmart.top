@@ -65,7 +65,7 @@ default "sha512") -}}
             name="item{{- $index -}}"
             {{
             if
-            $item.is_functional
+            $item.isFunctional
             }}checked
             disabled{{end}}
           />
@@ -87,7 +87,7 @@ default "sha512") -}}
                 <summary>
                   {{- T "consent-overlay-description-summary" -}}
                 </summary>
-                <p>{{- $item.description_data_stored -}}</p>
+                <p>{{- $item.descriptionSummary -}}</p>
               </details>
             </main>
           </label>
