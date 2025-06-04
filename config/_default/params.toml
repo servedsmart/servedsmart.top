@@ -80,6 +80,7 @@ showTableOfContents = true
 showRelatedContent = true
 relatedContentLimit = 6
 showTaxonomies = false
+showCategoryOnly = true
 showAuthorsBadges = true
 showWordCount = false
 sharingLinks = [
