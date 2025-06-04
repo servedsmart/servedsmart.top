@@ -136,7 +136,7 @@ const functionalScriptHashes = [];
 {{- range index $.Site.Data $currentLang "consent" "items" -}}
     {{- if .scriptFile -}}
         {{- $scriptFile := resources.Get .scriptFile -}}
-        {{- $scriptFile = $scriptFile | resources.ExecuteAsTemplate .scriptFile . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+        {{- $scriptFile = $scriptFile | resources.ExecuteAsTemplate .scriptFile . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha256") -}}
         {{- if .isFunctional -}}
             functionalScripts.push("{{- $scriptFile.RelPermalink -}}");
             functionalScriptHashes.push("{{- $scriptFile.Data.Integrity -}}");
