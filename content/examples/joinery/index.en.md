@@ -14,7 +14,7 @@ tags = [
 # External URL specific parameters
 externalUrl = "https://joinery.servedsmart.top/en/"
 showReadingTime = false
-[_build]
+[build]
 render = "false"
 list = ""
 +++

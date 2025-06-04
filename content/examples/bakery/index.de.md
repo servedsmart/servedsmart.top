@@ -14,7 +14,7 @@ tags = [
 # External URL specific parameters
 externalUrl = "https://bakery.servedsmart.top/"
 showReadingTime = false
-[_build]
+[build]
 render = "false"
 list = ""
 +++

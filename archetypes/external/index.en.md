@@ -42,7 +42,7 @@ draft = true
 # External URL specific parameters
 externalUrl = ""
 showReadingTime = false
-[_build]
+[build]
 render = "false"
 list = "local"
 +++
