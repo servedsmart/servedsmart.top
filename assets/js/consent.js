@@ -134,15 +134,15 @@ const functionalScripts = [];
 const functionalScriptHashes = [];
 {{- $currentLang := $.Site.Language.Lang -}}
 {{- range index $.Site.Data $currentLang "consent" "items" -}}
-    {{- if .script_file -}}
-        {{- $script_file := resources.Get (printf "js/%s" .script_file) -}}
-        {{- $script_file = $script_file | resources.ExecuteAsTemplate (printf "js/%s" .script_file) . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
-        {{- if .is_functional -}}
-            functionalScripts.push("{{- $script_file.RelPermalink -}}");
-            functionalScriptHashes.push("{{- $script_file.Data.Integrity -}}");
+    {{- if .scriptFile -}}
+        {{- $scriptFile := resources.Get .scriptFile -}}
+        {{- $scriptFile = $scriptFile | resources.ExecuteAsTemplate .scriptFile . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+        {{- if .isFunctional -}}
+            functionalScripts.push("{{- $scriptFile.RelPermalink -}}");
+            functionalScriptHashes.push("{{- $scriptFile.Data.Integrity -}}");
         {{- else -}}
-            optionalScripts.push("{{- $script_file.RelPermalink -}}");
-            optionalScriptHashes.push("{{- $script_file.Data.Integrity -}}");
+            optionalScripts.push("{{- $scriptFile.RelPermalink -}}");
+            optionalScriptHashes.push("{{- $scriptFile.Data.Integrity -}}");
         {{- end -}}
     {{- end -}}
 {{- end -}}
@@ -179,7 +179,6 @@ waitForReadyState(() => {
   addClickExec(document.getElementById("consent-settings-confirm"), (event) => {
     // Get value of checkboxes
     const consentValue = getConsentValueFromCheckboxes();
-    // NOTE: event.currentTarget.dataset.consentvalue only for optional scripts
     loadOptionalScripts(consentValue);
   });
   addClickExec(document.getElementById("consent-overlay"), (event) => {
