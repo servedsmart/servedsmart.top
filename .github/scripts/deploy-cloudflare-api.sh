@@ -89,7 +89,7 @@ set_unique_style_hashes() {
         STYLE_HASHES__["${hash}"]=1
     done
     ### Redeclare STYLE_HASHES and prefix space
-    if [[ -n ${!SCRIPT_HASHES__[*]} ]]; then
+    if [[ -n ${!STYLE_HASHES__[*]} ]]; then
         STYLE_HASHES["${target_branch}"]=" ${!STYLE_HASHES__[*]}"
     else
         STYLE_HASHES["${target_branch}"]=""
