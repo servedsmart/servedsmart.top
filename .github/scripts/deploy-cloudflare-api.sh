@@ -146,7 +146,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         # NOTE: See: https://github.com/nunocoracao/blowfish/discussions/2198
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2209 before using https://github.com/nunocoracao/blowfish branch main as submodule
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2211 before using https://github.com/nunocoracao/blowfish branch main as submodule
-        "script-src 'self' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
+        "script-src 'self' 'unsafe-inline' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
         #"script-src 'self' 'unsafe-inline'"
         "style-src 'self' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
         #"style-src 'self' 'unsafe-inline'"
