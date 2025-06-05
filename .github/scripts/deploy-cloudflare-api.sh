@@ -368,11 +368,11 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
       },
       "Cross-Origin-Embedder-Policy": {
         "operation": "set",
-        "value": "require-corp;"
+        "value": "require-corp"
       },
       "Cross-Origin-Opener-Policy": {
         "operation": "set",
-        "value": "same-origin;"
+        "value": "same-origin"
       },
       "Cross-Origin-Resource-Policy": {
         "operation": "set",
