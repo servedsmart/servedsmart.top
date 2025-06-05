@@ -89,7 +89,7 @@ set_unique_style_hashes() {
         STYLE_HASHES__["${hash}"]=1
     done
     ### Redeclare STYLE_HASHES and prefix space
-    if [[ -n ${!SCRIPT_HASHES__[*]} ]]; then
+    if [[ -n ${!STYLE_HASHES__[*]} ]]; then
         STYLE_HASHES["${target_branch}"]=" ${!STYLE_HASHES__[*]}"
     else
         STYLE_HASHES["${target_branch}"]=""
@@ -146,7 +146,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         # NOTE: See: https://github.com/nunocoracao/blowfish/discussions/2198
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2209 before using https://github.com/nunocoracao/blowfish branch main as submodule
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2211 before using https://github.com/nunocoracao/blowfish branch main as submodule
-        "script-src 'self' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
+        "script-src 'self' 'unsafe-inline' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
         #"script-src 'self' 'unsafe-inline'"
         "style-src 'self' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
         #"style-src 'self' 'unsafe-inline'"
@@ -368,11 +368,11 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
       },
       "Cross-Origin-Embedder-Policy": {
         "operation": "set",
-        "value": "require-corp; report-to=\"default\";"
+        "value": "require-corp"
       },
       "Cross-Origin-Opener-Policy": {
         "operation": "set",
-        "value": "same-origin; report-to=\"default\";"
+        "value": "same-origin"
       },
       "Cross-Origin-Resource-Policy": {
         "operation": "set",
