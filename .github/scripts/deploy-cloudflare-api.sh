@@ -143,15 +143,13 @@ declare -A CSP_DEFAULT
 for target_branch in "${TARGET_BRANCHES[@]}"; do
     RULES_CSP_DEFAULT=(
         "default-src 'none'"
-        # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
         # NOTE: See: https://github.com/nunocoracao/blowfish/discussions/2198
-        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2209
-        #"script-src 'self' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
-        "script-src 'self' 'unsafe-inline'"
-        # FIXME: Uncomment below after CSP is working correctly. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
-        # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
-        #"style-src 'self' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
-        "style-src 'self' 'unsafe-inline'"
+        # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2209 before using https://github.com/nunocoracao/blowfish branch main as submodule
+        # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2211 before using https://github.com/nunocoracao/blowfish branch main as submodule
+        "script-src 'self' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
+        #"script-src 'self' 'unsafe-inline'"
+        "style-src 'self' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
+        #"style-src 'self' 'unsafe-inline'"
         "img-src 'self' blob: data:"
         "object-src 'none'"
         "media-src 'self'"
