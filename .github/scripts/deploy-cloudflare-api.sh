@@ -68,22 +68,32 @@ set_hashes() {
 set_unique_script_hashes() {
     ## Remove duplicates
     target_branch="${1}"
-    IFS=' ' read -r -a SCRIPT_HASHES_ <<<"${SCRIPT_HASHES["${target_branch}"]}"
+    IFS=' ' read -ra SCRIPT_HASHES_ <<<"${SCRIPT_HASHES["${target_branch}"]}"
     declare -A SCRIPT_HASHES__
     for hash in "${SCRIPT_HASHES_[@]}"; do
         SCRIPT_HASHES__["${hash}"]=1
     done
-    SCRIPT_HASHES["${target_branch}"]="${!SCRIPT_HASHES__[*]}"
+    ### Redeclare STYLE_HASHES and prefix space
+    if [[ -n ${!SCRIPT_HASHES__[*]} ]]; then
+        SCRIPT_HASHES["${target_branch}"]=" ${!SCRIPT_HASHES__[*]}"
+    else
+        SCRIPT_HASHES["${target_branch}"]=""
+    fi
 }
 set_unique_style_hashes() {
     ## Remove duplicates
     target_branch="${1}"
-    IFS=' ' read -r -a STYLE_HASHES_ <<<"${STYLE_HASHES["${target_branch}"]}"
+    IFS=' ' read -ra STYLE_HASHES_ <<<"${STYLE_HASHES["${target_branch}"]}"
     declare -A STYLE_HASHES__
     for hash in "${STYLE_HASHES_[@]}"; do
         STYLE_HASHES__["${hash}"]=1
     done
-    STYLE_HASHES["${target_branch}"]="${!STYLE_HASHES__[*]}"
+    ### Redeclare STYLE_HASHES and prefix space
+    if [[ -n ${!SCRIPT_HASHES__[*]} ]]; then
+        STYLE_HASHES["${target_branch}"]=" ${!STYLE_HASHES__[*]}"
+    else
+        STYLE_HASHES["${target_branch}"]=""
+    fi
 }
 ## Get SCRIPT_HASHES and STYLE_HASHES for every branch
 declare -A SCRIPT_HASHES
@@ -134,14 +144,13 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     RULES_CSP_DEFAULT=(
         "default-src 'none'"
         # FIXME: Uncomment below after CSP is working correctly. I think all scripts are loaded correctly with hashes. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
-        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2194
-        # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
-        #"script-src 'self' 'strict-dynamic' ${SCRIPT_HASHES["${target_branch}"]}"
+        # NOTE: See: https://github.com/nunocoracao/blowfish/discussions/2198
+        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2209
+        #"script-src 'self' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
         "script-src 'self' 'unsafe-inline'"
         # FIXME: Uncomment below after CSP is working correctly. CSP is too long, it seems like Cloudflare has a 4k char limit or maybe 8k+ bytes.
-        # FIXME: Wait for https://github.com/nunocoracao/blowfish/pull/2196
         # FIXME: See: https://github.com/nunocoracao/blowfish/discussions/2198
-        #"style-src 'self' 'unsafe-hashes' ${STYLE_HASHES["${target_branch}"]}"
+        #"style-src 'self' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
         "style-src 'self' 'unsafe-inline'"
         "img-src 'self' blob: data:"
         "object-src 'none'"
