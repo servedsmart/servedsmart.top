@@ -23,6 +23,7 @@ cp -R "${SCRIPT_DIR}"/../.. "${tmp_dir}"
 cd "${tmp_dir}"
 
 # Response Header Transform Rules
+# FIXME: Deal with inline event handlers. Blowfish uses onclick and onload. Move them out of line with addEventListener.
 get_hashes_inline() {
     for content_ in "${CONTENTS[@]}"; do
         content="$(printf "%b\n" "${content_}")"
