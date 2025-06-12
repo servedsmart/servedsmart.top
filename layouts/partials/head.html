@@ -1,13 +1,3 @@
-<!--
---File: head.html
---Author: Leopold Meinel (leo@meinel.dev)
--------
---Copyright (c) 2025 Leopold Meinel & contributors
---SPDX ID: MIT
---URL: https://opensource.org/licenses/MIT
--------
- -->
-
 <head>
   <meta charset="utf-8" />
   {{ with .Site.Language.Params.htmlCode | default .Site.LanguageCode }}
@@ -78,6 +68,12 @@
   {{ end }}
   {{ $jsMobileMenu := resources.Get "js/mobilemenu.js" }}
   {{ $assets.Add "js" (slice $jsMobileMenu) }}
+  {{ $buttonLikes := resources.Get "js/button-likes.js" }}
+  {{ $assets.Add "js" (slice $buttonLikes) }}
+  {{ $katexRender := resources.Get "js/katex-render.js" }}
+  {{ $assets.Add "js" (slice $katexRender) }}
+  {{ $taxonomiesHref := resources.Get "js/taxonomies-href.js" }}
+  {{ $assets.Add "js" (slice $taxonomiesHref) }}
   {{ if $assets.Get "js" }}
   {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint
   (.Site.Params.fingerprintAlgorithm | default "sha512") }}
