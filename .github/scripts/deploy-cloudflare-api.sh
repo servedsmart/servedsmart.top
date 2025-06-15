@@ -173,18 +173,18 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
 done
 ### https://github.com/sveltia/sveltia-cms?tab=readme-ov-file#setting-up-content-security-policy
 RULES_CSP_CMS=(
-    "default-src 'none'"
+    #"default-src 'none'"
     "script-src 'self' https://unpkg.com"
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com"
     "img-src 'self' blob: data: https://*.githubusercontent.com"
-    "object-src 'none'"
+    #"object-src 'none'"
     "media-src blob:"
     "frame-src blob: https://www.youtube-nocookie.com"
     "child-src blob: https://www.youtube-nocookie.com"
-    "form-action 'self'"
+    #"form-action 'self'"
     "frame-ancestors 'none'"
-    "manifest-src 'self'"
-    "base-uri 'self'"
+    #"manifest-src 'self'"
+    #"base-uri 'self'"
     "upgrade-insecure-requests"
     "font-src 'self' https://fonts.gstatic.com"
     "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com"
