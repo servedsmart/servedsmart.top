@@ -17,6 +17,9 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Install Dependencies - npm
+        run: npm ci
+
       - name: Build Hugo Site
         run: npm run-script build
 
