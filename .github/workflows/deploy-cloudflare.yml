@@ -17,16 +17,8 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Install Dependencies - Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: "latest"
-
-      - name: Build
-        env:
-          HUGO_ENVIRONMENT: "production"
-          HUGO_ENV: "production"
-        run: hugo --enableGitInfo --minify -e "production" -d ./public
+      - name: Build Hugo Site
+        run: npm run-script build
 
       - name: Install Dependencies - yq
         if: github.ref == 'refs/heads/main'
