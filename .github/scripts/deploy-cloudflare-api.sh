@@ -123,7 +123,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         continue
     fi
     git restore .
-    git clean -fdx
+    git clean -fdxe /**/node_modules/
     git switch --recurse-submodules "${target_branch}"
     npm run-script build
     rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
@@ -135,7 +135,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
 done
 ## Restore and switch back to main
 git restore .
-git clean -fdx
+git clean -fdxe /**/node_modules/
 git switch --recurse-submodules "main"
 
 ## https://content-security-policy.com/
