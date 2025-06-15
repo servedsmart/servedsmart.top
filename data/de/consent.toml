@@ -20,5 +20,5 @@ scriptFile = "js/consent-appearance.js"
 [[items]]
 title = "Zustimmungseinstellungen"
 description = "Diese Daten erlauben uns, die Zustimmungseinstellungen der Nutzer zu lesen."
-descriptionSummary = "Die Datenwerte 'optional-scripts' und 'consent-settings' werden in localStorage gespeichert."
+descriptionSummary = "Die Datenwerte 'optional-script-hashes' und 'consent-settings' werden in localStorage gespeichert."
 isFunctional = true
