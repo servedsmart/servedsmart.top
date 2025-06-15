@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "deploy": "npx -y wrangler deploy",
+    "dev": "npx -y wrangler dev",
+    "start": "npx -y wrangler dev"
   },
   "devDependencies": {
     "wrangler": "4.20.0"
