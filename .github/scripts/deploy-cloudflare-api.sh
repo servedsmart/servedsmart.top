@@ -100,7 +100,7 @@ set_unique_style_hashes() {
 declare -A SCRIPT_HASHES
 declare -A STYLE_HASHES
 ### Get hashes for main
-npx -y hugo-bin --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
+hugo --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
 rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
 set_hashes "script" "main"
 set_unique_script_hashes "main"
@@ -125,7 +125,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     git restore .
     git clean -fdx
     git switch --recurse-submodules "${target_branch}"
-    npx -y hugo-bin --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
+    hugo --enableGitInfo --minify -e "production" -d "${tmp_dir}"/public
     rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
     #### Get hashes
     set_hashes "script" "${target_branch}"
