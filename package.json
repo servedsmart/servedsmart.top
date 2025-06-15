@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "deploy": "npx -y wrangler deploy",
+    "build": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production npx -y hugo --enableGitInfo --minify -e production -d ./public",
+    "create": "npx -y hugo new",
+    "serve": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production npx -y hugo server --enableGitInfo --minify -e production -d ./public",
+    "deploy": "NODE_ENV=production npx -y wrangler deploy",
     "dev": "npx -y wrangler dev",
     "start": "npx -y wrangler dev"
   },
   "devDependencies": {
+    "hugo-bin": "0.144.8",
     "wrangler": "4.20.0"
   }
 }
