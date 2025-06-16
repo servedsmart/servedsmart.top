@@ -17,21 +17,24 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Install Dependencies - npm
+      - name: Install Dependencies with npm
         run: npm ci
 
       - name: Build Hugo Site
         run: npm run-script build
 
-      - name: Install Dependencies - yq
+      - name: Install Dependencies with pip
         if: github.ref == 'refs/heads/main'
         run: pip install yq
 
-      - name: Install Dependencies - pup
+      - name: Install Dependencies - go
         if: github.ref == 'refs/heads/main'
         uses: actions/setup-go@v5
         with:
           go-version: "^1.24.4"
+
+      - name: Install Dependencies with go
+        if: github.ref == 'refs/heads/main'
         run: go install github.com/servedsmart/pup@1.0.0
 
       - name: Deploy via API
