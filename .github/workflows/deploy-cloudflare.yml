@@ -35,7 +35,8 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: ".github/scripts/deploy-cloudflare-api/go.mod"
-          cache-dependency-path: ".github/scripts/deploy-cloudflare-api/go.sum"
+          cache-dependency-path: |
+            .github/scripts/deploy-cloudflare-api/go.sum
 
       - name: Deploy via API
         if: github.ref == 'refs/heads/main'
