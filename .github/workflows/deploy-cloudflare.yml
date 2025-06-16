@@ -29,7 +29,7 @@ jobs:
 
       - name: Install Dependencies - pup
         if: github.ref == 'refs/heads/main'
-        run: go install github.com/servedsmart/pup
+        run: go install github.com/servedsmart/pup@1.0.0
 
       - name: Deploy via API
         if: github.ref == 'refs/heads/main'
