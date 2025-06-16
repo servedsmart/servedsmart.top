@@ -83,8 +83,8 @@
   {{ end }}
   {{ if not .Site.Params.disableImageZoom | default true }}
   {{ $zoomJS := resources.Get "js/medium-zoom.js" }}
-  {{ $zoomJS = $zoomJS | resources.ExecuteAsTemplate "js/medium-zoom.js" . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
-  <script src="{{ $zoomJS.RelPermalink }}" integrity="{{ $zoomJS.Data.Integrity }}"></script>
+  {{ $zoomJS = $zoomJS | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  <script type="text/javascript" src="{{ $zoomJS.RelPermalink }}" integrity="{{ $zoomJS.Data.Integrity }}" data-stylesheet="{{ $functionalScripts }}" data-stylesheet-hash="{{ $functionalScriptHashes }}"></script>
   {{ end }}
   {{/* Icons */}}
   {{ if templates.Exists "partials/favicons.html" }}
