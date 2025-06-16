@@ -19,7 +19,7 @@ SCRIPT_DIR="$(dirname -- "$(readlink -f -- "${0}")")"
 
 # Make copy of current repo
 tmp_dir="$(mktemp -d /tmp/site-XXXXXX)"
-cp -R "${SCRIPT_DIR}"/../.. "${tmp_dir}"
+cp -R "${SCRIPT_DIR}"/../../.. "${tmp_dir}"
 cd "${tmp_dir}"
 
 # Response Header Transform Rules
