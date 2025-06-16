@@ -25,17 +25,17 @@ jobs:
 
       - name: Install Dependencies with pip
         if: github.ref == 'refs/heads/main'
-        run: pip install yq
+        env:
+          PIP_REQUIREMENT: .github/scripts/deploy-cloudflare-api/requirements.txt
+          PIP_REQUIRE_HASHES: true
+        run: pip install
 
-      - name: Install Dependencies - go
+      - name: Install Dependencies with go
         if: github.ref == 'refs/heads/main'
         uses: actions/setup-go@v5
         with:
           go-version: "^1.24.4"
-
-      - name: Install Dependencies with go
-        if: github.ref == 'refs/heads/main'
-        run: go install github.com/servedsmart/pup@1.0.0
+          cache-dependency-path: .github/scripts/deploy-cloudflare-api/go.sum
 
       - name: Deploy via API
         if: github.ref == 'refs/heads/main'
@@ -43,7 +43,7 @@ jobs:
           CLOUDFLARE_API_TOKEN_1: ${{ secrets.CLOUDFLARE_API_TOKEN_1 }}
           CLOUDFLARE_ZONE_ID_0: ${{ secrets.CLOUDFLARE_ZONE_ID_0 }}
           JSON_SECRETS: ${{ toJson(secrets) }}
-        run: ./.github/scripts/deploy-cloudflare-api.sh
+        run: ./.github/scripts/deploy-cloudflare-api/deploy-cloudflare-api.sh
 
       - name: Deploy to Workers
         env:
