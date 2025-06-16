@@ -8,9 +8,7 @@
 # -----
 ###
 
-consent-text-start = "We would like to use "
-consent-text-href = "third-party code"
-consent-text-end = " to improve the functionality of this website."
+consent-notice-text = "We would like to use third-party code to improve the functionality of this website."
 consent-button-consent-settings = "Consent settings"
 consent-button-consent-settings-confirm = "Confirm settings"
 consent-button-consent-reject-optional = "Reject optional"
