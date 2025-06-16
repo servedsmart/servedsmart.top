@@ -454,20 +454,23 @@
     };
     return zoom;
   };
-  function loadStylesheet(cssPath, cssIntegrity) {
-    if (!cssPath || !cssIntegrity || typeof document === "undefined") {
+  function loadStylesheet() {
+    const scriptElement = document.currentScript;
+    const stylesheet = scriptElement && scriptElement.getAttribute("data-stylesheet") ? scriptElement.getAttribute("data-stylesheet")
+      : (console.error("data-stylesheet is null"), null);
+    const stylesheetHash = scriptElement && scriptElement.getAttribute("data-stylesheet-hash") ? scriptElement.getAttribute("data-stylesheet-hash")
+      : (console.error("data-stylesheet-hash is null"), null);
+    if (!stylesheet || !stylesheetHash || typeof document === "undefined") {
       return;
     }
     var head = document.head || document.getElementsByTagName("head")[0];
     var link = document.createElement("link");
     link.type = "text/css";
     link.rel = "stylesheet";
-    link.href = cssPath;
-    link.integrity = cssIntegrity;
+    link.href = stylesheet;
+    link.integrity = stylesheetHash;
     head.appendChild(link);
   }
-  {{- $styleSheet := resources.Get "css/medium-zoom.css" -}}
-  {{- $styleSheet = $styleSheet | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
-  loadStylesheet("{{- $styleSheet.RelPermalink -}}", "{{- $styleSheet.Data.Integrity -}}");
+  loadStylesheet();
   return mediumZoom;
 });
