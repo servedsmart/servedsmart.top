@@ -71,3 +71,17 @@ links = [
  #     { ko-fi = "https://ko-fi.com/username" },
  #     { codeberg = "https://codeberg.org/username"},
 ]
+
+# Custom
+[[params.consent.items]]
+title = "Aussehen"
+description = "Dieser Code erlaubt es Nutzern, das Aussehen der Website zu verändern."
+descriptionSummary = "Der Datenwert 'appearance' wird in localStorage gespeichert."
+isFunctional = false
+scriptFile = "js/consent-appearance.js"
+
+[[params.consent.items]]
+title = "Zustimmungseinstellungen"
+description = "Diese Daten erlauben uns, die Zustimmungseinstellungen der Nutzer zu lesen."
+descriptionSummary = "Die Datenwerte 'optional-script-hashes' und 'consent-settings' werden in localStorage gespeichert."
+isFunctional = true
