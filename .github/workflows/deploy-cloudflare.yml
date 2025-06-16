@@ -17,25 +17,31 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Install Dependencies with npm
+      - name: Install dependencies with npm
         run: npm ci
 
       - name: Build Hugo Site
         run: npm run-script build
 
-      - name: Install Dependencies with pip
+      - name: Install dependencies with pip
         if: github.ref == 'refs/heads/main'
         env:
           PIP_REQUIREMENT: .github/scripts/deploy-cloudflare-api/requirements.txt
           PIP_REQUIRE_HASHES: true
         run: pip install
 
-      - name: Install Dependencies with go
+      - name: Install dependency - go
         if: github.ref == 'refs/heads/main'
         uses: actions/setup-go@v5
         with:
           go-version-file: .github/scripts/deploy-cloudflare-api/go.mod
           cache-dependency-path: .github/scripts/deploy-cloudflare-api/go.sum
+
+      - name: Install dependencies with go
+        if: github.ref == 'refs/heads/main'
+        env:
+          GO_MODULE_SUM_PATH: .github/scripts/deploy-cloudflare-api/
+        run: cd "${GO_MODULE_SUM_PATH}" && go mod download
 
       - name: Deploy via API
         if: github.ref == 'refs/heads/main'
