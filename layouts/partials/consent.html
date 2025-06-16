@@ -10,14 +10,13 @@
 
 <!-- Based on: https://hugocodex.org/add-ons/cookie-consent/#manage-consent -->
 
-{{- $style := resources.Get "css/consent.css" -}} {{- $style = $style |
-resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm |
-default "sha512") -}}
+{{ $style := resources.Get "css/consent.css" }}
+{{ $style = $style | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
 <link
   type="text/css"
   rel="stylesheet"
-  href="{{- $style.Permalink -}}"
-  integrity="{{- $style.Data.Integrity -}}"
+  href="{{ $style.Permalink }}"
+  integrity="{{ $style.Data.Integrity }}"
 />
 
 <div id="consent-notice-container" class="backdrop-blur">
@@ -26,25 +25,21 @@ default "sha512") -}}
     class="text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
   >
     <span class="text-lg font-medium text-neutral-800 dark:text-neutral"
-      >{{- T "consent-text-start" -}}<a
-        class="text-lg font-medium text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-        href="#consent-overlay"
-        >{{- T "consent-text-href" -}}</a
-      >{{- T "consent-text-end" -}}</span
+      >{{ T "consent-notice-text" }}</span
     ><br />
     <button
       class="btn consent-accept-all bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
     >
-      {{- T "consent-button-consent-accept-all" -}}</button
+      {{ T "consent-button-consent-accept-all" }}</button
     ><button
       class="btn consent-reject-optional bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
     >
-      {{- T "consent-button-consent-reject-optional" -}}</button
+      {{ T "consent-button-consent-reject-optional" }}</button
     ><button
       id="consent-settings"
       class="btn consent-settings bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
     >
-      {{- T "consent-button-consent-settings" -}}
+      {{ T "consent-button-consent-settings" }}
     </button>
   </div>
 </div>
@@ -53,72 +48,90 @@ default "sha512") -}}
     <div
       class="text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
     >
-      {{- $currentLang := $.Site.Language.Lang -}} {{- $data := index
-      $.Site.Data $currentLang "consent" "items" -}} {{- range $index, $item :=
-      $data -}}
+      {{ range $index, $item := $.Site.Params.consent.items }}
       <div>
         <label class="form-control">
           <input
             type="checkbox"
-            id="item{{- $index -}}"
+            id="item{{ $index }}"
             value="1"
-            name="item{{- $index -}}"
+            name="item{{ $index }}"
             {{
             if
             $item.isFunctional
             }}checked
             disabled{{end}}
           />
-          <label for="item{{- $index -}}"
+          <label for="item{{ $index }}"
             ><header
               class="text-lg font-bold text-neutral-800 dark:text-neutral-300"
             >
-              <h3>{{- $item.title -}}</h3>
+              <h3>{{ $item.title }}</h3>
             </header>
             <main
               class="text-base font-medium text-neutral-500 dark:text-neutral"
             >
-              <p>{{- $item.description -}}</p>
+              <p>{{ $item.description }}</p>
             </main>
             <main
               class="text-base font-light text-neutral-500 dark:text-neutral"
             >
               <details>
-                <summary>
-                  {{- T "consent-overlay-description-summary" -}}
-                </summary>
-                <p>{{- $item.descriptionSummary -}}</p>
+                <summary>{{ T "consent-overlay-description-summary" }}</summary>
+                <p>{{ $item.descriptionSummary }}</p>
               </details>
             </main>
           </label>
         </label>
       </div>
-      {{- end -}}
+      {{ end }}
       <div>
         <button
           class="btn consent-accept-all bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
         >
-          {{- T "consent-button-consent-accept-all" -}}</button
+          {{ T "consent-button-consent-accept-all" }}</button
         ><button
           class="btn consent-reject-optional bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
         >
-          {{- T "consent-button-consent-reject-optional" -}}</button
+          {{ T "consent-button-consent-reject-optional" }}</button
         ><button
           id="consent-settings-confirm"
           class="btn consent-settings-confirm bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
         >
-          {{- T "consent-button-consent-settings-confirm" -}}
+          {{ T "consent-button-consent-settings-confirm" }}
         </button>
       </div>
     </div>
   </div>
 </div>
 
-{{- $consent := resources.Get "js/consent.js" -}} {{- $consent = $consent |
-resources.ExecuteAsTemplate "js/consent.js" . | resources.Minify |
-resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+{{ $scriptData := newScratch }}
+{{ range $.Site.Params.consent.items }}
+  {{ if .scriptFile }}
+    {{ $scriptFile := resources.Get .scriptFile }}
+    {{ $scriptFile = $scriptFile | resources.ExecuteAsTemplate .script_file . | resources.Minify | resources.Fingerprint ($.Site.Params.fingerprintAlgorithm | default "sha512") }}
+      {{ if .isFunctional }}
+        {{ $scriptData.Add "functionalScripts" (print $scriptFile.RelPermalink " ") }}
+        {{ $scriptData.Add "functionalScriptHashes" (print $scriptFile.Data.Integrity " ") }}
+      {{ else }}
+        {{ $scriptData.Add "optionalScripts" (print $scriptFile.RelPermalink " ") }}
+        {{ $scriptData.Add "optionalScriptHashes" (print $scriptFile.Data.Integrity " ") }}
+      {{ end }}
+  {{ end }}
+{{ end }}
+{{ $functionalScripts := trim ($scriptData.Get "functionalScripts") " " }}
+{{ $functionalScriptHashes := trim ($scriptData.Get "functionalScriptHashes") " " }}
+{{ $optionalScripts := trim ($scriptData.Get "optionalScripts") " " }}
+{{ $optionalScriptHashes := trim ($scriptData.Get "optionalScriptHashes") " " }}
+{{ $consent := resources.Get "js/consent.js" }}
+{{ $consent = $consent | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+
 <script
   type="text/javascript"
-  src="{{- $consent.RelPermalink -}}"
-  integrity="{{- $consent.Data.Integrity -}}"
+  src="{{ $consent.RelPermalink }}"
+  integrity="{{ $consent.Data.Integrity }}"
+  data-functional-scripts="{{ $functionalScripts }}"
+  data-functional-script-hashes="{{ $functionalScriptHashes }}"
+  data-optional-scripts="{{ $optionalScripts }}"
+  data-optional-script-hashes="{{ $optionalScriptHashes }}"
 ></script>
