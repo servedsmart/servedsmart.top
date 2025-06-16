@@ -23,21 +23,18 @@ function waitForReadyState(function_) {
 }
 
 // Store consentValue in localStorage
-function setConsentValueStorage(consentValue) {
-  localStorage.setItem(
-    "optional-script-hashes",
-    optionalScriptHashes.toString()
-  );
+function setConsentValueStorage(hashes, consentValue) {
+  localStorage.setItem("optional-script-hashes", hashes.toString());
   localStorage.setItem("consent-settings", consentValue);
 }
 // Calculate consentValue, string should be either "0" or "1"
 function getConsentValue(scripts, string) {
   return scripts.map(() => string).join("");
 }
-// Get stored consentValue from localStorage or remove if optionalScripts don't match
-function getConsentValueFromStorage() {
+// Get stored consentValue from localStorage or remove if hashes don't match
+function getConsentValueFromStorage(hashes) {
   const storedScriptHashes = localStorage.getItem("optional-script-hashes");
-  if (storedScriptHashes === optionalScriptHashes.toString()) {
+  if (storedScriptHashes === hashes.toString()) {
     return localStorage.getItem("consent-settings");
   } else {
     localStorage.removeItem("optional-script-hashes");
@@ -101,21 +98,21 @@ function loadScripts(scripts, hashes, consentValue) {
   });
 }
 // Load functional javascript
-function loadFunctionalScripts() {
-  const consentValue = getConsentValue(functionalScripts, "1");
-  loadScripts(functionalScripts, functionalScriptHashes, consentValue);
+function loadFunctionalScripts(scripts, hashes) {
+  const consentValue = getConsentValue(scripts, "1");
+  loadScripts(scripts, hashes, consentValue);
 }
 // Load optional javascript
-function loadOptionalScripts(consentValue) {
+function loadOptionalScripts(scripts, hashes, consentValue) {
   deactivateWithParent(document.getElementById("consent-notice"));
   deactivateWithParent(document.getElementById("consent-overlay"));
   if (!consentValue) {
-    setConsentValueStorage("0");
+    setConsentValueStorage(hashes, "0");
     return;
   }
   setCheckboxes(consentValue);
-  setConsentValueStorage(consentValue);
-  loadScripts(optionalScripts, optionalScriptHashes, consentValue);
+  setConsentValueStorage(hashes, consentValue);
+  loadScripts(scripts, hashes, consentValue);
 }
 
 // Handle event listeners on click for elements
@@ -128,28 +125,30 @@ function addClickExec(elements, function_) {
   });
 }
 
-const optionalScripts = [];
-const optionalScriptHashes = [];
-const functionalScripts = [];
-const functionalScriptHashes = [];
-{{- $currentLang := $.Site.Language.Lang -}}
-{{- range index $.Site.Data $currentLang "consent" "items" -}}
-    {{- if .scriptFile -}}
-        {{- $scriptFile := resources.Get .scriptFile -}}
-        {{- $scriptFile = $scriptFile | resources.ExecuteAsTemplate .scriptFile . | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha256") -}}
-        {{- if .isFunctional -}}
-            functionalScripts.push("{{- $scriptFile.RelPermalink -}}");
-            functionalScriptHashes.push("{{- $scriptFile.Data.Integrity -}}");
-        {{- else -}}
-            optionalScripts.push("{{- $scriptFile.RelPermalink -}}");
-            optionalScriptHashes.push("{{- $scriptFile.Data.Integrity -}}");
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
+// Get values as array from HTML data-
+function splitAttribute(function_) {
+  return consentScriptElement && function_() ? function_().split(" ") : [];
+}
+
+const consentScriptElement = document.currentScript;
 
 waitForReadyState(() => {
+  // Set variables containing scripts and hashes
+  const functionalScripts = splitAttribute(() => {
+    return consentScriptElement.getAttribute("data-functional-scripts");
+  });
+  const functionalScriptHashes = splitAttribute(() => {
+    return consentScriptElement.getAttribute("data-functional-script-hashes");
+  });
+  const optionalScripts = splitAttribute(() => {
+    return consentScriptElement.getAttribute("data-optional-scripts");
+  });
+  const optionalScriptHashes = splitAttribute(() => {
+    return consentScriptElement.getAttribute("data-optional-script-hashes");
+  });
+
   // Load functional javascript
-  loadFunctionalScripts();
+  loadFunctionalScripts(functionalScripts, functionalScriptHashes);
 
   // Uncheck checkboxes
   setUnchecked(
@@ -157,7 +156,7 @@ waitForReadyState(() => {
   );
 
   // Load javascript if user has consented or show notice
-  const consentValue = getConsentValueFromStorage();
+  const consentValue = getConsentValueFromStorage(optionalScriptHashes);
   if (consentValue) {
     setCheckboxes(consentValue);
     loadScripts(optionalScripts, optionalScriptHashes, consentValue);
@@ -167,19 +166,19 @@ waitForReadyState(() => {
   // Handle consent buttons
   addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
     const consentValue = getConsentValue(optionalScripts, "0");
-    loadOptionalScripts(consentValue);
+    loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
   addClickExec(document.querySelectorAll(".consent-accept-all"), () => {
     const consentValue = getConsentValue(optionalScripts, "1");
-    loadOptionalScripts(consentValue);
+    loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
   addClickExec(document.getElementById("consent-settings"), () => {
     window.location.href = "#consent-overlay";
   });
-  addClickExec(document.getElementById("consent-settings-confirm"), (event) => {
+  addClickExec(document.getElementById("consent-settings-confirm"), () => {
     // Get value of checkboxes
     const consentValue = getConsentValueFromCheckboxes();
-    loadOptionalScripts(consentValue);
+    loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
   addClickExec(document.getElementById("consent-overlay"), (event) => {
     if (
