@@ -28,7 +28,7 @@ replay_pid*
 *.so
 *.dylib
 *.dll
-*.mod
+#*.mod
 *.smod
 *.lai
 *.la
@@ -54,7 +54,7 @@ replay_pid*
 *.su
 *.idb
 *.pdb
-*.mod*
+#*.mod*
 *.cmd
 .tmp_versions/
 modules.order
