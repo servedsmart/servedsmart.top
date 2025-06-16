@@ -1,6 +1,6 @@
 module github.com/servedsmart/deploy-cloudflare-api
 
-go 1.24.3
+go 1.24.4
 
 require (
 	github.com/fatih/color v1.18.0 // indirect

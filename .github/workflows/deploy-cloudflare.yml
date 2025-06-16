@@ -39,9 +39,7 @@ jobs:
 
       - name: Install dependencies with go
         if: github.ref == 'refs/heads/main'
-        env:
-          GO_MODULE_SUM_PATH: ./.github/scripts/deploy-cloudflare-api/
-        run: go install "${GO_MODULE_SUM_PATH}"
+        run: go install github.com/servedsmart/pup@v1.0.0
 
       - name: Deploy via API
         if: github.ref == 'refs/heads/main'
