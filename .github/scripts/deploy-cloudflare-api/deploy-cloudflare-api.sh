@@ -154,7 +154,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         "media-src 'self'"
         "frame-src 'self' https://www.youtube-nocookie.com"
         "child-src 'self' https://www.youtube-nocookie.com"
-        "connect-src 'self"
+        "connect-src 'self'"
         "form-action 'self'"
         "frame-ancestors 'none'"
         "manifest-src 'self'"
