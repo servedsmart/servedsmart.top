@@ -6,7 +6,7 @@
 # https://blowfish.page/docs/configuration/#theme-parameters
 
 colorScheme = "main"
-defaultAppearance = "light"  # valid options: light or dark
+defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 
 enableSearch = true
@@ -18,11 +18,13 @@ mainSections = ["services"]
 robots = "noimageindex"
 
 disableImageOptimization = false
+disableImageOptimizationMD = false
 disableTextInHeader = false
 # backgroundImageWidth = 1200
 
 defaultBackgroundImage = "/img/background-optimized.svg" # used as default for background images 
 defaultFeaturedImage = "/img/featured-logo-optimized.svg" # used as default for featured images in all articles
+# defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
 
 highlightCurrentMenuArea = true
 smartTOC = false
@@ -30,8 +32,8 @@ smartTOCHideUnfocusedChildren = false
 
 fingerprintAlgorithm = "sha256" # Valid values are "sha512" (default), "sha384", "sha256"
 
-giteaDefaultServer = ""
-forgejoDefaultServer = ""
+giteaDefaultServer = "https://git.fsfe.org"
+forgejoDefaultServer = "https://v8.next.forgejo.org"
 
 [header]
 layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
@@ -44,15 +46,16 @@ showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
-layout = "page"            # valid options: page, profile, hero, card, background, custom
-homepageImage = "/img/background-optimized.svg"   # used in: hero, and card
+layout = "profile" # valid options: page, profile, hero, card, background, custom
+homepageImage = "/img/background-optimized.svg" # used in: hero, and card
 showRecent = true
 showRecentItems = 12
 showMoreLink = true
 showMoreLinkDest = "services"
 cardView = true
 cardViewScreenWidth = false
-layoutBackgroundBlur = true  # only used when layout equals background
+layoutBackgroundBlur = true # only used when layout equals background
+disableHeroImageFilter = true # only used when layout equals hero
 
 [article]
 showDate = true
@@ -79,8 +82,8 @@ showReadingTime = true
 showTableOfContents = true
 showRelatedContent = true
 relatedContentLimit = 6
-showTaxonomies = false
-showCategoryOnly = true
+showTaxonomies = false # use showTaxonomies OR showCategoryOnly, not both
+showCategoryOnly = true # use showTaxonomies OR showCategoryOnly, not both
 showAuthorsBadges = true
 showWordCount = false
 sharingLinks = [
@@ -100,7 +103,7 @@ showZenMode = false
 [list]
 showHero = true
 heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-layoutBackgroundBlur = true        # only used when heroStyle equals background or thumbAndBackground
+layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
 layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
 showBreadcrumbs = false
 showSummary = true
