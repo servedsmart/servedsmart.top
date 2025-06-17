@@ -154,6 +154,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         "media-src 'self'"
         "frame-src 'self' https://www.youtube-nocookie.com"
         "child-src 'self' https://www.youtube-nocookie.com"
+        "connect-src 'self"
         "form-action 'self'"
         "frame-ancestors 'none'"
         "manifest-src 'self'"
@@ -181,13 +182,13 @@ RULES_CSP_CMS=(
     "media-src blob:"
     "frame-src blob: https://www.youtube-nocookie.com"
     "child-src blob: https://www.youtube-nocookie.com"
+    "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com"
     "form-action 'self'"
     "frame-ancestors 'none'"
     "manifest-src 'self'"
     "base-uri 'self'"
     "upgrade-insecure-requests"
     "font-src 'self' https://fonts.gstatic.com"
-    "connect-src 'self' blob: data: https://unpkg.com https://api.github.com https://www.githubstatus.com"
 )
 RULES_CSP_CMS_LENGTH="${#RULES_CSP_CMS[@]}"
 for ((i = 0; i < RULES_CSP_CMS_LENGTH; i++)); do
