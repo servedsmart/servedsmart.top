@@ -75,9 +75,8 @@
   {{ if $assets.Get "js" }}
   {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify | resources.Fingerprint
   (.Site.Params.fingerprintAlgorithm | default "sha512") }}
-  <script defer type="text/javascript" id="script-bundle" src="{{ $bundleJS.RelPermalink }}"
-    integrity="{{ $bundleJS.Data.Integrity }}" data-copy="{{ i18n "code.copy" }}" data-copied="{{ i18n "code.copied"
-    }}"></script>
+  <script defer type="text/javascript" src="{{ $bundleJS.RelPermalink }}" integrity="{{ $bundleJS.Data.Integrity }}"
+    id="script-bundle" data-copy="{{ i18n "code.copy" }}" data-copied="{{ i18n "code.copied" }}"></script>
   {{ end }}
   {{ if not .Site.Params.disableImageZoom | default true }}
   {{ $zoomJS := resources.Get "js/medium-zoom.js" }}
@@ -170,5 +169,10 @@
     var auth = firebase.auth();
   </script>
   {{ end }}
+  {{ end }}
+
+  {{/* Advertisement */}}
+  {{ with .Site.Params.advertisement.adsense }}
+  <meta name="google-adsense-account" content="{{ . }}" />
   {{ end }}
 </head>
