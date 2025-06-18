@@ -9,21 +9,21 @@
  */
 
 /* https://github.com/nunocoracao/fugu */
-/* ./index.js generate 577557 8ba7a2 4fc4a7 */
+/* ./index.js generate 738a5c 8ba7a2 4fc4a7 */
 
 :root {
   --color-neutral: 255, 255, 255;
-  /* #577557 */
+  /* #738a5c */
   --color-neutral-50: 255, 255, 255;
   --color-neutral-100: 255, 255, 255;
-  --color-neutral-200: 211, 222, 211;
-  --color-neutral-300: 167, 190, 167;
-  --color-neutral-400: 123, 157, 123;
-  --color-neutral-500: 87, 117, 87;
-  --color-neutral-600: 70, 94, 70;
-  --color-neutral-700: 52, 70, 52;
-  --color-neutral-800: 35, 47, 35;
-  --color-neutral-900: 17, 23, 17;
+  --color-neutral-200: 230, 235, 225;
+  --color-neutral-300: 192, 204, 179;
+  --color-neutral-400: 153, 174, 133;
+  --color-neutral-500: 115, 138, 92;
+  --color-neutral-600: 95, 114, 76;
+  --color-neutral-700: 74, 89, 59;
+  --color-neutral-800: 54, 65, 43;
+  --color-neutral-900: 33, 40, 27;
   /* #8ba7a2 */
   --color-primary-50: 255, 255, 255;
   --color-primary-100: 255, 255, 255;
