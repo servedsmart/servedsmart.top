@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "assets": "rimraf assets/vendor && vendor-copy && printf \"%s\n\" 'WARNING: Please readd loadStylesheet() logic to ./assets/js/medium-zoom.js'",
     "build": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production hugo --enableGitInfo --minify -e production -d ./public",
     "create": "hugo new",
     "serve": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production hugo server --enableGitInfo --minify -e production -d ./public",
@@ -11,7 +12,26 @@
     "start": "wrangler dev"
   },
   "devDependencies": {
+    "@sveltia/cms": "^0.80.9",
     "hugo-bin": "^0.144.8",
-    "wrangler": "^4.20.0"
-  }
+    "vendor-copy": "^3.0.1",
+    "medium-zoom": "^1.1.0",
+    "wrangler": "^4.20.3",
+    "rimraf": "^6.0.1"
+  },
+  "vendorCopy": [],
+  "devVendorCopy": [
+    {
+      "from": "node_modules/@sveltia/cms/dist/sveltia-cms.js",
+      "to": "assets/js/sveltia-cms.js"
+    },
+    {
+      "from": "node_modules/medium-zoom/dist/medium-zoom.js",
+      "to": "assets/js/medium-zoom.js"
+    },
+    {
+      "from": "node_modules/medium-zoom/dist/style.css",
+      "to": "assets/css/medium-zoom.css"
+    }
+  ]
 }
