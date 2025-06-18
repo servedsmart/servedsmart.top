@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "assets": "rimraf assets/vendor && vendor-copy && printf \"%s\n\" 'WARNING: Please readd loadStylesheet() logic to ./assets/js/medium-zoom.js'",
+    "assets": "rimraf assets/vendor && vendor-copy && printf '%s\n' 'WARNING: Please readd loadStylesheet() logic to ./assets/js/medium-zoom.js'",
     "build": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production hugo --enableGitInfo --minify -e production -d ./public",
     "create": "hugo new",
     "serve": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production hugo server --enableGitInfo --minify -e production -d ./public",
