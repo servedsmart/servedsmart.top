@@ -10,97 +10,82 @@
 
 <!-- Based on: https://hugocodex.org/add-ons/cookie-consent/#manage-consent -->
 
-{{ $style := resources.Get "css/consent.css" }}
-{{ $style = $style | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
-<link
-  type="text/css"
-  rel="stylesheet"
-  href="{{ $style.Permalink }}"
-  integrity="{{ $style.Data.Integrity }}"
-/>
-
-<div id="consent-notice-container" class="backdrop-blur z-500">
+<div
+  id="consent-notice-container"
+  class="fixed hidden w-screen h-screen top-0 right-0 left-0 bottom-0 items-end justify-center backdrop-blur z-500"
+>
   <div
     id="consent-notice"
-    class="text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
+    class="flex-wrap text-lg text-center mr-[1rem] font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-hidden shadow-2xl hidden p-[25px] max-w-[60rem] m-[15px] justify-center"
   >
-    <span class="text-lg font-medium text-neutral-800 dark:text-neutral"
-      >{{ T "consent-notice-text" }}</span
-    ><br />
+    <p class="mr-[1rem]">{{ T "consent-notice-text" }}</p>
     <button
-      class="btn consent-accept-all bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+      class="consent-accept-all p-[10px] mt-[10px] mr-[10px] mb-0 ml-[10px] min-w-[270px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
     >
       {{ T "consent-button-consent-accept-all" }}</button
     ><button
-      class="btn consent-reject-optional bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+      class="consent-reject-optional p-[10px] mt-[10px] mr-[10px] mb-0 ml-[10px] min-w-[270px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
     >
       {{ T "consent-button-consent-reject-optional" }}</button
     ><button
-      id="consent-settings"
-      class="btn consent-settings bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+      class="consent-settings p-[10px] mt-[10px] mr-[10px] mb-0 ml-[10px] min-w-[270px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
     >
       {{ T "consent-button-consent-settings" }}
     </button>
   </div>
 </div>
-<div id="consent-overlay-container" class="backdrop-blur z-500">
-  <div id="consent-overlay" class="overflow-auto">
-    <div
-      class="text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl"
-    >
-      {{ range $index, $item := $.Site.Params.consent.items }}
-      <div>
-        <label class="form-control">
-          <input
-            type="checkbox"
-            id="item{{ $index }}"
-            value="1"
-            name="item{{ $index }}"
-            {{
-            if
-            $item.isFunctional
-            }}checked
-            disabled{{end}}
-          />
-          <label for="item{{ $index }}"
-            ><header
-              class="text-lg font-bold text-neutral-800 dark:text-neutral-300"
-            >
-              <h3>{{ $item.title }}</h3>
-            </header>
-            <main
-              class="text-base font-medium text-neutral-500 dark:text-neutral"
-            >
-              <p>{{ $item.description }}</p>
-            </main>
-            <main
-              class="text-base font-light text-neutral-500 dark:text-neutral"
-            >
-              <details>
-                <summary>{{ T "consent-overlay-description-summary" }}</summary>
-                <p>{{ $item.descriptionSummary }}</p>
-              </details>
-            </main>
-          </label>
-        </label>
-      </div>
-      {{ end }}
-      <div>
-        <button
-          class="btn consent-accept-all bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
+<div
+  id="consent-overlay-container"
+  class="fixed hidden w-screen h-screen top-0 right-0 left-0 bottom-0 items-center justify-center backdrop-blur z-500"
+>
+  <div
+    id="consent-overlay"
+    class="flex-wrap text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-hidden shadow-2xl hidden p-[25px] max-w-[60rem]"
+  >
+    {{ range $index, $item := $.Site.Params.consent.items }}
+    <div class="flex items-center p-[10px]">
+      <input
+        {{ if $item.isFunctional }}
+        class="w-6 h-6 !text-neutral-300 dark:border-neutral-500 mr-5 rounded-sm"
+        checked
+        disabled
+        {{ else }}
+        class="w-6 h-6 !text-secondary-400 dark:!text-secondary-500 focus:ring-neutral-500 dark:focus:ring-neutral-700 dark:ring-offset-neutral-800 focus:ring-2 dark:border-neutral-700 mr-5 rounded-sm"
+        {{ end }}
+        id="item{{ $index }}"
+        type="checkbox"
+        value=""
+      />
+      <label for="item{{ $index }}">
+        <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-300">
+          {{ $item.title }}
+        </h3>
+        <p class="text-base font-medium text-neutral-500 dark:text-neutral">
+          {{ $item.description }}
+        </p>
+        <details
+          class="text-base font-light text-neutral-500 dark:text-neutral"
         >
-          {{ T "consent-button-consent-accept-all" }}</button
-        ><button
-          class="btn consent-reject-optional bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
-        >
-          {{ T "consent-button-consent-reject-optional" }}</button
-        ><button
-          id="consent-settings-confirm"
-          class="btn consent-settings-confirm bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded"
-        >
-          {{ T "consent-button-consent-settings-confirm" }}
-        </button>
-      </div>
+          <summary>{{ T "consent-overlay-description-summary" }}</summary>
+          <p>{{ $item.descriptionSummary }}</p>
+        </details>
+      </label>
+    </div>
+    {{ end }}
+    <div class="flex flex-wrap items-start m-0 mb-[1rem] justify-center">
+      <button
+        class="consent-accept-all p-[10px] mt-[10px] mr-[10px] mb-0 ml-[10px] min-w-[270px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
+      >
+        {{ T "consent-button-consent-accept-all" }}</button
+      ><button
+        class="consent-reject-optional p-[10px] mt-[10px] mr-[10px] mb-0 ml-[10px] min-w-[270px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
+      >
+        {{ T "consent-button-consent-reject-optional" }}</button
+      ><button
+        class="consent-settings-confirm p-[10px] mt-[10px] mr-[10px] mb-0 ml-[10px] min-w-[270px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
+      >
+        {{ T "consent-button-consent-settings-confirm" }}
+      </button>
     </div>
   </div>
 </div>
