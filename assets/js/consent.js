@@ -68,13 +68,17 @@ function setUnchecked(elements) {
 
 // Activate element and parentElement
 function activateWithParent(element) {
-  element.classList.add("active");
-  element.parentElement.classList.add("active");
+  element.classList.remove("hidden");
+  element.classList.add("flex");
+  element.parentElement.classList.add("flex");
+  element.parentElement.classList.remove("hidden");
 }
 // Deactivate element and parentElement
 function deactivateWithParent(element) {
-  element.classList.remove("active");
-  element.parentElement.classList.remove("active");
+  element.classList.add("hidden");
+  element.classList.remove("flex");
+  element.parentElement.classList.add("hidden");
+  element.parentElement.classList.remove("flex");
   window.location.hash = "#consent-exit";
 }
 
@@ -172,21 +176,22 @@ waitForReadyState(() => {
     const consentValue = getConsentValue(optionalScripts, "1");
     loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
-  addClickExec(document.getElementById("consent-settings"), () => {
+  addClickExec(document.querySelectorAll(".consent-settings"), () => {
     window.location.href = "#consent-overlay";
   });
-  addClickExec(document.getElementById("consent-settings-confirm"), () => {
+  addClickExec(document.querySelectorAll(".consent-settings-confirm"), () => {
     // Get value of checkboxes
     const consentValue = getConsentValueFromCheckboxes();
     loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
-  addClickExec(document.getElementById("consent-overlay"), (event) => {
-    if (
-      !document.querySelector("#consent-overlay > div").contains(event.target)
-    ) {
-      deactivateWithParent(event.currentTarget);
+  addClickExec(
+    document.getElementById("consent-overlay-container"),
+    (event) => {
+      if (!document.querySelector("#consent-overlay").contains(event.target)) {
+        deactivateWithParent(document.querySelector("#consent-overlay"));
+      }
     }
-  });
+  );
 
   // Set consent-exit hash if in consent-overlay
   if (window.location.hash === "#consent-overlay") {
