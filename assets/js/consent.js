@@ -168,18 +168,18 @@ waitForReadyState(() => {
     activateWithParent(document.getElementById("consent-notice"));
   }
   // Handle consent buttons
-  addClickExec(document.querySelectorAll(".consent-reject-optional"), () => {
+  addClickExec(document.querySelectorAll(".consent-button-reject-all"), () => {
     const consentValue = getConsentValue(optionalScripts, "0");
     loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
-  addClickExec(document.querySelectorAll(".consent-accept-all"), () => {
+  addClickExec(document.querySelectorAll(".consent-button-accept-all"), () => {
     const consentValue = getConsentValue(optionalScripts, "1");
     loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
-  addClickExec(document.querySelectorAll(".consent-settings"), () => {
+  addClickExec(document.querySelectorAll(".consent-button-settings"), () => {
     window.location.href = "#consent-overlay";
   });
-  addClickExec(document.querySelectorAll(".consent-settings-confirm"), () => {
+  addClickExec(document.querySelectorAll(".consent-button-confirm"), () => {
     // Get value of checkboxes
     const consentValue = getConsentValueFromCheckboxes();
     loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
