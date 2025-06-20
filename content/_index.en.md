@@ -15,8 +15,6 @@ tags = [
  'tire change',
  'window repair',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Repairs, maintenance and tuning. We offer everything with patience the necessary knowledge!

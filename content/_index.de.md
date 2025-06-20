@@ -15,8 +15,6 @@ tags = [
  'reifenwechsel',
  'fensterreparatur',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nötigen Wissen!
