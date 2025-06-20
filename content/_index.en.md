@@ -17,8 +17,6 @@ tags = [
  'brownie',
  'croissant',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 The best bakery for miles around. With a cozy seating area, a good atmosphere, and all kinds of crisp and fresh treats!

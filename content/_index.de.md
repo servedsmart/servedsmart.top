@@ -17,8 +17,6 @@ tags = [
  'brownie',
  'croissant',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Die beste Bäckerei weit und breit. Mit gemütlichem Sitzbereich, guter Laune und knackfrischen Leckereien aller Art!
