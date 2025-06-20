@@ -98,7 +98,7 @@ sharingLinks = [
  "whatsapp",
  "telegram",
 ]
-showZenMode = false
+showZenMode = true
 
 [list]
 showHero = true
