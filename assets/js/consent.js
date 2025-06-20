@@ -187,8 +187,9 @@ waitForReadyState(() => {
   addClickExec(
     document.getElementById("consent-overlay-container"),
     (event) => {
-      if (!document.querySelector("#consent-overlay").contains(event.target)) {
-        deactivateWithParent(document.querySelector("#consent-overlay"));
+      const element = document.getElementById("consent-overlay");
+      if (!element.contains(event.target)) {
+        deactivateWithParent(element);
       }
     }
   );
@@ -201,7 +202,10 @@ waitForReadyState(() => {
   // Open consent-overlay if hash is #consent-overlay
   window.onhashchange = () => {
     if (window.location.hash === "#consent-overlay") {
-      activateWithParent(document.getElementById("consent-overlay"));
+      const element = document.getElementById("consent-overlay");
+      activateWithParent(element);
+      // FIXME: Move this to consent.html as max-h-[100vh], currently I don't want to maintain a custom compiled/main.css
+      element.style.maxHeight = "100vh";
     }
   };
 });
