@@ -16,8 +16,6 @@ tags = [
  'pommes',
  'döner box',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Stolzer Döner Kebab mit langer Tradition. Die besten Saußen, frischer Salat und ein saftiger Spieß!

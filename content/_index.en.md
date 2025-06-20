@@ -16,8 +16,6 @@ tags = [
  'french fries',
  'kebab box',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Proud kebab with a long tradition. The best sauces, fresh salad, and a juicy skewer!
