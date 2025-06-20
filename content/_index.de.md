@@ -17,8 +17,6 @@ tags = [
  'chips',
  'rum',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Spätkauf mit breitem Produktsortiment und den besten Preisen weit und breit. Außerdem bieten wir viele saisonale Spezialitäten.

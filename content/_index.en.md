@@ -17,8 +17,6 @@ tags = [
  'potato chips',
  'rum',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Nightstore with a wide range of products and the best prices around. We also offer many seasonal specialties.
