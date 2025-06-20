@@ -85,7 +85,7 @@ relatedContentLimit = 6
 showTaxonomies = false # use showTaxonomies OR showCategoryOnly, not both
 showCategoryOnly = true # use showTaxonomies OR showCategoryOnly, not both
 showAuthorsBadges = true
-showWordCount = false
+showWordCount = true
 sharingLinks = [
  "linkedin",
  "twitter",
@@ -98,7 +98,7 @@ sharingLinks = [
  "whatsapp",
  "telegram",
 ]
-showZenMode = false
+showZenMode = true
 
 [list]
 showHero = true
