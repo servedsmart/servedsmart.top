@@ -17,8 +17,6 @@ tags = [
  'pizza',
  'spaghetti',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Etablierte Pizzeria. Mit leckerem und preiswertem Essen, tollem Personal und einer gemütlichen Atmosphäre!

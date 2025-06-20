@@ -17,8 +17,6 @@ tags = [
  'pizza',
  'spaghetti',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Well-established pizzeria. With tasty and affordable food, great staff, and a cozy environment!
