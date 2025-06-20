@@ -15,8 +15,6 @@ tags = [
  'staircase',
  'window frame',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Any work with wood is our specialty. We specialize in joinery, repairs, modifications, and furniture manufacturing!

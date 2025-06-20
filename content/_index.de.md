@@ -15,8 +15,6 @@ tags = [
  'treppe',
  'fensterrahmen',
 ]
-[cascade]
-showReadingTime = false
 +++
 
 Jede Arbeit mit Holz ist unser Ding. Wir sind sowohl Bautischlerei, als dass wir auch Reperaturen, Anpassungen und die Herstellung von Möbeln übernehemen!
