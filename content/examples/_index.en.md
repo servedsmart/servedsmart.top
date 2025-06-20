@@ -9,8 +9,6 @@ categories = [
 ]
 # Tags are used for more specific, detailed topics.
 tags = []
-[cascade]
-showReadingTime = false
 +++
 
 This section contains links to our example websites.

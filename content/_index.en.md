@@ -14,6 +14,4 @@ tags = [
  'static website',
  'website design',
 ]
-[cascade]
-showReadingTime = false
 +++
