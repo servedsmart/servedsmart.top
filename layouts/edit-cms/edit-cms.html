@@ -11,31 +11,24 @@
 
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>{{ .Title }}</title>
   </head>
   <body>
     <div id="content">{{ .Content }}</div>
-    {{- $config := resources.Get "json/edit-cms-config.json" -}}
-    {{- $config = $config | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+    {{- $sveltiaConfig := resources.Get "lib/sveltia-cms/sveltia-cms.json" -}}
+    {{- $sveltiaConfig = $sveltiaConfig | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <link
       type="application/json"
       href="{{- $config.RelPermalink -}}"
       rel="cms-config-url"
-      integrity="{{- $config.Data.Integrity -}}"
-    />
-    <!-- FIXME: This should also use '| resources.Minify'. It currently fails with:
-                ERROR MINIFY: failed to transform "/js/sveltia-cms.js" (text/javascript): unexpected => in expression on line 514 and column 14817
-                514: ...ield:"",pattern:""})=>{if(!e)return t;if(...
-     -->
-    {{- $sveltia := resources.Get "js/sveltia-cms.js" -}}
-    {{- $sveltia = $sveltia | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
+      integrity="{{- $config.Data.Integrity -}}">
+    {{- $sveltiaLib := resources.Get "lib/sveltia-cms/sveltia-cms.js" -}}
+    {{- $sveltiaLib = $sveltiaLib | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <script
-      type="text/javascript"
-      src="{{- $sveltia.RelPermalink -}}"
-      integrity="{{- $sveltia.Data.Integrity -}}"
-    ></script>
+      src="{{- $sveltiaLib.RelPermalink -}}"
+      integrity="{{- $sveltiaLib.Data.Integrity -}}"></script>
   </body>
 </html>

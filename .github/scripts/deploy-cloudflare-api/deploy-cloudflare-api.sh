@@ -101,7 +101,7 @@ declare -A SCRIPT_HASHES
 declare -A STYLE_HASHES
 ### Get hashes for main
 npm run-script build
-rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
+rm -f "${tmp_dir}"/public/lib/sveltia-cms/sveltia-cms*
 set_hashes "script" "main"
 set_unique_script_hashes "main"
 set_hashes "style" "main"
@@ -126,7 +126,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     git clean -fdxe /**/node_modules/
     git switch --recurse-submodules "${target_branch}"
     npm run-script build
-    rm -f "${tmp_dir}"/public/js/edit-cms-sveltia*
+    rm -f "${tmp_dir}"/public/lib/sveltia-cms/sveltia-cms*
     #### Get hashes
     set_hashes "script" "${target_branch}"
     set_unique_script_hashes "${target_branch}"
