@@ -22,10 +22,10 @@ if (document.documentElement.getAttribute("data-auto-appearance") === "true") {
   });
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
   const scroller = document.getElementById("top-scroller");
   const footer = document.getElementById("site-footer");
-  if(scroller && footer && scroller.getBoundingClientRect().top > footer.getBoundingClientRect().top) {
+  if (scroller && footer && scroller.getBoundingClientRect().top > footer.getBoundingClientRect().top) {
     scroller.hidden = true;
   }
 });
