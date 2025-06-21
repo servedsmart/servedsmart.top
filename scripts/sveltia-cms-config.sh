@@ -97,4 +97,4 @@ collections="$(
     jq -cn --arg default_locale "${default_locale}" --argjson locales "${locales}" "${i18n}"
     jq -cn "${media_libraries}"
     jq -cn "${slug}"
-} | jq -Scs 'add' >"${SCRIPT_DIR}"/../assets/json/edit-cms-config.json
+} | jq -Scs 'add' >"${SCRIPT_DIR}"/../assets/lib/sveltia-cms/sveltia-cms.json

@@ -12,78 +12,63 @@
 
 <div
   id="consent-notice-container"
-  class="fixed hidden top-0 right-0 bottom-0 left-0 items-end justify-center backdrop-blur z-500"
->
+  class="fixed hidden top-0 right-0 bottom-0 left-0 items-end justify-center backdrop-blur z-500">
   <div
     id="consent-notice"
-    class="flex-wrap text-lg text-center font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-hidden shadow-2xl hidden p-6 max-w-[64rem] mb-5 justify-center"
-  >
+    class="flex-wrap text-lg text-center font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-hidden shadow-2xl hidden p-6 max-w-[64rem] mb-5 justify-center">
     <p class="mt-3 mb-3">{{ i18n "consent-notice-paragraph" }}</p>
     <button
-      class="consent-button-accept-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
-    >
+      class="consent-button-accept-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
       {{ i18n "consent-button-accept-all" }}</button
     ><button
-      class="consent-button-reject-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
-    >
+      class="consent-button-reject-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
       {{ i18n "consent-button-reject-all" }}</button
     ><button
-      class="consent-button-settings p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
-    >
+      class="consent-button-settings p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
       {{ i18n "consent-button-settings" }}
     </button>
   </div>
 </div>
 <div
   id="consent-overlay-container"
-  class="fixed hidden top-0 right-0 bottom-0 left-0 items-center justify-center backdrop-blur z-500"
->
+  class="fixed hidden top-0 right-0 bottom-0 left-0 items-center justify-center backdrop-blur z-500">
   <div
     id="consent-overlay"
-    class="flex-wrap text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-auto shadow-2xl hidden p-6 max-w-[64rem]"
-  >
+    class="flex-wrap text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-auto shadow-2xl hidden p-6 max-w-[64rem]">
     {{ range $index, $item := $.Site.Params.consent.items }}
-    <div class="flex items-center p-4">
-      <input
-        {{ if $item.isFunctional }}
-        class="w-6 h-6 text-neutral-400 mr-5"
-        checked
-        disabled
-        {{ else }}
-        class="w-6 h-6 mr-5"
-        {{ end }}
-        id="item{{ $index }}"
-        type="checkbox"
-        value=""
-      />
-      <label for="item{{ $index }}">
-        <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-300">
-          {{ $item.title }}
-        </h3>
-        <p class="text-base font-medium text-neutral-500 dark:text-neutral">
-          {{ $item.description }}
-        </p>
-        <details
-          class="text-base font-light text-neutral-500 dark:text-neutral"
-        >
-          <summary>{{ i18n "consent-overlay-summary" }}</summary>
-          <p>{{ $item.descriptionSummary }}</p>
-        </details>
-      </label>
-    </div>
+      <div class="flex items-center p-4">
+        <input
+          {{ if $item.isFunctional }}
+            class="w-6 h-6 text-neutral-400 mr-5" checked disabled
+          {{ else }}
+            class="w-6 h-6 mr-5"
+          {{ end }}
+          id="item{{ $index }}"
+          type="checkbox"
+          value="">
+        <label for="item{{ $index }}">
+          <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-300">
+            {{ $item.title }}
+          </h3>
+          <p class="text-base font-medium text-neutral-500 dark:text-neutral">
+            {{ $item.description }}
+          </p>
+          <details class="text-base font-light text-neutral-500 dark:text-neutral">
+            <summary>{{ i18n "consent-overlay-summary" }}</summary>
+            <p>{{ $item.descriptionSummary }}</p>
+          </details>
+        </label>
+      </div>
     {{ end }}
     <div class="flex flex-wrap m-auto justify-center">
       <button
-        class="consent-button-accept-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
-      >
+        class="consent-button-accept-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
         {{ i18n "consent-button-accept-all" }}</button
       ><button
-        class="consent-button-reject-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
-      >
+        class="consent-button-reject-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
         {{ i18n "consent-button-reject-all" }}</button
       ><button
-        class="consent-button-confirm p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded"
-      >
+        class="consent-button-confirm p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
         {{ i18n "consent-button-confirm" }}
       </button>
     </div>
@@ -95,13 +80,13 @@
   {{ if .scriptFile }}
     {{ $scriptFile := resources.Get .scriptFile }}
     {{ $scriptFile = $scriptFile | resources.ExecuteAsTemplate .script_file . | resources.Minify | resources.Fingerprint ($.Site.Params.fingerprintAlgorithm | default "sha512") }}
-      {{ if .isFunctional }}
-        {{ $scriptData.Add "functionalScripts" (print $scriptFile.RelPermalink " ") }}
-        {{ $scriptData.Add "functionalScriptHashes" (print $scriptFile.Data.Integrity " ") }}
-      {{ else }}
-        {{ $scriptData.Add "optionalScripts" (print $scriptFile.RelPermalink " ") }}
-        {{ $scriptData.Add "optionalScriptHashes" (print $scriptFile.Data.Integrity " ") }}
-      {{ end }}
+    {{ if .isFunctional }}
+      {{ $scriptData.Add "functionalScripts" (print $scriptFile.RelPermalink " ") }}
+      {{ $scriptData.Add "functionalScriptHashes" (print $scriptFile.Data.Integrity " ") }}
+    {{ else }}
+      {{ $scriptData.Add "optionalScripts" (print $scriptFile.RelPermalink " ") }}
+      {{ $scriptData.Add "optionalScriptHashes" (print $scriptFile.Data.Integrity " ") }}
+    {{ end }}
   {{ end }}
 {{ end }}
 {{ $functionalScripts := trim ($scriptData.Get "functionalScripts") " " }}
@@ -111,12 +96,11 @@
 {{ $consent := resources.Get "js/consent.js" }}
 {{ $consent = $consent | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
 
+
 <script
-  type="text/javascript"
   src="{{ $consent.RelPermalink }}"
   integrity="{{ $consent.Data.Integrity }}"
   data-functional-scripts="{{ $functionalScripts }}"
   data-functional-script-hashes="{{ $functionalScriptHashes }}"
   data-optional-scripts="{{ $optionalScripts }}"
-  data-optional-script-hashes="{{ $optionalScriptHashes }}"
-></script>
+  data-optional-script-hashes="{{ $optionalScriptHashes }}"></script>
