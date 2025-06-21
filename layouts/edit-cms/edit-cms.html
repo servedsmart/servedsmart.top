@@ -22,13 +22,11 @@
     {{- $sveltiaConfig = $sveltiaConfig | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
     <link
       type="application/json"
-      href="{{- $config.RelPermalink -}}"
+      href="{{- $sveltiaConfig.RelPermalink -}}"
       rel="cms-config-url"
-      integrity="{{- $config.Data.Integrity -}}">
+      integrity="{{- $sveltiaConfig.Data.Integrity -}}">
     {{- $sveltiaLib := resources.Get "lib/sveltia-cms/sveltia-cms.js" -}}
     {{- $sveltiaLib = $sveltiaLib | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") -}}
-    <script
-      src="{{- $sveltiaLib.RelPermalink -}}"
-      integrity="{{- $sveltiaLib.Data.Integrity -}}"></script>
+    <script src="{{- $sveltiaLib.RelPermalink -}}" integrity="{{- $sveltiaLib.Data.Integrity -}}"></script>
   </body>
 </html>
