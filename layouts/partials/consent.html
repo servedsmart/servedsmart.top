@@ -12,29 +12,29 @@
 
 <div
   id="consent-notice-container"
-  class="fixed hidden top-0 right-0 bottom-0 left-0 items-end justify-center backdrop-blur z-500">
+  class="z-500 fixed bottom-0 left-0 right-0 top-0 hidden items-end justify-center backdrop-blur">
   <div
     id="consent-notice"
-    class="flex-wrap text-lg text-center font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-hidden shadow-2xl hidden p-6 max-w-[64rem] mb-5 justify-center">
-    <p class="mt-3 mb-3">{{ i18n "consent-notice-paragraph" }}</p>
+    class="bg-neutral dark:text-neutral mb-5 hidden max-w-[64rem] flex-wrap justify-center overflow-hidden rounded border-2 border-neutral-200 p-6 text-center text-lg font-medium text-neutral-800 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800">
+    <p class="mb-3 mt-3">{{ i18n "consent-notice-paragraph" }}</p>
     <button
-      class="consent-button-accept-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
+      class="consent-button-accept-all hover:text-primary-500 prose dark:prose-invert border-primary-500 mb-3 ml-3 mr-3 mt-3 min-w-[220px] rounded border bg-transparent p-4 font-semibold hover:border-transparent">
       {{ i18n "consent-button-accept-all" }}</button
     ><button
-      class="consent-button-reject-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
+      class="consent-button-reject-all hover:text-primary-500 prose dark:prose-invert border-primary-500 mb-3 ml-3 mr-3 mt-3 min-w-[220px] rounded border bg-transparent p-4 font-semibold hover:border-transparent">
       {{ i18n "consent-button-reject-all" }}</button
     ><button
-      class="consent-button-settings p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
+      class="consent-button-settings hover:text-primary-500 prose dark:prose-invert border-primary-500 mb-3 ml-3 mr-3 mt-3 min-w-[220px] rounded border bg-transparent p-4 font-semibold hover:border-transparent">
       {{ i18n "consent-button-settings" }}
     </button>
   </div>
 </div>
 <div
   id="consent-overlay-container"
-  class="fixed hidden top-0 right-0 bottom-0 left-0 items-center justify-center backdrop-blur z-500">
+  class="z-500 fixed bottom-0 left-0 right-0 top-0 hidden items-center justify-center backdrop-blur">
   <div
     id="consent-overlay"
-    class="flex-wrap text-lg font-medium bg-neutral dark:bg-neutral-800 text-neutral-800 dark:text-neutral border-2 border-neutral-200 dark:border-neutral-700 rounded overflow-auto shadow-2xl hidden p-6 max-w-[64rem]">
+    class="bg-neutral dark:text-neutral hidden max-w-[64rem] flex-wrap overflow-auto rounded border-2 border-neutral-200 p-6 text-lg font-medium text-neutral-800 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800">
     {{ range $index, $item := $.Site.Params.consent.items }}
       <div class="flex items-center p-4">
         <input
@@ -50,25 +50,25 @@
           <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-300">
             {{ $item.title }}
           </h3>
-          <p class="text-base font-medium text-neutral-500 dark:text-neutral">
+          <p class="dark:text-neutral text-base font-medium text-neutral-500">
             {{ $item.description }}
           </p>
-          <details class="text-base font-light text-neutral-500 dark:text-neutral">
+          <details class="dark:text-neutral text-base font-light text-neutral-500">
             <summary>{{ i18n "consent-overlay-summary" }}</summary>
             <p>{{ $item.descriptionSummary }}</p>
           </details>
         </label>
       </div>
     {{ end }}
-    <div class="flex flex-wrap m-auto justify-center">
+    <div class="m-auto flex flex-wrap justify-center">
       <button
-        class="consent-button-accept-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
+        class="consent-button-accept-all hover:text-primary-500 prose dark:prose-invert border-primary-500 mb-3 ml-3 mr-3 mt-3 min-w-[220px] rounded border bg-transparent p-4 font-semibold hover:border-transparent">
         {{ i18n "consent-button-accept-all" }}</button
       ><button
-        class="consent-button-reject-all p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
+        class="consent-button-reject-all hover:text-primary-500 prose dark:prose-invert border-primary-500 mb-3 ml-3 mr-3 mt-3 min-w-[220px] rounded border bg-transparent p-4 font-semibold hover:border-transparent">
         {{ i18n "consent-button-reject-all" }}</button
       ><button
-        class="consent-button-confirm p-4 mt-3 mr-3 mb-3 ml-3 min-w-[220px] bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold border border-primary-500 hover:border-transparent rounded">
+        class="consent-button-confirm hover:text-primary-500 prose dark:prose-invert border-primary-500 mb-3 ml-3 mr-3 mt-3 min-w-[220px] rounded border bg-transparent p-4 font-semibold hover:border-transparent">
         {{ i18n "consent-button-confirm" }}
       </button>
     </div>
