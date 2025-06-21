@@ -44,9 +44,7 @@ function getConsentValueFromStorage(hashes) {
 }
 // Get consent value from checkboxes
 function getConsentValueFromCheckboxes() {
-  const elements = document.querySelectorAll(
-    "#consent-overlay input:not([disabled])"
-  );
+  const elements = document.querySelectorAll("#consent-overlay input:not([disabled])");
   return Array.from(elements)
     .map((element) => (element.checked ? "1" : "0"))
     .join("");
@@ -54,12 +52,8 @@ function getConsentValueFromCheckboxes() {
 
 // Set checkboxes from consentValue
 function setCheckboxes(consentValue) {
-  const elements = document.querySelectorAll(
-    "#consent-overlay input:not([disabled])"
-  );
-  elements.forEach(
-    (element, index) => (element.checked = consentValue[index] === "1")
-  );
+  const elements = document.querySelectorAll("#consent-overlay input:not([disabled])");
+  elements.forEach((element, index) => (element.checked = consentValue[index] === "1"));
 }
 // Set all elements unchecked
 function setUnchecked(elements) {
@@ -84,9 +78,7 @@ function deactivateWithParent(element) {
 
 // Load javascript
 function loadScripts(scripts, hashes, consentValue) {
-  const documentScripts = Array.from(document.querySelectorAll("script")).map(
-    (scr) => scr.src
-  );
+  const documentScripts = Array.from(document.querySelectorAll("script")).map((scr) => scr.src);
   scripts.forEach((value, key) => {
     if (
       !documentScripts.includes(value) &&
@@ -155,9 +147,7 @@ waitForReadyState(() => {
   loadFunctionalScripts(functionalScripts, functionalScriptHashes);
 
   // Uncheck checkboxes
-  setUnchecked(
-    document.querySelectorAll("#consent-overlay input:not([disabled])")
-  );
+  setUnchecked(document.querySelectorAll("#consent-overlay input:not([disabled])"));
 
   // Load javascript if user has consented or show notice
   const consentValue = getConsentValueFromStorage(optionalScriptHashes);
@@ -184,15 +174,12 @@ waitForReadyState(() => {
     const consentValue = getConsentValueFromCheckboxes();
     loadOptionalScripts(optionalScripts, optionalScriptHashes, consentValue);
   });
-  addClickExec(
-    document.getElementById("consent-overlay-container"),
-    (event) => {
-      const element = document.getElementById("consent-overlay");
-      if (!element.contains(event.target)) {
-        deactivateWithParent(element);
-      }
+  addClickExec(document.getElementById("consent-overlay-container"), (event) => {
+    const element = document.getElementById("consent-overlay");
+    if (!element.contains(event.target)) {
+      deactivateWithParent(element);
     }
-  );
+  });
 
   // Set consent-exit hash if in consent-overlay
   if (window.location.hash === "#consent-overlay") {
