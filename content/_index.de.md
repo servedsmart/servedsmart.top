@@ -22,4 +22,4 @@ Stolzer Döner Kebab mit langer Tradition. Die besten Saußen, frischer Salat un
 
 <b>Besuchen Sie uns gerne direkt neben U Turmstraße in Berlin<br>(Beispieladresse)</b>
 
-{{< openstreetmap link="https://osm.org/go/0MZvsK6ir?m=" >}}
+{{< openstreetmap frameClass="rounded border-2 border-neutral-200 shadow-2xl dark:border-neutral-700" umapDomain="umap.openstreetmap.de" mapName="servedsmart-example0_98465" >}}
