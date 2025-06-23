@@ -152,7 +152,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         "img-src 'self' blob: data:"
         "object-src 'none'"
         "media-src 'self'"
-        "frame-src 'self' https://www.youtube-nocookie.com https://osm.org https://www.openstreetmap.org"
+        "frame-src 'self' https://www.youtube-nocookie.com https://umap.openstreetmap.de"
         "connect-src 'self'"
         "form-action 'self'"
         "frame-ancestors 'none'"
