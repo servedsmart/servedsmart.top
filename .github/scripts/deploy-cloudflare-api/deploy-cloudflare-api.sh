@@ -370,7 +370,7 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
       },
       "Cross-Origin-Embedder-Policy": {
         "operation": "set",
-        "value": "require-corp"
+        "value": "credentialless"
       },
       "Cross-Origin-Opener-Policy": {
         "operation": "set",
