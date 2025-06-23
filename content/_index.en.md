@@ -20,3 +20,7 @@ tags = [
 +++
 
 The best bakery for miles around. With a cozy seating area, a good atmosphere, and all kinds of crisp and fresh treats!
+
+<b>Come visit us right next to U Turmstraße in Berlin<br>(Example address)</b>
+
+{{< openstreetmap mapName="servedsmart-example_1244912" scaleControl=false moreControl=false searchControl=false datalayersControl=false >}}
