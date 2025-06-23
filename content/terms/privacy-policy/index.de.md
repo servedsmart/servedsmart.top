@@ -106,14 +106,14 @@ Cookies sind kleine Dateien, die auf Ihrem Gerät gespeichert werden und die es 
 
 Bei Ihrem ersten Besuch wird Ihnen unsere Website ein Banner zur Cookie-Einwilligung zeigen, auf dem Sie folgende Auswahlmöglichkeiten haben:
 - **Alle akzeptieren:** Zustimmung zur Nutzung aller Cookies und Tracking-Technologien.
-- **Optionale ablehnen:** Nur unbedingt erforderliche Cookies werden verwendet, um Ihnen die notwendigen Website-Funktionen zur Verfügung zu stellen.
-- **Cookie-Einstellungen:** Wählen Sie, welche Kategorien von Cookies Sie zulassen möchten.
+- **Alle ablehnen:** Nur unbedingt erforderliche Cookies werden verwendet, um Ihnen die notwendigen Website-Funktionen zur Verfügung zu stellen.
+- **Cookie-Präferenzen:** Wählen Sie, welche Kategorien von Cookies Sie zulassen möchten.
 
 ### Änderungen an unserer Verwendung von Cookies
 
 Wir können unseren Einsatz von Cookies und Tracking-Technologien ändern, um unsere Dienste zu verbessern oder die gesetzlichen Anforderungen zu erfüllen. Wir werden Sie über wesentliche Änderungen informieren und Ihre Zustimmung einholen, wo dies erforderlich ist.
 
-Für detailliertere Informationen über die von uns verwendeten Cookies, deren Zwecke und wie Sie Ihre Präferenzen verwalten können, besuchen Sie bitte unsere [Cookie-Einstellungen](#consent-overlay).
+Für detailliertere Informationen über die von uns verwendeten Cookies, deren Zwecke und wie Sie Ihre Präferenzen verwalten können, besuchen Sie bitte unsere [Cookie-Präferenzen](#consent-overlay).
 
 Sollten Sie Fragen oder Bedenken bezüglich unserer Verwendung von Cookies und Tracking-Technologien haben, zögern Sie bitte nicht, uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE zu kontaktieren. Ihre Privatsphäre und die Integrität Ihrer persönlichen Daten sind für uns von größter Bedeutung.
 
