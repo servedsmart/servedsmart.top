@@ -23,4 +23,4 @@ Well-established pizzeria. With tasty and affordable food, great staff, and a co
 
 <b>Come visit us right next to U Turmstraße in Berlin<br>(Example address)</b>
 
-{{< openstreetmap mapName="servedsmart-example_1244912" scaleControl=false moreControl=false searchControl=false datalayersControl=false >}}
+{{< openstreetmap link="https://osm.org/go/0MZvsK6ir?m=" >}}
