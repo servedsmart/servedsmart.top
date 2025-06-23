@@ -21,4 +21,4 @@ Jede Arbeit mit Holz ist unser Ding. Wir sind sowohl Bautischlerei, als dass wir
 
 <b>Besuchen Sie uns gerne direkt neben U Turmstraße in Berlin<br>(Beispieladresse)</b>
 
-{{< openstreetmap mapName="servedsmart-example_1244912" scaleControl=false moreControl=false searchControl=false datalayersControl=false >}}
+{{< openstreetmap link="https://osm.org/go/0MZvsK6ir?m=" >}}

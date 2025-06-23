@@ -21,4 +21,4 @@ Any work with wood is our specialty. We specialize in joinery, repairs, modifica
 
 <b>Come visit us right next to U Turmstraße in Berlin<br>(Example address)</b>
 
-{{< openstreetmap mapName="servedsmart-example_1244912" scaleControl=false moreControl=false searchControl=false datalayersControl=false >}}
+{{< openstreetmap link="https://osm.org/go/0MZvsK6ir?m=" >}}
