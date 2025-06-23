@@ -106,8 +106,8 @@ Cookies are small data files placed on your device that enable us to remember yo
 
 Upon your first visit, our website will present you with a cookie consent banner, where you can:
 - **Accept all:** Consent to the use of all cookies and tracking technologies.
-- **Reject optional:** Only essential cookies will be used to provide you with necessary website functions.
-- **Consent settings:** Choose which categories of cookies you wish to allow.
+- **Reject all:** Only essential cookies will be used to provide you with necessary website functions.
+- **Consent Settings:** Choose which categories of cookies you wish to allow.
 
 ### Changes to Our Cookie Use
 
