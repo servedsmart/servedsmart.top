@@ -81,7 +81,7 @@ isFunctional = false
 scriptFile = "js/consent-appearance.js"
 
 [[params.consent.items]]
-title = "Cookie-Einstellungen"
-description = "Diese Daten erlauben uns, die Cookie-Einstellungen der Nutzer zu lesen."
+title = "Cookie-Präferenzen"
+description = "Diese Daten erlauben uns, die Cookie-Präferenzen der Nutzer zu lesen."
 descriptionSummary = "Die Datenwerte 'optional-script-hashes' und 'consent-settings' werden in localStorage gespeichert."
 isFunctional = true
