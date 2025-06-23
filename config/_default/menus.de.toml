@@ -112,6 +112,6 @@ url = "/terms/privacy-policy/"
 weight = 101
 
 [[footer]]
-name = "Zustimmungseinstellungen"
+name = "Cookie-Einstellungen"
 url = "#consent-overlay"
 weight = 102
