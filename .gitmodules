@@ -2,3 +2,6 @@
 	path = themes/blowfish
 	url = https://github.com/servedsmart/blowfish.git
 	branch = main
+[submodule "themes/osm"]
+	path = themes/osm
+	url = https://github.com/Hanzei/hugo-component-osm.git
