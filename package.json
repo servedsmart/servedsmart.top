@@ -19,7 +19,7 @@
     "@eslint/markdown": "6.6.0",
     "@sveltia/cms": "0.81.0",
     "eslint-config-prettier": "10.1.5",
-    "eslint-plugin-jsdoc": "51.1.1",
+    "eslint-plugin-jsdoc": "51.2.1",
     "eslint-plugin-package-json": "0.40.4",
     "eslint": "9.29.0",
     "globals": "16.2.0",
