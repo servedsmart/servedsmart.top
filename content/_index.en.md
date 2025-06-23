@@ -23,4 +23,4 @@ Nightstore with a wide range of products and the best prices around. We also off
 
 <b>Come visit us right next to U Turmstraße in Berlin<br>(Example address)</b>
 
-{{< openstreetmap link="https://osm.org/go/0MZvsK6ir?m=" >}}
+{{< openstreetmap frameClass="rounded border-2 border-neutral-200 shadow-2xl dark:border-neutral-700" umapDomain="umap.openstreetmap.de" mapName="servedsmart-example0_98465" >}}
