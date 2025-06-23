@@ -20,3 +20,7 @@ tags = [
 +++
 
 Etablierte Pizzeria. Mit leckerem und preiswertem Essen, tollem Personal und einer gemütlichen Atmosphäre!
+
+<b>Besuchen Sie uns gerne direkt neben U Turmstraße in Berlin<br>(Beispieladresse)</b>
+
+{{< openstreetmap mapName="servedsmart-example_1244912" scaleControl=false moreControl=false searchControl=false datalayersControl=false >}}
