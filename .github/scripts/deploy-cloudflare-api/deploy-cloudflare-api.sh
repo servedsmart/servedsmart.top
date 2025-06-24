@@ -149,10 +149,10 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2211 before using https://github.com/nunocoracao/blowfish branch main as submodule
         "script-src 'self' 'unsafe-inline' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
         "style-src 'self' 'unsafe-inline' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
-        "img-src 'self' blob: data:"
+        "img-src 'self' blob: data: https://tile.openstreetmap.de"
         "object-src 'none'"
         "media-src 'self'"
-        "frame-src 'self' https://www.youtube-nocookie.com https://umap.openstreetmap.de"
+        "frame-src 'self' https://www.youtube-nocookie.com"
         "connect-src 'self'"
         "form-action 'self'"
         "frame-ancestors 'none'"
@@ -226,7 +226,7 @@ RULES_PP_DEFAULT=(
     "encrypted-media=()"
     "execution-while-not-rendered=()"
     "execution-while-out-of-viewport=()"
-    'fullscreen=(self \"https://www.youtube-nocookie.com\" \"https://umap.openstreetmap.de\")'
+    'fullscreen=(self \"https://www.youtube-nocookie.com\")'
     "geolocation=()"
     "gyroscope=()"
     "hid=()"
