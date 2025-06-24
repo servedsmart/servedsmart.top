@@ -19,8 +19,8 @@
     "@eslint/markdown": "6.6.0",
     "@sveltia/cms": "0.81.0",
     "eslint-config-prettier": "10.1.5",
-    "eslint-plugin-jsdoc": "51.2.1",
-    "eslint-plugin-package-json": "0.40.4",
+    "eslint-plugin-jsdoc": "51.2.2",
+    "eslint-plugin-package-json": "0.40.5",
     "eslint": "9.29.0",
     "globals": "16.2.0",
     "htmlhint": "1.6.3",
@@ -30,7 +30,7 @@
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
     "vendor-copy": "3.0.1",
-    "wrangler": "4.20.5"
+    "wrangler": "4.21.0"
   },
   "vendorCopy": [],
   "devVendorCopy": [
