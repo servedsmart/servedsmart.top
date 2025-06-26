@@ -23,4 +23,4 @@ Spätkauf mit breitem Produktsortiment und den besten Preisen weit und breit. Au
 
 <b>Besuchen Sie uns gerne direkt neben U Turmstraße in Berlin<br>(Beispieladresse)</b>
 
-{{< leaflet centerMapElement=true mapCenterX=52.52600 mapCenterY=13.34281 defaultZoom=19 tileBaseURL="https://tile.openstreetmap.de" markerX=52.52600 markerY=13.34281 markerTooltip="Served Smart (Beispiel)" >}}
+{{< ol centerMap=true tileBaseURL="https://tile.openstreetmap.de" mapHeight="350px" mapWidth="350px" centerX=13.341297 centerY=52.526150 zoom=19 minZoom=15 maxZoom=20 pointPopup="Served Smart (Beispiel)" pointX=13.341297 pointY=52.526150 >}}
