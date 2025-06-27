@@ -24,7 +24,7 @@
 
     tileBaseURL: script?.getAttribute("data-tile-base-url"),
 
-    widthEqHeight: script?.getAttribute("data-width-eq-height") === "true",
+    isSquare: script?.getAttribute("data-is-square") === "true",
     height: script?.getAttribute("data-height"),
     width: script?.getAttribute("data-width"),
 
