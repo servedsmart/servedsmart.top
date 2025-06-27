@@ -14,7 +14,6 @@
 {{ $extraCopyrightURL := .Get "extraCopyrightURL" }}
 {{ $extraCopyrightName := .Get "extraCopyrightName" | default $extraCopyrightURL }}
 {{ $tileBaseURL := .Get "tileBaseURL" | default "https://tile.openstreetmap.org" }}
-{{ $isSquare := .Get "isSquare" | default "true" }}
 {{ $height := .Get "height" | default "400px" }}
 {{ $width := .Get "width" | default $height }}
 {{ $centerX := .Get "centerX" }}
@@ -27,7 +26,7 @@
 {{ $iconSize := .Get "iconSize" | default "64px" }}
 
 {{ $centerMap := .Get "centerMap" | default false }}
-{{ $classes := "flex relative" }}
+{{ $classes := "flex" }}
 {{ if $centerMap }}
   {{ $classes = delimit (slice $classes "justify-center") " " }}
 {{ end }}
@@ -38,12 +37,12 @@
 
 
 <div class="ol-sp-map-container {{ $classes }}">
-  <div id="{{ $mapId }}" class="ol-sp-map not-prose"></div>
+  <div id="{{ $mapId }}" class="ol-sp-map not-prose shadow"></div>
 </div>
 
 <img
   id="{{ $iconId }}"
-  class="ol-sp-icon nozoom"
+  class="ol-sp-icon nozoom hidden"
   src="{{ $icon.RelPermalink }}"
   draggable="false"
   {{ with $pointPopup }}
@@ -52,7 +51,7 @@
   >
 
 {{ if and $pointX $pointY }}
-  <div id="{{ $popupId }}" class="ol-sp-popup">
+  <div id="{{ $popupId }}" class="ol-sp-popup hidden">
     {{- $pointPopup -}}
   </div>
 {{ end }}
@@ -74,7 +73,6 @@
   data-extra-copyright-url="{{- $extraCopyrightURL -}}"
   data-extra-copyright-name="{{- $extraCopyrightName -}}"
   data-tile-base-url="{{- $tileBaseURL -}}"
-  data-is-square="{{- $isSquare -}}"
   data-height="{{- $height -}}"
   data-width="{{- $width -}}"
   data-center-x="{{- $centerX -}}"
