@@ -22,4 +22,4 @@ Proud kebab with a long tradition. The best sauces, fresh salad, and a juicy ske
 
 <b>Come visit us right next to U Turmstraße in Berlin<br>(Example address)</b>
 
-{{< olSp tileBaseURL="https://tile.openstreetmap.de" widthEqHeight="true" height="600px" centerX=13.342866 centerY=52.525984 zoom=18 minZoom=12 maxZoom=20 pointX=13.342866 pointY=52.525984 centerMap=true pointPopup="Served Smart (Example)" >}}
+{{< olSp tileBaseURL="https://tile.openstreetmap.de" height="600px" centerX=13.342866 centerY=52.525984 zoom=18 minZoom=12 maxZoom=20 pointX=13.342866 pointY=52.525984 centerMap=true pointPopup="Served Smart (Example)" >}}
