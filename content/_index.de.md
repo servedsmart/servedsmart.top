@@ -21,4 +21,4 @@ Reperaturen, Instandsetzung und Tuning. Alles nur bei uns mit Geduld und dem nö
 
 <b>Besuchen Sie uns gerne direkt neben U Turmstraße in Berlin<br>(Beispieladresse)</b>
 
-{{< ol centerMap=true tileBaseURL="https://tile.openstreetmap.de" mapHeight="350px" mapWidth="350px" centerX=13.341297 centerY=52.526150 zoom=19 minZoom=15 maxZoom=20 pointPopup="Served Smart (Beispiel)" pointX=13.341297 pointY=52.526150 >}}
+{{< olSp tileBaseURL="https://tile.openstreetmap.de" widthEqHeight="true" height="600px" centerX=13.342866 centerY=52.525984 zoom=18 minZoom=12 maxZoom=20 pointX=13.342866 pointY=52.525984 centerMap=true pointPopup="Served Smart (Beispiel)" >}}
