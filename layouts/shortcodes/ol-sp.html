@@ -1,0 +1,87 @@
+<!--
+--File: ol-sp.html
+--Author: Leopold Meinel (leo@meinel.dev)
+-------
+--Copyright (c) 2025 Leopold Meinel & contributors
+--SPDX ID: MIT
+--URL: https://opensource.org/licenses/MIT
+-------
+ -->
+
+{{ $mapId := printf "ol-sp-map-%d4" .Ordinal }}
+{{ $iconId := printf "ol-sp-icon-%d4" .Ordinal }}
+{{ $popupId := printf "ol-sp-popup-%d4" .Ordinal }}
+{{ $extraCopyrightURL := .Get "extraCopyrightURL" }}
+{{ $extraCopyrightName := .Get "extraCopyrightName" | default $extraCopyrightURL }}
+{{ $tileBaseURL := .Get "tileBaseURL" | default "https://tile.openstreetmap.org" }}
+{{ $widthEqHeight := .Get "widthEqHeight" | default "true" }}
+{{ $height := .Get "height" | default "400px" }}
+{{ $width := .Get "width" | default $height }}
+{{ $centerX := .Get "centerX" }}
+{{ $centerY := .Get "centerY" }}
+{{ $zoom := .Get "zoom" | default 15 }}
+{{ $minZoom := .Get "minZoom" | default 10 }}
+{{ $maxZoom := .Get "maxZoom" | default 20 }}
+{{ $pointX := .Get "pointX" }}
+{{ $pointY := .Get "pointY" }}
+{{ $iconSize := .Get "iconSize" | default "64px" }}
+
+{{ $centerMap := .Get "centerMap" | default false }}
+{{ $classes := "flex relative" }}
+{{ if $centerMap }}
+  {{ $classes = delimit (slice $classes "justify-center") " " }}
+{{ end }}
+
+{{ $icon := resources.Get "icons/location-dot.svg" }}
+
+{{ $pointPopup := .Get "pointPopup" }}
+
+
+<div class="ol-sp-map-container {{ $classes }}">
+  <div id="{{ $mapId }}" class="ol-sp-map not-prose"></div>
+</div>
+
+<img
+  id="{{ $iconId }}"
+  class="ol-sp-icon nozoom"
+  src="{{ $icon.RelPermalink }}"
+  draggable="false"
+  {{ with $pointPopup }}
+    alt="{{- . -}}"
+  {{ end }}
+  >
+
+{{ if and $pointX $pointY }}
+  <div id="{{ $popupId }}" class="ol-sp-popup">
+    {{- $pointPopup -}}
+  </div>
+{{ end }}
+
+{{ $olSpLib := resources.Get "lib/ol-sp/ol-sp.min.esm.js" | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+<script type="module" src="{{ $olSpLib.RelPermalink }} " integrity="{{ $olSpLib.Data.Integrity }}"></script>
+
+{{ $olSpCSS := resources.Get "lib/ol-sp/ol-sp.min.css" | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+{{ $olSpConfig := resources.Get "js/ol-sp.js" | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+<script
+  defer
+  src="{{ $olSpConfig.RelPermalink }} "
+  integrity="{{ $olSpConfig.Data.Integrity }}"
+  data-map-id="{{ $mapId }}"
+  data-icon-id="{{ $iconId }}"
+  data-popup-id="{{ $popupId }}"
+  data-stylesheet="{{ $olSpCSS.RelPermalink }}"
+  data-stylesheet-hash="{{ $olSpCSS.Data.Integrity }}"
+  data-extra-copyright-url="{{- $extraCopyrightURL -}}"
+  data-extra-copyright-name="{{- $extraCopyrightName -}}"
+  data-tile-base-url="{{- $tileBaseURL -}}"
+  data-width-eq-height="{{- $widthEqHeight -}}"
+  data-height="{{- $height -}}"
+  data-width="{{- $width -}}"
+  data-center-x="{{- $centerX -}}"
+  data-center-y="{{- $centerY -}}"
+  data-zoom="{{- $zoom -}}"
+  data-min-zoom="{{- $minZoom -}}"
+  data-max-zoom="{{- $maxZoom -}}"
+  data-point-x="{{- $pointX -}}"
+  data-point-y="{{- $pointY -}}"
+  data-icon-size="{{- $iconSize -}}"></script>
