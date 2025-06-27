@@ -22,6 +22,7 @@
     "eslint-plugin-jsdoc": "51.2.3",
     "eslint-plugin-package-json": "0.42.0",
     "eslint": "9.29.0",
+    "ol-sp": "0.0.1",
     "globals": "16.2.0",
     "htmlhint": "1.6.3",
     "hugo-bin": "0.144.9",
@@ -37,6 +38,14 @@
     {
       "from": "node_modules/@sveltia/cms/dist/sveltia-cms.js",
       "to": "assets/lib/sveltia-cms/sveltia-cms.js"
+    },
+    {
+      "from": "node_modules/ol-sp/dist/ol-sp.min.esm.js",
+      "to": "assets/lib/ol-sp/ol-sp.min.esm.js"
+    },
+    {
+      "from": "node_modules/ol-sp/dist/ol-sp.min.css",
+      "to": "assets/lib/ol-sp/ol-sp.min.css"
     }
   ]
 }
