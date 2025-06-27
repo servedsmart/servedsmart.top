@@ -13,6 +13,8 @@
 
   const config = {
     mapId: script?.getAttribute("data-map-id"),
+    centerControlId: script?.getAttribute("data-center-control-id"),
+    centerControlButtonId: script?.getAttribute("data-center-control-button-id"),
     iconId: script?.getAttribute("data-icon-id"),
     popupId: script?.getAttribute("data-popup-id"),
 
