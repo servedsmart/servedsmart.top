@@ -9,6 +9,8 @@
  -->
 
 {{ $mapId := printf "ol-sp-map-%d4" .Ordinal }}
+{{ $centerControlId := printf "ol-sp-center-control-%d4" .Ordinal }}
+{{ $centerControlButtonId := printf "ol-sp-center-control-%d4" .Ordinal }}
 {{ $iconId := printf "ol-sp-icon-%d4" .Ordinal }}
 {{ $popupId := printf "ol-sp-popup-%d4" .Ordinal }}
 {{ $extraCopyrightURL := .Get "extraCopyrightURL" }}
@@ -40,6 +42,10 @@
   <div id="{{ $mapId }}" class="ol-sp-map not-prose shadow"></div>
 </div>
 
+<div id="{{ $centerControlId }}" class="ol-sp-center-control ol-unselectable ol-control">
+  <button id="{{ $centerControlButtonId }}" class="ol-sp-center-control-button">C</button>
+</div>
+
 <img
   id="{{ $iconId }}"
   class="ol-sp-icon nozoom hidden"
@@ -47,8 +53,7 @@
   draggable="false"
   {{ with $pointPopup }}
     alt="{{- . -}}"
-  {{ end }}
-  >
+  {{ end }}>
 
 {{ if and $pointX $pointY }}
   <div id="{{ $popupId }}" class="ol-sp-popup hidden">
@@ -66,6 +71,8 @@
   src="{{ $olSpConfig.RelPermalink }} "
   integrity="{{ $olSpConfig.Data.Integrity }}"
   data-map-id="{{ $mapId }}"
+  data-center-control-id="{{ $centerControlId }}"
+  data-center-control-button-id="{{ $centerControlButtonId }}"
   data-icon-id="{{ $iconId }}"
   data-popup-id="{{ $popupId }}"
   data-stylesheet="{{ $olSpCSS.RelPermalink }}"
