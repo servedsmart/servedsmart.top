@@ -12,7 +12,7 @@
     "start": "wrangler dev"
   },
   "devDependencies": {
-    "@awmottaz/prettier-plugin-void-html": "1.8.0",
+    "@awmottaz/prettier-plugin-void-html": "1.9.0",
     "@eslint/css": "0.9.0",
     "@eslint/js": "9.29.0",
     "@eslint/json": "0.12.0",
@@ -22,13 +22,13 @@
     "eslint-plugin-jsdoc": "51.2.3",
     "eslint-plugin-package-json": "0.42.0",
     "eslint": "9.29.0",
-    "ol-sp": "0.0.2",
+    "ol-sp": "0.0.3",
     "globals": "16.2.0",
     "htmlhint": "1.6.3",
     "hugo-bin": "0.144.9",
     "prettier-plugin-go-template": "0.0.15",
     "prettier-plugin-tailwindcss": "0.6.13",
-    "prettier": "3.5.3",
+    "prettier": "3.6.2",
     "rimraf": "6.0.1",
     "vendor-copy": "3.0.1",
     "wrangler": "4.22.0"
