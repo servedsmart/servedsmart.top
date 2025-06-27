@@ -1,5 +1,5 @@
 <!--
---File: ol-sp.html
+--File: olSp.html
 --Author: Leopold Meinel (leo@meinel.dev)
 -------
 --Copyright (c) 2025 Leopold Meinel & contributors
@@ -14,7 +14,7 @@
 {{ $extraCopyrightURL := .Get "extraCopyrightURL" }}
 {{ $extraCopyrightName := .Get "extraCopyrightName" | default $extraCopyrightURL }}
 {{ $tileBaseURL := .Get "tileBaseURL" | default "https://tile.openstreetmap.org" }}
-{{ $widthEqHeight := .Get "widthEqHeight" | default "true" }}
+{{ $isSquare := .Get "isSquare" | default "true" }}
 {{ $height := .Get "height" | default "400px" }}
 {{ $width := .Get "width" | default $height }}
 {{ $centerX := .Get "centerX" }}
@@ -74,7 +74,7 @@
   data-extra-copyright-url="{{- $extraCopyrightURL -}}"
   data-extra-copyright-name="{{- $extraCopyrightName -}}"
   data-tile-base-url="{{- $tileBaseURL -}}"
-  data-width-eq-height="{{- $widthEqHeight -}}"
+  data-is-square="{{- $isSquare -}}"
   data-height="{{- $height -}}"
   data-width="{{- $width -}}"
   data-center-x="{{- $centerX -}}"
