@@ -10,7 +10,7 @@
 
 {{ $mapId := printf "ol-sp-map-%d4" .Ordinal }}
 {{ $centerControlId := printf "ol-sp-center-control-%d4" .Ordinal }}
-{{ $centerControlButtonId := printf "ol-sp-center-control-%d4" .Ordinal }}
+{{ $centerControlButtonId := printf "ol-sp-center-control-button-%d4" .Ordinal }}
 {{ $iconId := printf "ol-sp-icon-%d4" .Ordinal }}
 {{ $popupId := printf "ol-sp-popup-%d4" .Ordinal }}
 {{ $extraCopyrightURL := .Get "extraCopyrightURL" }}
@@ -42,8 +42,8 @@
   <div id="{{ $mapId }}" class="ol-sp-map not-prose shadow"></div>
 </div>
 
-<div id="{{ $centerControlId }}" class="ol-sp-center-control ol-unselectable ol-control">
-  <button id="{{ $centerControlButtonId }}" class="ol-sp-center-control-button">C</button>
+<div id="{{ $centerControlId }}" class="ol-sp-center-control ol-unselectable ol-control hidden">
+  <button id="{{ $centerControlButtonId }}" class="ol-sp-center-control-button hidden">C</button>
 </div>
 
 <img
