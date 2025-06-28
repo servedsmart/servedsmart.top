@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "install": "npm run-script assets",
     "assets": "rimraf assets/vendor && vendor-copy",
     "build": "NODE_ENV=production HUGO_ENVIRONMENT=production HUGO_ENV=production hugo --enableGitInfo --minify -e production -d ./public",
     "create": "hugo new",
@@ -22,7 +23,7 @@
     "eslint-plugin-jsdoc": "51.2.3",
     "eslint-plugin-package-json": "0.42.0",
     "eslint": "9.30.0",
-    "ol-sp": "0.0.5",
+    "ol-sp": "0.0.6",
     "globals": "16.2.0",
     "htmlhint": "1.6.3",
     "hugo-bin": "0.144.9",
