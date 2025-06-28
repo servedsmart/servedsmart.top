@@ -23,7 +23,7 @@
     "eslint-plugin-jsdoc": "51.2.3",
     "eslint-plugin-package-json": "0.42.0",
     "eslint": "9.30.0",
-    "ol-sp": "0.0.7",
+    "ol-sp": "0.0.8",
     "globals": "16.2.0",
     "htmlhint": "1.6.3",
     "hugo-bin": "0.144.9",
