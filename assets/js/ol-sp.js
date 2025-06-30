@@ -18,8 +18,8 @@
     iconId: script?.getAttribute("data-icon-id"),
     popupId: script?.getAttribute("data-popup-id"),
 
-    stylesheet: script?.getAttribute("data-stylesheet"),
-    stylesheetHash: script?.getAttribute("data-stylesheet-hash"),
+    styleSheetHref: script?.getAttribute("data-style-sheet-href"),
+    styleSheetHash: script?.getAttribute("data-style-sheet-hash"),
 
     extraCopyrightURL: script?.getAttribute("data-extra-copyright-url"),
     extraCopyrightName: script?.getAttribute("data-extra-copyright-name"),
