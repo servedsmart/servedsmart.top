@@ -16,13 +16,13 @@ description = "Any work with wood is our specialty. We specialize in joinery, re
 
 [params.author]
 name = "Served Smart - Joinery (Example website)"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Joinery with many years of experience and friendly and well-trained staff"
 bio = "We enjoy restoring old furniture and making/installing custom doors/window frames etc."
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },
