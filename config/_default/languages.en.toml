@@ -16,13 +16,13 @@ description = "The best bakery for miles around. With a cozy seating area, a goo
 
 [params.author]
 name = "Served Smart - Bakery (Example website)"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Traditional bakery and family business"
 bio = "Passionate about baking and coffee roasting. Everything we serve is fresh, regional, and handmade!"
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },
