@@ -16,13 +16,13 @@ description = "Proud kebab with a long tradition. The best sauces, fresh salad, 
 
 [params.author]
 name = "Served Smart - Kebab (Example website)"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Modern fast food place in the heart of the city"
 bio = "Our ingredients are fresh and local. Our staff works hard late into the night to serve you the best food."
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },

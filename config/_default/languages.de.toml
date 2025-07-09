@@ -16,13 +16,13 @@ description = "Stolzer Döner Kebab mit langer Tradition. Die besten Saußen, fr
 
 [params.author]
 name = "Served Smart - Döner Kebab (Beispielwebsite)"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Moderner Imbiss im Herzen der Stadt"
 bio = "Unsere Zutaten sind frisch und regional. Unser Personal ist bis tief in die Nacht motiviert, Ihnen das beste Essen zu servieren."
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },
