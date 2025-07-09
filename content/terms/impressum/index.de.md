@@ -15,25 +15,25 @@ tags = [
 
 ## Angaben gemäß §§ 5, 6 DDG
 
-REPLACE_ME_COMPANY_NAME
-
-REPLACE_ME_STREET_NAME REPLACE_ME_STREET_NUMBER
-
-REPLACE_ME_POSTAL_CODE, REPLACE_ME_CITY
+> **REPLACE_ME_COMPANY_NAME**
+> 
+> REPLACE_ME_STREET_NAME REPLACE_ME_STREET_NUMBER  
+> REPLACE_ME_POSTAL_CODE Berlin  
+> Deutschland
 
 **Vertreten durch:** Leopold Johannes Meinel
 
 **Verantwortlicher im Sinne des § 18 MStV:** Leopold Johannes Meinel
 
-### Kontaktdaten
+### Kontakt
 
 **Telefon:** REPLACE_ME_TELEPHONE
 
-**E-Mail:** REPLACE_ME_EMAIL
+**E-Mail:** legal@servedsmart.com
 
-### Umsatzsteuer-ID
+### USt-ID
 
-**Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG:** REPLACE_ME_UMSATZSTEUER_ID
+**Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG:** REPLACE_ME_VAT_ID
 
 ## Haftungsausschluss
 
