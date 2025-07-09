@@ -16,13 +16,13 @@ description = "Well-established pizzeria. With tasty and affordable food, great 
 
 [params.author]
 name = "Served Smart - Pizzeria (Example website)"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Traditional pizzeria with it's roots in the heart of Italy"
 bio = "We serve fresh and handmade foods. Our chefs are very experienced and love preparing the best italian food."
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },
