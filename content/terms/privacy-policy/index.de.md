@@ -13,154 +13,183 @@ tags = [
 ]
 +++
 
-## Einführung und Organisatorische Informationen
+## Datenschutz
 
-Wir, bei REPLACE_ME_COMPANY_NAME, sind bestrebt, unsere Kunden und Kontakte nach besten Kräften zu bedienen. Ein Teil unseres Engagements beinhaltet die verantwortungsvolle Verwaltung personenbezogener Daten, die über unsere Website servedsmart.top gesammelt wurden, und alle damit verbundenen Interaktionen.
+Wir legen großen Wert auf den Schutz Ihrer Privatsphäre und verpflichten uns, Ihre personenbezogenen Daten zu schützen. Diese Datenschutzerklärung beschreibt, wie wir Daten gemäß der Datenschutz-Grundverordnung (DSGVO, EU 2016/679) verarbeiten, wenn Sie unsere Website besuchen.
 
-Unsere Hauptziele bei der Verarbeitung dieser Informationen sind:
-- Verbesserung der Benutzererfahrung auf unserer Plattform durch das Verständnis der Kundenbedürfnisse und -präferenzen.
-- Bereitstellung rechtzeitigen Supports und Beantwortung von Nachfragen oder Serviceanfragen.
-- Verbesserung unserer Produkte und Dienstleistungen, um die sich entwickelnden Anforderungen unserer Nutzer zu erfüllen.
-- Durchführung des notwendigen Geschäftsbetriebs, wie zum Beispiel Abrechnung und Kontoführung.
+## Verantwortlicher
 
-Es ist unsere Aufgabe und Richtlinie, personenbezogene Daten mit größter Achtung der Privatsphäre und Sicherheit zu verarbeiten. Wir halten uns an alle relevanten Vorschriften und Richtlinien, um sicherzustellen, dass die von uns verarbeiteten Daten vor unbefugtem Zugriff, Offenlegung, Veränderung und Zerstörung geschützt sind. Unsere Praktiken sollen die Vertraulichkeit und Integrität Ihrer persönlichen Daten wahren und gleichzeitig die Bereitstellung der Dienstleistungen ermöglichen, die Sie uns anvertrauen.
+Verantwortlich für die Verarbeitung Ihrer personenbezogenen Daten ist:
 
-Wir haben keinen ausgewiesenen Datenschutzbeauftragten (DSB), sind aber weiterhin uneingeschränkt verpflichtet, Ihre Datenschutzbedenken auszuräumen. Sollten Sie Fragen haben oder weitere Informationen darüber benötigen, wie wir personenbezogene Daten verwalten, wenden Sie sich bitte an uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE.
+> **REPLACE_ME_COMPANY_NAME**
+> 
+> REPLACE_ME_STREET_NAME REPLACE_ME_STREET_NUMBER  
+> REPLACE_ME_POSTAL_CODE Berlin  
+> Deutschland
 
-Ihre Privatsphäre ist unsere Priorität. Wir verpflichten uns, Ihre persönlichen Daten transparent und mit Ihrer Sicherheit als Priorität zu verarbeiten. Diese Verpflichtung erstreckt sich auf unsere Zusammenarbeit mit Dienstleistungen Dritter, die personenbezogene Daten in unserem Namen verarbeiten können, zum Beispiel für das Senden von Rechnungen. Seien Sie versichert, dass alle Aktivitäten unter strikter Einhaltung der geltenden Datenschutzgesetze durchgeführt werden.
+**Vertreten durch:** Leopold Johannes Meinel
 
-## Umfang und Anwendung
+### Kontakt
 
-Unsere Datenschutzrichtlinie soll die persönlichen Daten aller unserer Teilhaber schützen, dies beinhaltet Website-Besucher, registrierte Nutzer und Kunden. Egal, ob Sie sich unsere Website nur anschauen, unsere Dienste als registrierter Benutzer nutzen oder mit uns als geschätzter Kunde interagieren, stellen wir sicher, dass Ihre persönlichen Daten mit den höchsten Privatsphäre- und Sicherheitsstandards verarbeitet werden. Diese Richtlinie legt unsere Praktiken und Ihre Rechte in Bezug auf persönliche Daten dar.
+**Telefon:** REPLACE_ME_TELEPHONE
 
-## Datenspeicherung und Datenschutz
+**E-Mail:** privacy@servedsmart.com
 
-### Datenspeicherung
+## Externe Dienste
 
-- **Personenbezogene Daten werden an folgenden Standorten gespeichert:** Europa, Vereinigte Staaten von Amerika. Für Dienstleistungen, die eine internationale Datenübertragung erfordern, stellen wir sicher, dass diese Übertragungen alle geltenden Gesetze einhalten und die Datenschutzstandards beibehalten, die auch für den ursprünglichen Speicherort gelten. Siehe [Cloudflares Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) für weitere Details.
-- **Datenhosting-Partner**: Wir arbeiten mit seriösen Datenhosting-Anbietern zusammen, die sich für die Bereitstellung modernster Sicherheitsmaßnahmen einsetzen. Diese Partner werden aufgrund ihrer Einhaltung strenger Datenschutzstandards ausgewählt. Siehe [Cloudflares Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) für weitere Details.
+### Hosting durch Cloudflare Workers
 
-## Datenfreigabe und Offenlegung
+Unsere Website wird statisch durch **Cloudflare Workers** gehostet, einem Dienst von:
 
-Bei REPLACE_ME_COMPANY_NAME haben wir uns verpflichtet, Ihre persönlichen Daten zu schützen und sicherzustellen, dass diese mit größtem Respekt behandelt werden. Diese Verpflichtung erstreckt sich auch darauf, wie wir mit der Weitergabe und Offenlegung Ihrer Daten umgehen.
+> **Cloudflare, Inc.**
+> 
+> 101 Townsend St  
+> San Francisco, CA 94107  
+> USA
 
-Im Folgenden legen wir unsere Praktiken in diesem Bereich dar:
+Wenn Sie unsere Website besuchen, stellt Ihr Browser eine Verbindung zu den Servern von Cloudflare her, um Inhalte abzurufen.
 
-### Teilen von Persönlichen Daten
+Wir **verwenden keine** der folgenden Funktionen von Cloudflare:
 
-**Drittanbieter:** Wir könnten Ihre Daten an Drittanbieter weitergeben, die Dienstleistungen in unserem Auftrag erbringen. Solche vertrauenswürdigen Parteien haben möglicherweise Zugang zu persönlich identifizierbaren Informationen auf einer bedarfsgerechten Grundlage und sind vertraglich verpflichtet, Ihre Daten vertraulich zu behandeln. Es ist diesen Partnern untersagt, Ihre persönlichen Daten für andere Zwecke zu verwenden, als diese Dienste an REPLACE_ME_COMPANY_NAME zu erbringen, und sie sind verpflichtet, die Vertraulichkeit Ihrer Daten zu wahren.
+- [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/)
+- [Cloudflare Bot Management](https://www.cloudflare.com/application-services/products/bot-management/)
+- [Cloudflare Cookies](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/)
+- [Cloudflare Load Balancing](https://developers.cloudflare.com/load-balancing/)
+- [Cloudflare Rocket Loader](https://developers.cloudflare.com/speed/optimization/content/rocket-loader/)
+- Nutzerprofiling oder Fingerprinting
 
-| Servicename | Anbieter        | Zweck(e)                                                                                                    | Art der erfassten personenbezogenen Daten                                         | Link zur Datenschutzerklärung                              |
-| ----------- | --------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| Cloudflare  | Cloudflare Inc. | <ul><li>Authentifizierung und Sicherheit</li><li>Benutzererfahrung individualisieren und anpassen</li></ul> | <ul><li>Geräte-ID</li><li>IP-Adresse</li><li>Betriebssystem und Version</li></ul> | [Externer Link](https://www.cloudflare.com/privacypolicy/) |
+Wir verwenden Cloudflare für:
 
-## Datenverarbeitungsvereinbarungen
+- Hosting statischer Inhalte durch **Cloudflare Workers**
+- Bereitstellung von HTTPS-Verschlüsselung und sicherer Inhaltsübertragung
+- Schutz der Website vor Denial-of-Service-Angriffen (DoS) und schädlichem Datenverkehr durch Firewall-Schutz
 
-Wenn wir Ihre Daten an Drittanbieter weitergeben, tun wir dies unter dem Schutz von Datenverarbeitungsvereinbarungen (DPAs), die sicherstellen, dass Ihre Daten in Übereinstimmung mit der Datenschutz-Grundverordnung (DSGVO) und anderen relevanten Datenschutzgesetzen verwaltet werden. Diese Vereinbarungen schreiben vor, dass Dritte angemessene technische und organisatorische Maßnahmen umsetzen, um die Sicherheit Ihrer Daten zu gewährleisten.
+Cloudflare kann zu technischen und sicherheitsbezogenen Zwecken folgende Daten verarbeiten:
 
-### Transparenz und Kontrolle
+- IP-Adresse
+- Betriebssystem und Version
+- Browsertyp und Version
+- Datum und Uhrzeit des Zugriffs
+- Angeforderte Ressourcen
 
-Wir glauben an Transparenz und die Kontrolle über Ihre persönlichen Daten. Sie werden immer über alle wesentlichen Änderungen an unseren Datenfreigabe-Praktiken informiert, und wenn zutreffend, haben Sie die Möglichkeit, solchen Änderungen zuzustimmen.
+Diese Verarbeitung erfolgt auf Grundlage von **Art. 6 Abs. 1 lit. f DSGVO**. Unser berechtigtes Interesse ist die Bereitstellung und Absicherung der Website.
 
-Ihr Vertrauen ist uns wichtig, und wir bemühen uns, sicherzustellen, dass Ihre persönlichen Daten nur in Übereinstimmung mit dieser Richtlinie offengelegt werden und wenn es einen berechtigten Grund dazu gibt. Für Fragen oder Bedenken darüber, wie wir personenbezogene Daten teilen und offenlegen, wenden Sie sich bitte an uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE.
+Weitere Informationen finden Sie in der [Cloudflare Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/).
 
-## Nutzerrechte und Wahlmöglichkeiten
+## Eingebettete YouTube-Videos
 
-Bei REPLACE_ME_COMPANY_NAME erkennen und respektieren wir Ihre Rechte in Bezug auf Ihre personenbezogenen Daten gemäß der Datenschutz-Grundverordnung (DSGVO) und anderen geltenden Datenschutzgesetzen. Wir setzen uns dafür ein, dass Sie Ihre Rechte effektiv ausüben können.
+Wir betten YouTube-Videos ein, die von folgenden Anbietern bereitgestellt werden:
 
-Im Folgenden finden Sie einen Überblick über Ihre Rechte und wie Sie diese ausüben können:
+> **Google Ireland Limited**
+>
+> Gordon House  
+> Barrow Street, Dublin 4  
+> Ireland
 
-### Ihre Rechte
+und
 
-- **Auskunftsrecht (Art. 15 DSGVO):** Sie haben das Recht, Zugang zu den personenbezogenen Daten, die wir über Sie gespeichert haben, zu verlangen und Informationen darüber zu erhalten, wie wir sie verarbeiten.
-- **Recht auf Berichtigung (Art. 16 DSGVO):** Wenn Sie der Ansicht sind, dass personenbezogene Daten, die wir über Sie besitzen, falsch oder unvollständig sind, haben Sie das Recht, dessen Berichtigung zu verlangen.
-- **Recht auf Löschung (Recht auf Vergessenwerden) (Art. 17 DSGVO):** Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen, wenn dies unter anderem für die Zwecke, für die sie erhoben wurden, nicht mehr erforderlich ist.
-- **Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO):** Sie haben das Recht, die Verarbeitung Ihrer personenbezogenen Daten unter bestimmten Bedingungen einzuschränken.
-- **Recht auf Datenübertragbarkeit (Art. 20 DSGVO):** Sie haben das Recht, Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten und diese Daten an einen anderen Verantwortlichen weiterzuleiten.
-- **Widerspruchsrecht (Art. 21 DSGVO):** Sie haben das Recht, unter bestimmten Bedingungen gegen die Verarbeitung Ihrer personenbezogenen Daten zu widersprechen. Dies beinhaltet auch Direktwerbung.
-- **Recht auf Widerruf der Einwilligung (Art. 7 Abs. 3 DSGVO):** Wenn die Verarbeitung Ihrer personenbezogenen Daten auf Ihrer Einwilligung beruht, haben Sie das Recht, diese Einwilligung jederzeit zu widerrufen, ohne die Rechtmäßigkeit der Verarbeitung aufgrund einer Einwilligung vor ihrem Widerruf zu beeinträchtigen.
-- **Recht auf Beschwerde (Art. 77 DSGVO):** Sie haben das Recht, eine Beschwerde bei einer Aufsichtsbehörde einzureichen, wenn Sie der Ansicht sind, dass unsere Verarbeitung Ihrer personenbezogenen Daten gegen geltende Datenschutzgesetze verstößt.
+> **Google LLC**
+> 
+> 1600 Amphitheatre Parkway  
+> Mountain View, California 94043  
+> USA
 
-### Ausübung Ihrer Rechte
+**Google Ireland Limited** ist für Nutzer in der Europäischen Union und der Schweiz der Verantwortliche für die Verarbeitung personenbezogener Daten im Zusammenhang mit Google-Diensten. **Google LLC** ist für Nutzer im Vereinigten Königreich verantwortlich. Es ist jedoch möglich, dass diese Datenverantwortlichen Informationen untereinander austauschen.
 
-Um diese Rechte auszuüben, kontaktieren Sie uns bitte unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE. Wir werden auf Ihre Anfrage in Übereinstimmung mit den geltenden Datenschutzgesetzen und innerhalb der durch diese Gesetze festgelegten Fristen reagieren. Bitte beachten Sie, dass wir in einigen Fällen möglicherweise Ihre Identität als Teil des Prozesses überprüfen müssen, um die Sicherheit Ihrer persönlichen Daten zu gewährleisten.
+Wir verwenden [youtube-nocookie.com](https://youtube-nocookie.com), um Tracking-Technologien vor einer Nutzerinteraktion zu begrenzen.
 
-Wir verpflichten uns, die Ausübung Ihrer Rechte zu erleichtern und sicherzustellen, dass Sie die volle Kontrolle über Ihre persönlichen Daten haben. Wenn Sie Fragen oder Bedenken darüber haben, wie Ihre persönlichen Daten behandelt werden, zögern Sie bitte nicht, sich mit uns in Verbindung zu setzen.
+Beim Einbetten eines Videos wird eine Verbindung zu den Servern von **YouTube** hergestellt, um Informationen über das Video zu laden. Dabei werden personenbezogene Daten übertragen, auch wenn Sie das Video nicht abspielen:
 
-## Cookies und Tracking-Technologien
+- IP-Adresse
+- Betriebssystem und Version
+- Browsertyp und Version
+- Datum und Uhrzeit des Zugriffs
+- Angeforderte Ressourcen
 
-Bei REPLACE_ME_COMPANY_NAME schätzen wir Ihre Privatsphäre und sind bestrebt, transparent zu sein, was unsere Verwendung von Cookies und anderen Tracking-Technologien auf unserer Website servedsmart.top angeht. Diese Technologien spielen eine entscheidende Rolle, um den reibungslosen Betrieb unserer digitalen Plattformen zu gewährleisten, Ihre Benutzererfahrung zu verbessern und Einblicke zu geben, die uns helfen, uns zu verbessern.
+Wenn Sie mit dem Video **interagieren**:
 
-### Cookies und Tracking-Technologien verstehen
+- Werden zusätzliche Daten an YouTube übertragen.
+- YouTube kann Cookies setzen und Tracking-Technologien verwenden – abhängig von Ihren Browsereinstellungen.
+- Falls Sie bei einem Google-Konto angemeldet sind, kann diese Interaktion Ihrem Profil zugeordnet werden.
 
-Cookies sind kleine Dateien, die auf Ihrem Gerät gespeichert werden und die es uns ermöglichen, Ihre Präferenzen zu speichern und Informationen über Ihre Websitenutzung zu sammeln. Tracking-Technologien wie Web-Beacons und Pixel-Tags helfen uns zu verstehen, wie Sie mit unserer Website interagieren und welche Seiten Sie besuchen.
+Diese Verarbeitung erfolgt auf Grundlage von **Art. 6 Abs. 1 lit. f DSGVO**. Unser berechtigtes Interesse ist die Bereitstellung der Videofunktion.
 
-### Wie wir diese Technologien nutzen
+Weitere Informationen finden Sie in der [Google Datenschutzerklärung](https://policies.google.com/privacy).
 
-- **Unbedingt erforderliche Cookies:** Notwendig für die Funktionalität der Website, wie Authentifizierung und Sicherheit. Sie benötigen keine Zustimmung.
-- **Präferenz-Cookies:** Ermöglichen der Website verbesserte Funktionalität und Personalisierung wie zum Beispiel das Speichern von Präferenzen.
-- **Statistik-Cookies:** Sammeln Informationen darüber, wie Besucher unsere Website nutzen, welche Seiten am häufigsten besucht werden und ob Fehlermeldungen von Websites empfangen werden. Diese Cookies helfen uns, unsere Website zu verbessern. Wir speichern diese Art von Cookies derzeit nicht.
-- **Marketing-Cookies:** Verwendet, um Werbung zu schalten, die auf Ihre Interessen angepasst sind. Sie werden auch verwendet, um die Anzahl der Anzeigen zu begrenzen und die Wirksamkeit der Werbekampagne zu messen. Wir speichern diese Art von Cookies derzeit nicht.
+## Kartendaten von openstreetmap.de
 
-### Ihre Wahl und Zustimmung
+Unsere Website zeigt eine Karte mit Kacheldaten (Tiles), die bereitgestellt werden von:
 
-Bei Ihrem ersten Besuch wird Ihnen unsere Website ein Banner zur Cookie-Einwilligung zeigen, auf dem Sie folgende Auswahlmöglichkeiten haben:
-- **Alle akzeptieren:** Zustimmung zur Nutzung aller Cookies und Tracking-Technologien.
-- **Alle ablehnen:** Nur unbedingt erforderliche Cookies werden verwendet, um Ihnen die notwendigen Website-Funktionen zur Verfügung zu stellen.
-- **Cookie-Präferenzen:** Wählen Sie, welche Kategorien von Cookies Sie zulassen möchten.
+> **FOSSGIS e.V.**  
+> (Verein, der [openstreetmap.de](https://www.openstreetmap.de) betreibt)
+> 
+> Bundesallee 23  
+> 10717 Berlin  
+> Deutschland
 
-### Änderungen an unserer Verwendung von Cookies
+Beim Laden der Karte ruft Ihr Browser Kachelgrafiken von [tile.openstreetmap.de](https://tile.openstreetmap.de) ab. Diese Anfragen speichern keine Cookies, und der Betreiber gibt keine personenbezogenen Daten aktiv an uns weiter.
 
-Wir können unseren Einsatz von Cookies und Tracking-Technologien ändern, um unsere Dienste zu verbessern oder die gesetzlichen Anforderungen zu erfüllen. Wir werden Sie über wesentliche Änderungen informieren und Ihre Zustimmung einholen, wo dies erforderlich ist.
+Der Betreiber kann zu technischen und sicherheitsbezogenen Zwecken folgende Daten verarbeiten:
 
-Für detailliertere Informationen über die von uns verwendeten Cookies, deren Zwecke und wie Sie Ihre Präferenzen verwalten können, besuchen Sie bitte unsere [Cookie-Präferenzen](#consent-overlay).
+- IP-Adresse
+- Betriebssystem und Version
+- Browsertyp und Version
+- Datum und Uhrzeit des Zugriffs
+- Angeforderte Ressourcen
 
-Sollten Sie Fragen oder Bedenken bezüglich unserer Verwendung von Cookies und Tracking-Technologien haben, zögern Sie bitte nicht, uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE zu kontaktieren. Ihre Privatsphäre und die Integrität Ihrer persönlichen Daten sind für uns von größter Bedeutung.
+Diese Verarbeitung erfolgt gemäß **Art. 6 Abs. 1 lit. f DSGVO**. Unser berechtigtes Interesse ist die Bereitstellung der Kartenfunktion.
 
-## Internationale Datentransfers
+Weitere Informationen finden Sie in der [openstreetmap.de Datenschutzerklärung](https://www.openstreetmap.de/impressum/datenschutz/).
 
-Bei REPLACE_ME_COMPANY_NAME könnten wir Ihre persönlichen Daten an Orte außerhalb Ihres Wohnsitzlandes übertragen, auch in Länder, die andere Datenschutzgesetze haben können als in Ihrer Gerichtsbarkeit. Wir möchten Ihnen versichern, dass solche Transfers mit größter Sorgfalt und in Übereinstimmung mit den geltenden Datenschutzbestimmungen, einschließlich der Datenschutz-Grundverordnung (DSGVO), durchgeführt werden.
+## Internationale Datenübermittlungen
 
-## Einhaltung der Datenschutzgesetze der Vereinigten Staaten
+Wir verwenden Dienste, bei denen personenbezogene Daten (z. B. IP-Adressen oder Browsermetadaten) außerhalb des Europäischen Wirtschaftsraums (EWR), insbesondere in die USA, übertragen werden können.
 
-Für Einwohner der Vereinigten Staaten von Amerika gelten folgende Bestimmungen:
+Dies betrifft:
 
-### A. Individuelle Rechte
+- **Cloudflare, Inc.** (USA), für das Hosting statischer Inhalte.
+- **Google LLC** (USA), für das Einbetten von YouTube-Videos.
 
-Der California Consumer Privacy Act bietet Bewohnern Kaliforniens spezifische Rechte in Bezug auf ihre persönlichen Daten, zusätzlich zu dem, was zuvor festgelegt wurde.
+Zum Schutz dieser Übermittlungen stützen wir uns auf die **Standardvertragsklauseln (SCCs)** der Europäischen Kommission gemäß Art. 46 DSGVO. Zusätzlich können technische und organisatorische Schutzmaßnahmen angewendet werden.
 
-### B. Recht auf Information
+Weitere Informationen finden Sie in der [Cloudflare Datenschutzerklärung](https://www.cloudflare.com/privacypolicy/) und der [Google Datenschutzerklärung](https://policies.google.com/privacy).
 
-Sie können verlangen, dass wir Ihnen mitteilen, welche persönlichen Daten wir über Sie gesammelt, verwendet, geteilt oder verkauft haben und warum wir diese Informationen gesammelt, verwendet, geteilt oder verkauft haben.
+## Cookies und Tracking
 
-Insbesondere können Sie die Offenlegung der folgenden Daten verlangen:
-- Die Kategorien der gesammelten Personendaten
-- Spezifische gesammelte persönliche Informationen
-- Die Kategorien von Quellen, aus denen wir personenbezogene Daten gesammelt haben
-- Die Zwecke, für die persönliche Daten verwendet werden
-- Die Kategorien von Dritten, mit denen personenbezogene Daten geteilt werden
-- Die Kategorien von Informationen, die an Dritte verkauft oder offengelegt werden
+Unsere Website verwendet eine kleine Anzahl von Cookies, um grundlegende Funktionen sicherzustellen und Ihr Nutzungserlebnis zu verbessern.
 
-### C. Recht auf Löschung
+### Arten von Cookies
 
-Sie können verlangen, dass wir persönliche Daten löschen, die wir über Sie gesammelt haben.
+- **Unbedingt erforderliche Cookies:** Erforderlich für den Betrieb und die Sicherheit der Website. Diese bedürfen keiner Einwilligung.
+- **Präferenz-Cookies:** Erforderlich für erweiterte Funktionen und Personalisierung. Diese benötigen Ihre Einwilligung.
+<!--
+- **Statistik-Cookies:** Erforderlich zum Erfassen von Informationen über wie Besucher unsere Website nutzen, welche Seiten am häufigsten aufgerufen werden und ob Fehlermeldungen auftreten.
+-->
+<!--
+- **Marketing-Cookies:** Erforderlich um Ihnen personalisierte Werbung anzuzeigen und den Erfolg von Werbekampagnen zu messen.
+-->
 
-### D. Recht auf Berichtigung
+### Cookie-Einstellungen und Fragen
 
-Sie können uns bitten, ungenaue Informationen zu korrigieren, die wir über Sie haben.
+Sie können Ihre Cookie-Einstellungen jederzeit über unsere [Cookie-Präferenzen](#consent-overlay) anpassen.
 
-### E. Recht auf Einschränkung der Verarbeitung
+Bei Fragen kontaktieren Sie uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE.
 
-Sie können uns auffordern, Ihre sensiblen persönlichen Daten (z. B. Ihre Sozialversicherungsnummer, Ihre genetischen Daten usw.) für begrenzte Zwecke zu verwenden, z. B. die Bereitstellung der von Ihnen angeforderten Dienstleistungen.
+## Ihre Rechte gemäß DSGVO
 
-### F. Recht auf Widerruf der Einwilligung
+Sie haben folgende Rechte in Bezug auf Ihre personenbezogenen Daten:
 
-REPLACE_ME_COMPANY_NAME verkauft oder teilt keine persönlichen Daten. Falls Ihre Daten verkauft oder weitergegeben werden, können Sie Ihr Recht nutzen, den Verkauf oder die Weitergabe personenbezogener Daten abzulehnen, indem Sie eine email an [privacy@servedsmart.com](mailto:privacy@servedsmart.com) senden.
+- **Widerruf der Einwilligung** (Art. 7 Abs. 3 DSGVO)
+- **Auskunft** (Art. 15 DSGVO)
+- **Berichtigung** (Art. 16 DSGVO)
+- **Löschung** (Art. 17 DSGVO)
+- **Einschränkung der Verarbeitung** (Art. 18 DSGVO)
+- **Datenübertragbarkeit** (Art. 20 DSGVO)
+- **Widerspruch** (Art. 21 DSGVO)
+- **Beschwerde bei einer Aufsichtsbehörde** (Art. 77 DSGVO)
 
-### G. Recht auf Nichtdiskriminierung
+Zur Ausübung Ihrer Rechte kontaktieren Sie uns unter [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder REPLACE_ME_TELEPHONE.
 
-Sie haben das Recht für die Ausübung Ihrer Rechte, vor Diskriminierung geschützt zu werden.
+## Änderungen dieser Datenschutzerklärung
 
-### H. Anfragen stellen
-
-Sie können Ihre Anfrage per email an [privacy@servedsmart.com](mailto:privacy@servedsmart.com) oder telefonisch unter REPLACE_ME_TELEPHONE stellen. Wir vergleichen die Informationen, die Sie uns übermitteln, mit den Informationen, die wir in unseren Aufzeichnungen haben, um Ihre Anfrage zu überprüfen. Wir antworten dann auf Ihre Anfrage nach den gesetzlichen Anforderungen.
+Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder technische Entwicklungen anzupassen. Die jeweils aktuelle Version finden Sie immer auf dieser Seite.
