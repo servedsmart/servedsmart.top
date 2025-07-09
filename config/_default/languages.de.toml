@@ -16,13 +16,13 @@ description = "Nehmen Sie die Digitalisierung selbst in die Hand - einfach und u
 
 [params.author]
 name = "Leopold Johannes Meinel"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Hobby-Coder mit großer Begeisterung für IT"
 bio = "Begeistert von self/on-premise hosting, dem Erstellen von statischen Websites, Coden und dem Einrichten von Netzwerken."
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },

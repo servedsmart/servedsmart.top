@@ -16,13 +16,13 @@ description = "Take digitalization into your own hands - easy and stress-free! S
 
 [params.author]
 name = "Leopold Johannes Meinel"
-email = "info@servedsmart.com"
+email = "leomeinel@servedsmart.com"
 image = "/img/author-512x512.png"
 imageQuality = 96
 headline = "Hobby Coder with a passion for self/on-premise hosting"
 bio = "I enjoy self/on-premise hosting, creating static websites, coding and configuring networks."
 links = [
- { email = "mailto:info@servedsmart.com" },
+ { email = "mailto:contact@servedsmart.com" },
  #     { link = "https://link-to-some-website.com/" },
  #     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
  #     { apple = "https://www.apple.com" },
