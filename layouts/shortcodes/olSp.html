@@ -9,6 +9,9 @@
  -->
 
 {{ $mapId := printf "ol-sp-map-%d4" .Ordinal }}
+{{ $instructionsId := printf "ol-sp-instructions-%d4" .Ordinal }}
+{{ $instructionsContentId := printf "ol-sp-instructions-content-%d4" .Ordinal }}
+{{ $mapId := printf "ol-sp-map-%d4" .Ordinal }}
 {{ $centerControlId := printf "ol-sp-center-control-%d4" .Ordinal }}
 {{ $centerControlButtonId := printf "ol-sp-center-control-button-%d4" .Ordinal }}
 {{ $iconId := printf "ol-sp-icon-%d4" .Ordinal }}
@@ -28,18 +31,26 @@
 {{ $iconSize := .Get "iconSize" | default "64px" }}
 
 {{ $centerMap := .Get "centerMap" | default false }}
-{{ $classes := "flex" }}
+{{ $classes := "" }}
 {{ if $centerMap }}
-  {{ $classes = delimit (slice $classes "justify-center") " " }}
+  {{ $classes = " justify-center" }}
 {{ end }}
 
 {{ $icon := resources.Get "icons/location-dot.svg" }}
 
+{{ $instructions := (.Get "instructions" | default "<p>Use <span>two fingers</span> or hold <span>Ctrl/Cmd</span> to zoom/pan</p>") | safeHTML }}
 {{ $pointPopup := .Get "pointPopup" }}
 
 
-<div class="ol-sp-map-container {{ $classes }}">
-  <div id="{{ $mapId }}" class="ol-sp-map not-prose shadow"></div>
+<div class="ol-sp-map-container{{ $classes }}">
+  <div class="ol-sp-map-overlay-container">
+    <div id="{{ $mapId }}" class="ol-sp-map not-prose shadow"></div>
+    <div id="{{ $instructionsId }}" class="ol-sp-instructions hidden">
+      <div id="{{ $instructionsContentId }}" class="ol-sp-instructions-content hidden">
+        {{ $instructions }}
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="{{ $centerControlId }}" class="ol-sp-center-control ol-unselectable ol-control hidden">
@@ -71,6 +82,8 @@
   src="{{ $olSpConfig.RelPermalink }} "
   integrity="{{ $olSpConfig.Data.Integrity }}"
   data-map-id="{{ $mapId }}"
+  data-instructions-id="{{ $instructionsId }}"
+  data-instructions-content-id="{{ $instructionsContentId }}"
   data-center-control-id="{{ $centerControlId }}"
   data-center-control-button-id="{{ $centerControlButtonId }}"
   data-icon-id="{{ $iconId }}"
