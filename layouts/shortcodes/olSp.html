@@ -38,7 +38,7 @@
 
 {{ $icon := resources.Get "icons/location-dot.svg" }}
 
-{{ $instructions := (.Get "instructions" | default "<p>Use <span>two fingers</span> or hold <span>Ctrl/Cmd</span> to zoom/pan</p>") | safeHTML }}
+{{ $htmlInstructions := (.Get "htmlInstructions" | default "<p>Use <span>two fingers</span> or hold <span>Ctrl/Cmd</span> to zoom</p>") | safeHTML }}
 {{ $pointPopup := .Get "pointPopup" }}
 
 
@@ -47,7 +47,7 @@
     <div id="{{ $mapId }}" class="ol-sp-map not-prose shadow"></div>
     <div id="{{ $instructionsId }}" class="ol-sp-instructions hidden">
       <div id="{{ $instructionsContentId }}" class="ol-sp-instructions-content hidden">
-        {{ $instructions }}
+        {{ $htmlInstructions }}
       </div>
     </div>
   </div>
