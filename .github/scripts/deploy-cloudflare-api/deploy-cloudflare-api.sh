@@ -60,10 +60,14 @@ set_hashes() {
     if [[ "${type}" == "script" ]]; then
         readarray -t HASHES < <(get_hashes_files "*.js")
         HASHES+=("${HASHES_[@]}")
-        SCRIPT_HASHES["${target_branch}"]="${HASHES[*]}"
+        if [[ -n "${HASHES[*]}" ]]; then
+            SCRIPT_HASHES["${target_branch}"]="'strict-dynamic' 'unsafe-inline' ${HASHES[*]}"
+        fi
     elif [[ "${type}" == "style" ]]; then
         HASHES+=("${HASHES_[@]}")
-        STYLE_HASHES["${target_branch}"]="${HASHES[*]}"
+        if [[ -n "${HASHES[*]}" ]]; then
+            STYLE_HASHES["${target_branch}"]="'unsafe-hashes' 'unsafe-inline' ${HASHES[*]}"
+        fi
     fi
 }
 set_unique_script_hashes() {
@@ -147,8 +151,8 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
         # NOTE: See: https://github.com/nunocoracao/blowfish/discussions/2198
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2209 before using https://github.com/nunocoracao/blowfish branch main as submodule
         # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2211 before using https://github.com/nunocoracao/blowfish branch main as submodule
-        "script-src 'self' 'unsafe-inline' 'strict-dynamic'${SCRIPT_HASHES["${target_branch}"]}"
-        "style-src 'self' 'unsafe-inline' 'unsafe-hashes'${STYLE_HASHES["${target_branch}"]}"
+        "script-src 'self' ${SCRIPT_HASHES["${target_branch}"]}"
+        "style-src 'self' ${STYLE_HASHES["${target_branch}"]}"
         "img-src 'self' blob: data: https://tile.openstreetmap.de"
         "object-src 'none'"
         "media-src 'self'"
