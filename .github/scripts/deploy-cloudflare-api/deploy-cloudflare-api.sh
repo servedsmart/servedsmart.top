@@ -149,10 +149,8 @@ for target_branch in "${TARGET_BRANCHES[@]}"; do
     RULES_CSP_DEFAULT=(
         "default-src 'none'"
         # NOTE: See: https://github.com/nunocoracao/blowfish/discussions/2198
-        # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2209 before using https://github.com/nunocoracao/blowfish branch main as submodule
-        # NOTE: Wait for https://github.com/nunocoracao/blowfish/pull/2211 before using https://github.com/nunocoracao/blowfish branch main as submodule
-        "script-src 'self' ${SCRIPT_HASHES["${target_branch}"]}"
-        "style-src 'self' ${STYLE_HASHES["${target_branch}"]}"
+        "script-src 'self'${SCRIPT_HASHES["${target_branch}"]}"
+        "style-src 'self'${STYLE_HASHES["${target_branch}"]}"
         "img-src 'self' blob: data: https://tile.openstreetmap.de"
         "object-src 'none'"
         "media-src 'self'"
